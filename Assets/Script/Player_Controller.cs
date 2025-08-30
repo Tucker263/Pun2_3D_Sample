@@ -29,7 +29,7 @@ public class Player_Controller : MonoBehaviourPunCallbacks
             {
                 var localPlayer = PhotonNetwork.LocalPlayer;
                 var position = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
-                PhotonNetwork.Instantiate("Sphere", position, Quaternion.identity);
+                PhotonNetwork.Instantiate("chair1", position, Quaternion.identity);
             }
 
             //ルームからの退出処理、エンターキー
