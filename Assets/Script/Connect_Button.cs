@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Connect_Button : MonoBehaviour
 {
-    public static string roomName;
+    //public static string roomName;
     public TMP_InputField inputField_roomName;
 
     // Start is called before the first frame update
@@ -26,7 +26,8 @@ public class Connect_Button : MonoBehaviour
     public void Connect()
     {
         //inputbuttonから値を取得
-        roomName = inputField_roomName.text;
+        Config.roomName = inputField_roomName.text;
+        string roomName = Config.roomName;
         Debug.Log("入力されたroom名:" + roomName);
         //mainsceneの読み込み
         Debug.Log("MainSceneへの移行");
