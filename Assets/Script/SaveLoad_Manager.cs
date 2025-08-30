@@ -59,9 +59,9 @@ public static class SaveLoad_Manager
             Debug.Log($"ロードしたデータ: 名前: {interior.name},position:{interior.positionX}");
 
 
-            var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
+            /*var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
             Quaternion rotate = Quaternion.Euler(0, 90, 0);
-            PhotonNetwork.Instantiate("chair1", position, rotate);
+            PhotonNetwork.Instantiate("chair1", position, rotate);*/
 
 
 
@@ -70,5 +70,14 @@ public static class SaveLoad_Manager
         {
             Debug.LogWarning("セーブデータが見つかりません");
         }
+
+
+        //マスタークライアントのみ、ルームオブジェクトを作成可能
+        //地面などの変わらないものは、ルームオブジェクトにし、家などの変更するものはネットワークオブジェクトにする予定
+        var position1 = new Vector3(0, 0, 0);
+        Quaternion rotate = Quaternion.Euler(0, 90, 0);
+        PhotonNetwork.InstantiateRoomObject("house", position1, rotate);
+        var position2 = new Vector3(15, 0, 0);
+        PhotonNetwork.InstantiateRoomObject("house_mini", position2, rotate);
     }
 }
