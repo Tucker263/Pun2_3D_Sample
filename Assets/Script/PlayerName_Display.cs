@@ -12,6 +12,8 @@ public class PlayerName_Display : MonoBehaviourPunCallbacks
         var nameLabel = GetComponent<TextMeshPro>();
         // プレイヤー名とプレイヤーIDを表示する
         nameLabel.text = $"{photonView.Owner.NickName}({photonView.OwnerActorNr})";
+        nameLabel.color = Color.black;
+        
     }
 
     // Update is called once per frame
