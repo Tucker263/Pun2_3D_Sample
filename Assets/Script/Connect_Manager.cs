@@ -82,8 +82,11 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         //マスタークライアントのみ、ルームオブジェクトを作成可能
         //地面などの変わらないものは、ルームオブジェクトにし、家などの変更するものはネットワークオブジェクトにする予定
 
-        var position = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
-        PhotonNetwork.InstantiateRoomObject("SaveObject", position, Quaternion.identity);
+        var position1 = new Vector3(0, 0, 0);
+        Quaternion rotate = Quaternion.Euler(0, 90, 0);
+        PhotonNetwork.InstantiateRoomObject("house", position1, rotate);
+        var position2 = new Vector3(15, 0, 0);
+        PhotonNetwork.InstantiateRoomObject("house_mini", position2, rotate);
 
 
         Debug.Log("セーブデータの読み込み処理完了");
