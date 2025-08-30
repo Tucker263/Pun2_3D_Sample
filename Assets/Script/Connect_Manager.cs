@@ -58,7 +58,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             Debug.Log("マスタークライアントのみ、データのロード処理開始");
-            StreamFile_Manager.load();
+            StreamFile_Manager.Load();
             Debug.Log("データのロード処理完了");
 
         }

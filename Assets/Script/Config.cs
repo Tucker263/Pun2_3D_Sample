@@ -2,5 +2,5 @@
 
 public static class Config
 {
-    public static string roomName = "";
+    public static string roomName = "sampleRoom";
 }

@@ -9,12 +9,8 @@ using System.IO;
 public class InteriorObject
 {
     public string name;
-    public int positionX;
-    public int positionY;
-    public int positionZ;
-    public int rotateX;
-    public int rotateY;
-    public int rotateZ;
+    public Vector3 potision;
+    public Quaternion rotation;
 
 }
 
@@ -27,12 +23,8 @@ public static class StreamFile_Manager
     {
         InteriorObject interior = new InteriorObject();
         interior.name = "chair1";
-        interior.positionX = 0;
-        interior.positionY = 0;
-        interior.positionZ = 0;
-        interior.rotateX = 0;
-        interior.rotateY = 0;
-        interior.rotateZ = 0;
+        interior.potision = new Vector3(0, 0, 0);
+        interior.rotation = Quaternion.Euler(0, 90, 0);
 
         string filePath = Path.Combine(dataPath, "saveData.json");
 
@@ -44,7 +36,7 @@ public static class StreamFile_Manager
         Debug.Log("データを保存しました: " + filePath);
     }
 
-    public static void load()
+    public static void Load()
     {
         string filePath = Path.Combine(dataPath, "saveData.json");
         // ファイルが存在するか確認
@@ -56,7 +48,7 @@ public static class StreamFile_Manager
             // JSONをC#のオブジェクトに変換
             InteriorObject interior = JsonUtility.FromJson<InteriorObject>(jsonData);
 
-            Debug.Log($"ロードしたデータ: 名前: {interior.name},position:{interior.positionX}");
+            Debug.Log($"ロードしたデータ: 名前: {interior.potision}");
 
 
             var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
@@ -81,7 +73,7 @@ public static class StreamFile_Manager
         PhotonNetwork.InstantiateRoomObject("house_mini", position2, rotate);
     }
 
-    public static void initialEnvironment()
+    public static void InitialEnnvironment()
     {
         //マスタークライアントのみ、ルームオブジェクトを作成可能
         //地面などの変わらないものは、ルームオブジェクトにし、家などの変更するものはネットワークオブジェクトにする予定

@@ -28,8 +28,18 @@ public class Player_Controller : MonoBehaviourPunCallbacks
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
-                Quaternion rotate = Quaternion.Euler(0, 90, 0);
-                PhotonNetwork.Instantiate("chair1", position, rotate);
+                Quaternion rotation = Quaternion.Euler(0, 90, 0);
+                GameObject myObject = PhotonNetwork.Instantiate("chair1", position, rotation);
+                Debug.Log("自分が生成したオブジェクト: " + myObject.name);
+  
+
+            }
+
+            //試験的にQボタンでセーブ
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Debug.Log("Q,セーブ処理");
+                StreamFile_Manager.save();
             }
 
             //ルームからの退出処理、エンターキー
@@ -44,7 +54,7 @@ public class Player_Controller : MonoBehaviourPunCallbacks
                     Debug.Log("データのセーブ処理完了");
 
                     //プレイヤー全員をキック処理
-                    kickOtherAllPlayers();
+                    KickOtherAllPlayers();
                 }
                 PhotonNetwork.LeaveRoom();
             }
@@ -76,7 +86,7 @@ public class Player_Controller : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("TitleScene");
     }
 
-    private void kickOtherAllPlayers()
+    private void KickOtherAllPlayers()
     {
         Debug.Log("マスタークライアントのみ、他のプレイヤーのキック処理開始");
         //自分以外のプレイヤーオブジェクトを取得し、キック処理
