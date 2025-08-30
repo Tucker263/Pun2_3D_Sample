@@ -28,6 +28,13 @@ public static class StreamFile_Manager
 
         string filePath = Path.Combine(dataPath, "saveData.json");
 
+        foreach (PhotonView view in PhotonNetwork.PhotonViews)
+        {
+            GameObject obj = view.gameObject;
+            Debug.Log("ネットワークオブジェクト: " + view.gameObject.name);
+        }
+
+
         // JSONに変換
         string jsonData = JsonUtility.ToJson(interior);
 
