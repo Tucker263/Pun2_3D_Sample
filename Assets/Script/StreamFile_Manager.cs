@@ -62,33 +62,35 @@ public static class StreamFile_Manager
 
     public static void Load()
     {
-        string filePath = Path.Combine(dataPath, "saveData.json");
-        string[] files = Directory.GetFiles(dataPath);
-        Debug.Log(files);
-
-        // ファイルが存在するか確認
-        if (File.Exists(filePath))
+        int i = 1;
+        while (true)
         {
-            // ファイルからJSONデータを読み込む
-            string jsonData = File.ReadAllText(filePath);
+            string fileName = "saveData" + i + ".json";
+            string filePath = Path.Combine(dataPath, fileName);
+            // ファイルが存在するか確認
+            if (File.Exists(filePath))
+            {
+                // ファイルからJSONデータを読み込む
+                string jsonData = File.ReadAllText(filePath);
 
-            // JSONをC#のオブジェクトに変換
-            InteriorObject interior = JsonUtility.FromJson<InteriorObject>(jsonData);
+                // JSONをC#のオブジェクトに変換
+                InteriorObject interior = JsonUtility.FromJson<InteriorObject>(jsonData);
 
-            Debug.Log($"ロードしたデータ: 名前: {interior.potision}");
+                Debug.Log($"ロードしたデータ: 名前: {interior.name}");
 
-
-            var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
-            Quaternion rotate12 = Quaternion.Euler(0, 90, 0);
-            PhotonNetwork.Instantiate(interior.name, position, rotate12);
+                PhotonNetwork.Instantiate(interior.name, interior.position, interior.rotation);
 
 
 
+            }
+            else
+            {
+                Debug.LogWarning("セーブデータが見つかりません");
+                break;
+            }
+            i++;
         }
-        else
-        {
-            Debug.LogWarning("セーブデータが見つかりません");
-        }
+        
 
 
         //マスタークライアントのみ、ルームオブジェクトを作成可能
