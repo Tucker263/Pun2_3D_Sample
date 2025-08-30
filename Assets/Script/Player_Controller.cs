@@ -40,7 +40,7 @@ public class Player_Controller : MonoBehaviourPunCallbacks
                 {
                     //データのセーブ処理
                     Debug.Log("マスタークライアントのみ、データのセーブ処理開始");
-                    SaveLoad_Manager.save();
+                    StreamFile_Manager.save();
                     Debug.Log("データのセーブ処理完了");
 
                     //プレイヤー全員をキック処理

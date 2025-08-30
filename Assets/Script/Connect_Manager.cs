@@ -40,7 +40,6 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
 
         // roomNameというルームに参加する（ルームが存在しなければ作成して参加する）
         string roomName = Config.roomName;
-        roomName = "SampleRoom";
         Debug.Log(roomName + "への接続開始");
         PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
     }
@@ -59,7 +58,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             Debug.Log("マスタークライアントのみ、データのロード処理開始");
-            SaveLoad_Manager.load();
+            StreamFile_Manager.load();
             Debug.Log("データのロード処理完了");
 
         }

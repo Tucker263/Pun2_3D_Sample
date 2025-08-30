@@ -18,7 +18,7 @@ public class InteriorObject
 
 }
 
-public static class SaveLoad_Manager
+public static class StreamFile_Manager
 {
     private static string dataPath = Application.persistentDataPath;
 
@@ -60,8 +60,8 @@ public static class SaveLoad_Manager
 
 
             var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
-            Quaternion rotate = Quaternion.Euler(0, 90, 0);
-            PhotonNetwork.Instantiate("chair1", position, rotate);
+            Quaternion rotate12 = Quaternion.Euler(0, 90, 0);
+            PhotonNetwork.Instantiate(interior.name, position, rotate12);
 
 
 
@@ -72,6 +72,17 @@ public static class SaveLoad_Manager
         }
 
 
+        //マスタークライアントのみ、ルームオブジェクトを作成可能
+        //地面などの変わらないものは、ルームオブジェクトにし、家などの変更するものはネットワークオブジェクトにする予定
+        var position1 = new Vector3(0, 0, 0);
+        Quaternion rotate = Quaternion.Euler(0, 90, 0);
+        PhotonNetwork.InstantiateRoomObject("house", position1, rotate);
+        var position2 = new Vector3(15, 0, 0);
+        PhotonNetwork.InstantiateRoomObject("house_mini", position2, rotate);
+    }
+
+    public static void initialEnvironment()
+    {
         //マスタークライアントのみ、ルームオブジェクトを作成可能
         //地面などの変わらないものは、ルームオブジェクトにし、家などの変更するものはネットワークオブジェクトにする予定
         var position1 = new Vector3(0, 0, 0);
