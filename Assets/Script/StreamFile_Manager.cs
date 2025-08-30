@@ -21,12 +21,6 @@ public static class StreamFile_Manager
 
     public static void save()
     {
-        /*InteriorObject interior1 = new InteriorObject();
-        interior1.name = "chair1";
-        interior1.potision = new Vector3(0, 0, 0);
-        interior1.rotation = Quaternion.Euler(0, 90, 0);*/
-
-
         int i = 1;
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
