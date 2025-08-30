@@ -21,31 +21,51 @@ public static class StreamFile_Manager
 
     public static void save()
     {
-        InteriorObject interior = new InteriorObject();
-        interior.name = "chair1";
-        interior.potision = new Vector3(0, 0, 0);
-        interior.rotation = Quaternion.Euler(0, 90, 0);
+        /*InteriorObject interior1 = new InteriorObject();
+        interior1.name = "chair1";
+        interior1.potision = new Vector3(0, 0, 0);
+        interior1.rotation = Quaternion.Euler(0, 90, 0);*/
 
-        string filePath = Path.Combine(dataPath, "saveData.json");
 
+        int i = 1;
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
             GameObject obj = view.gameObject;
-            Debug.Log("ネットワークオブジェクト: " + view.gameObject.name);
+            Debug.Log("ネットワークオブジェクト: " + obj.name);
+            Debug.Log(obj.name == "chair1(Clone)");
+            if (obj.name == "chair1(Clone)")
+            {
+                InteriorObject interior = new InteriorObject();
+                interior.name = "chair1";
+                interior.potision = obj.GetComponent<Transform>().position;
+                interior.rotation = obj.GetComponent<Transform>().rotation;
+
+                // JSONに変換
+                string jsonData = JsonUtility.ToJson(interior);
+
+                string fileName = "saveData" + i + ".json";
+                string filePath = Path.Combine(dataPath, fileName);
+                // ファイルに保存
+                File.WriteAllText(filePath, jsonData);
+                Debug.Log("データを保存しました: " + filePath);
+                i++;
+
+            }
+
         }
 
+      
 
-        // JSONに変換
-        string jsonData = JsonUtility.ToJson(interior);
 
-        // ファイルに保存
-        File.WriteAllText(filePath, jsonData);
-        Debug.Log("データを保存しました: " + filePath);
+
     }
 
     public static void Load()
     {
         string filePath = Path.Combine(dataPath, "saveData.json");
+        string[] files = Directory.GetFiles(dataPath);
+        Debug.Log(files);
+
         // ファイルが存在するか確認
         if (File.Exists(filePath))
         {
