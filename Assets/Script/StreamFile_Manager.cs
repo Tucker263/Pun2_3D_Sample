@@ -56,6 +56,7 @@ public static class StreamFile_Manager
 
     public static void Load()
     {
+        //フォルダ内の全てのsaveData.jsonを読み込む
         int i = 1;
         while (true)
         {
