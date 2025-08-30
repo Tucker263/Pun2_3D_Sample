@@ -61,7 +61,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         }
 
         // ランダムな座標に自身のアバター（ネットワークオブジェクト）を生成する
-        var position = new Vector3(Random.Range(1, 3), 1, Random.Range(1, 3));
+        var position = new Vector3(Random.Range(-8, 8), 2, Random.Range(-17, -10));
         PhotonNetwork.Instantiate("Player", position, Quaternion.identity);
     }
 

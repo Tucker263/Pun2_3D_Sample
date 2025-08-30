@@ -13,12 +13,13 @@ public class PlayerName_Display : MonoBehaviourPunCallbacks
         // プレイヤー名とプレイヤーIDを表示する
         nameLabel.text = $"{photonView.Owner.NickName}({photonView.OwnerActorNr})";
         nameLabel.color = Color.black;
-        
+        nameLabel..transform.Rotate(0, 45, 0);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }
