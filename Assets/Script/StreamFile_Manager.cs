@@ -9,7 +9,7 @@ using System.IO;
 public class InteriorObject
 {
     public string name;
-    public Vector3 potision;
+    public Vector3 position;
     public Quaternion rotation;
 
 }
@@ -37,7 +37,7 @@ public static class StreamFile_Manager
             {
                 InteriorObject interior = new InteriorObject();
                 interior.name = "chair1";
-                interior.potision = obj.GetComponent<Transform>().position;
+                interior.position = obj.GetComponent<Transform>().position;
                 interior.rotation = obj.GetComponent<Transform>().rotation;
 
                 // JSONに変換
