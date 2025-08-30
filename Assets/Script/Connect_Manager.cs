@@ -58,7 +58,9 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         //マスタークライアントのみ、セーブデータを読み込み処理
         if (PhotonNetwork.IsMasterClient)
         {
-            loadObjectData();
+            loadData();
+            SaveLoad_Manager.save();
+            SaveLoad_Manager.load();
         }
 
         // ランダムな座標に自身のアバター（ネットワークオブジェクト）を生成する
@@ -75,9 +77,9 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("TitleScene");
     }
 
-    private void loadObjectData()
+    private void loadData()
     {
-        Debug.Log("マスタークライアントのみ、セーブデータの読み込み処理開始");
+        Debug.Log("マスタークライアントのみ、セーブデータのロード開始");
         //セーブデータのロード処理
 
         //マスタークライアントのみ、ルームオブジェクトを作成可能
@@ -89,8 +91,11 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         var position2 = new Vector3(15, 0, 0);
         PhotonNetwork.InstantiateRoomObject("house_mini", position2, rotate);
 
+        SaveLoad_Manager.save();
+        SaveLoad_Manager.load();
 
-        Debug.Log("セーブデータの読み込み処理完了");
+
+        Debug.Log("セーブデータのロード完了");
 
     }
 }

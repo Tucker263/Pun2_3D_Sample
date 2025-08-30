@@ -27,7 +27,6 @@ public class Player_Controller : MonoBehaviourPunCallbacks
             //オブジェクトの生成処理、スペースキー
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                var localPlayer = PhotonNetwork.LocalPlayer;
                 var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
                 Quaternion rotate = Quaternion.Euler(0, 90, 0);
                 PhotonNetwork.Instantiate("chair1", position, rotate);
