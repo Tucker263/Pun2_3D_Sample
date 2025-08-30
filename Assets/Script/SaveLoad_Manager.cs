@@ -59,9 +59,9 @@ public static class SaveLoad_Manager
             Debug.Log($"ロードしたデータ: 名前: {interior.name},position:{interior.positionX}");
 
 
-            /*var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
+            var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
             Quaternion rotate = Quaternion.Euler(0, 90, 0);
-            PhotonNetwork.Instantiate("chair1", position, rotate);*/
+            PhotonNetwork.Instantiate("chair1", position, rotate);
 
 
 

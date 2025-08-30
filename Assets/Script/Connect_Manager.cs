@@ -13,7 +13,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
     private void Start()
     {
 
-        Debug.Log("Connect_Managerのstart処理");
+        Debug.Log("Connect_Managerのコンストラクタ処理");
         //プレイヤー自身の名前を"Player"に設定
         PhotonNetwork.NickName = "Player";
         //どのクライアントも、キックされる処理ができるように設定
@@ -58,10 +58,9 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         //マスタークライアントのみ、セーブデータを読み込み処理
         if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("マスタークライアントのみ、セーブデータのロード開始");
-            SaveLoad_Manager.save();
+            Debug.Log("マスタークライアントのみ、データのロード処理開始");
             SaveLoad_Manager.load();
-            Debug.Log("セーブデータのロード完了");
+            Debug.Log("データのロード処理完了");
 
         }
 

@@ -39,7 +39,10 @@ public class Player_Controller : MonoBehaviourPunCallbacks
                 if (PhotonNetwork.IsMasterClient)
                 {
                     //データのセーブ処理
-                    saveObjectData();
+                    Debug.Log("マスタークライアントのみ、データのセーブ処理開始");
+                    SaveLoad_Manager.save();
+                    Debug.Log("データのセーブ処理完了");
+
                     //プレイヤー全員をキック処理
                     kickOtherAllPlayers();
                 }
@@ -86,12 +89,4 @@ public class Player_Controller : MonoBehaviourPunCallbacks
         Debug.Log("他のプレイヤーのキック処理完了");
     }
 
-    private void saveObjectData()
-    {
-        Debug.Log("マスタークライアントのみ、データの書き込み処理開始");
-
-        //データの書き込み処理をここに書く
-
-        Debug.Log("データの書き込み処理完了");
-    }
 }
