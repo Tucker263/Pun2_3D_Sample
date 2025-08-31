@@ -27,7 +27,8 @@ public static class StreamFile_Manager
             GameObject obj = view.gameObject;
             Debug.Log("ネットワークオブジェクト: " + obj.name);
             Debug.Log(obj.name == "chair1(Clone)");
-            if (obj.name == "chair1(Clone)")
+            Debug.Log(obj.CompareTag("interiorObject"));
+            if (obj.CompareTag("interiorObject"))
             {
                 InteriorObject interior = new InteriorObject();
                 interior.name = "chair1";
