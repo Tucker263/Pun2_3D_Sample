@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class Connect_Manager : MonoBehaviourPunCallbacks
 {
-
+    public Light directionalLight;
     private void Start()
     {
 
@@ -25,12 +25,14 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         {
             // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
             Debug.Log("オンラインモード");
-            Debug.Log("マスターサーバ-への接続開始");
+            Debug.Log("マスターサーバーへの接続開始");
             PhotonNetwork.ConnectUsingSettings();
         }
         else
         {
             Debug.Log("オフラインモード");
+            //元からあるライトをオフに
+            directionalLight.enabled = false;
         }
     }
 
@@ -77,6 +79,8 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         // ランダムな座標に自身のアバター（ネットワークオブジェクト）を生成する
         var position = new Vector3(Random.Range(-8, 8), 2, Random.Range(-17, -10));
         PhotonNetwork.Instantiate("Player", position, Quaternion.identity);
+        //元からあるライトをオフに
+        directionalLight.enabled = false;
     }
 
     //ルームへの参加が失敗した時に呼ばれるコールバック

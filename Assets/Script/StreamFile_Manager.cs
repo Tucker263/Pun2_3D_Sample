@@ -219,6 +219,10 @@ public static class StreamFile_Manager
         Quaternion sunRotation = Quaternion.Euler(90, 0, 0);
         PhotonNetwork.Instantiate("sun", sunPosition, sunRotation);
 
+        //groundの生成
+        var groundPosition = new Vector3(0, -50, 0);
+        Quaternion groundRotation = Quaternion.Euler(0, 0, 0);
+        PhotonNetwork.Instantiate("ground", groundPosition, groundRotation);
 
         //houseの生成
         var housePosition = new Vector3(0, 0, 0);
