@@ -31,7 +31,8 @@ public static class StreamFile_Manager
             if (obj.CompareTag("interiorObject"))
             {
                 InteriorObject interior = new InteriorObject();
-                interior.name = "chair1";
+                string objName = obj.name;
+                interior.name = objName.Replace("(Clone)", "");
                 interior.position = obj.GetComponent<Transform>().position;
                 interior.rotation = obj.GetComponent<Transform>().rotation;
 
