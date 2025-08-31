@@ -74,7 +74,7 @@ public static class StreamFile_Manager
                 string jsonData = JsonUtility.ToJson(funiture);
 
                 string fileName = saveTag + index + ".json";
-                string filePath = Path.Combine(dataPath, fileName);
+                string filePath = Path.Combine(directoryPath, fileName);
                 // ファイルに保存
                 File.WriteAllText(filePath, jsonData);
                 Debug.Log($"セーブするデータ: {jsonData}");
@@ -180,7 +180,7 @@ public static class StreamFile_Manager
         while (true)
         {
             string fileName = loadTag + index + ".json";
-            string filePath = Path.Combine(dataPath, fileName);
+            string filePath = Path.Combine(directoryPath, fileName);
             // ファイルが存在するか確認
             if (File.Exists(filePath))
             {
