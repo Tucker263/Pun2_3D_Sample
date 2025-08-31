@@ -365,8 +365,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 76376956}
-        m_TargetAssemblyTypeName: FromTheStart_Togle, Assembly-CSharp
-        m_MethodName: switchFromTheStart_Togle
+        m_TargetAssemblyTypeName: FromTheStart_Toggle, Assembly-CSharp
+        m_MethodName: switchFromTheStart_Toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 76376953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff1214ef1aca4574f8c4dca79a064620, type: 3}
+  m_Script: {fileID: 11500000, guid: 8de1e2996910e57478766d9722ddc35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &156936279
@@ -844,8 +844,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 314029042}
-        m_TargetAssemblyTypeName: OnlineMode_Togle, Assembly-CSharp
-        m_MethodName: switchOnlineMode
+        m_TargetAssemblyTypeName: OnlineMode_Toggle, Assembly-CSharp
+        m_MethodName: switchOnlineMode_Toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 314029038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83aff57d4b8ddc459b121a094371ab7, type: 3}
+  m_Script: {fileID: 11500000, guid: 784019793d7cc514b83ac7bcd657ca18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &326686011
@@ -1904,8 +1904,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1126758836}
-        m_TargetAssemblyTypeName: OfflineMode_Togle, Assembly-CSharp
-        m_MethodName: switchOfflineMode
+        m_TargetAssemblyTypeName: OfflineMode_Toggle, Assembly-CSharp
+        m_MethodName: switchOfflineMode_Toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1925,7 +1925,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1126758832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a90e1227b78b8649ba94e6597b5c189, type: 3}
+  m_Script: {fileID: 11500000, guid: 700d5357f0720f243815e41264265a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1160570140
@@ -2801,8 +2801,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1405247676}
-        m_TargetAssemblyTypeName: Continue_Togle, Assembly-CSharp
-        m_MethodName: switchContinue_Togle
+        m_TargetAssemblyTypeName: Continue_Toggle, Assembly-CSharp
+        m_MethodName: switchContinue_Toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2822,7 +2822,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1405247673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f100d433e8f74e1489738f41e98937b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e16d7b4a74cc2f4aae9c7de41377983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1727137441
@@ -3351,6 +3351,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField_roomName: {fileID: 1381937083}
   inputField_directoryName: {fileID: 551954702}
+  toggle_FromTheStart: {fileID: 76376955}
+  toggle_offlineMode: {fileID: 1126758835}
 --- !u!1 &2026080645
 GameObject:
   m_ObjectHideFlags: 0

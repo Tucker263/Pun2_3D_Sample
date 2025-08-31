@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Continue_Togle : MonoBehaviour
+public class OnlineMode_Toggle : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,9 +15,9 @@ public class Continue_Togle : MonoBehaviour
     {
 
     }
-
-    public void switchContinue_Togle()
+    
+    public void switchOnlineMode_Toggle()
     {
-        Config.isInitialStart = false;
+        Config.isOfflineMode = false;
     }
 }

@@ -9,6 +9,8 @@ public class Launch_Button : MonoBehaviour
 {
     public TMP_InputField inputField_roomName;
     public TMP_InputField inputField_directoryName;
+    public Toggle toggle_FromTheStart;
+    public Toggle toggle_offlineMode;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +23,10 @@ public class Launch_Button : MonoBehaviour
         inputField_directoryName.text = Config.directoryName;
         //初期のセーブデータを初めからにする
         Config.isInitialStart = true;
+        toggle_FromTheStart.isOn = true;
         //初期のモードをオンラインモードにする
         Config.isOfflineMode = false;
+        toggle_offlineMode.isOn = false;
     }
 
     // Update is called once per frame
