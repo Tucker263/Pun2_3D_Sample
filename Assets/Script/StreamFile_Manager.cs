@@ -79,7 +79,7 @@ public static class StreamFile_Manager
                 string filePath = Path.Combine(dataPath, fileName);
                 // ファイルに保存
                 File.WriteAllText(filePath, jsonData);
-                Debug.Log("セーブするデータ:" + jsonData);
+                Debug.Log($"セーブするデータ: {jsonData}");
                 index++;
 
             }
@@ -107,6 +107,12 @@ public static class StreamFile_Manager
 
     public static void Load()
     {
+        string loadDirectoryPath = Path.Combine(dataPath, Config.roomName);
+        if (!Directory.Exists(loadDirectoryPath))
+        {
+            Directory.CreateDirectory(loadDirectoryPath);
+            Debug.Log("フォルダを生成しました" + loadDirectoryPath);
+        }
         //家具のロード処理
         StreamFile_Manager.LoadFurniture();
         //照明のロード処理
