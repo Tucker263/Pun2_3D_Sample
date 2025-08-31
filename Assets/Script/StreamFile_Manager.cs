@@ -5,108 +5,200 @@ using UnityEngine;
 using System.IO;
 
 
+//家具の情報
 [System.Serializable] // JSON化するにはSerializable属性が必要
-public class InteriorObject
+public class FurnitureInfo
 {
     public string name;
     public Vector3 position;
     public Quaternion rotation;
+}
+
+
+//照明の情報
+[System.Serializable] // JSON化するにはSerializable属性が必要
+public class LightInfo
+{
+    public string name;
+    public bool active;
 
 }
+
+
+//エクステリアの情報
+[System.Serializable] // JSON化するにはSerializable属性が必要
+public class ExteriorInfo
+{
+    public string name;
+    public string materialName;
+}
+
+
 
 public static class StreamFile_Manager
 {
     private static string dataPath = Application.persistentDataPath;
+    //ルームごとにセーブフォルダを作って、そこに保存したい
+    //ルームごとのフォルダを削除したり、作成する処理もほしい
 
 
     public static void save()
     {
-        int i = 1;
+        //家具のセーブ処理
+        StreamFile_Manager.SaveFurniture();
+        //照明のセーブ処理
+        StreamFile_Manager.SaveLight();
+        //エクステリアのセーブ処理
+        StreamFile_Manager.SaveExterior();
+    }
+
+    private static void SaveFurniture()
+    {
+        //future1.jsonのような形式で保存
+        Debug.Log("家具のセーブ処理開始");
+        string saveTag = "furniture";
+        int index = 1;
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
             GameObject obj = view.gameObject;
-            Debug.Log("ネットワークオブジェクト: " + obj.name);
-            Debug.Log(obj.name == "chair1(Clone)");
-            Debug.Log(obj.CompareTag("interiorObject"));
-            if (obj.CompareTag("interiorObject"))
+            string objName = obj.name;
+            objName = objName.Replace("(Clone)", "");
+            //Tagが家具だった時
+            if (obj.CompareTag(saveTag))
             {
-                InteriorObject interior = new InteriorObject();
-                string objName = obj.name;
-                interior.name = objName.Replace("(Clone)", "");
-                interior.position = obj.GetComponent<Transform>().position;
-                interior.rotation = obj.GetComponent<Transform>().rotation;
+                //家具の情報を取得
+                FurnitureInfo funiture = new FurnitureInfo();
+                funiture.name = objName;
+                funiture.position = obj.GetComponent<Transform>().position;
+                funiture.rotation = obj.GetComponent<Transform>().rotation;
 
                 // JSONに変換
-                string jsonData = JsonUtility.ToJson(interior);
+                string jsonData = JsonUtility.ToJson(funiture);
 
-                string fileName = "saveData" + i + ".json";
+                string fileName = saveTag + index + ".json";
                 string filePath = Path.Combine(dataPath, fileName);
                 // ファイルに保存
                 File.WriteAllText(filePath, jsonData);
-                Debug.Log("データを保存しました: " + filePath);
-                i++;
+                Debug.Log("セーブするデータ:" + jsonData);
+                index++;
 
             }
 
         }
-
-      
-
-
-
+        Debug.Log("家具のセーブ処理終了");
     }
+
+
+    private static void SaveLight()
+    {
+        Debug.Log("照明のセーブ処理開始");
+
+        Debug.Log("照明のセーブ処理終了");
+    }
+
+
+    private static void SaveExterior()
+    {
+        Debug.Log("エクステリアのセーブ処理開始");
+
+        Debug.Log("エクステリアのセーブ処理終了");
+    }
+
 
     public static void Load()
     {
-        //フォルダ内の全てのsaveData.jsonを読み込む
-        int i = 1;
+        //家具のロード処理
+        StreamFile_Manager.LoadFurniture();
+        //照明のロード処理
+        StreamFile_Manager.LoadLight();
+        //エクステリアのロード処理
+        StreamFile_Manager.LoadExterior();
+
+
+        StreamFile_Manager.InitialEnnvironment();
+    }
+
+    private static void LoadFurniture()
+    {
+        //future1.jsonのような形式を読み込み
+        Debug.Log("家具のロード処理開始");
+        string loadTag = "furniture";
+        List<string> jsonList = StreamFile_Manager.ReadAllFilesOfJSON(loadTag);
+
+        //jsonからfurnitureオブジェクトに変換
+        foreach(string jsonData in jsonList){
+            Debug.Log($"ロードするデータ: {jsonData}");
+            //JSONをC#のオブジェクトに変換
+            FurnitureInfo funiture = JsonUtility.FromJson<FurnitureInfo>(jsonData);
+            //ネットワークオブジェクト化
+            PhotonNetwork.Instantiate(funiture.name, funiture.position, funiture.rotation);
+
+        }
+        
+        Debug.Log("家具のロード処理終了");
+    }
+
+    private static void LoadLight()
+    {
+        Debug.Log("照明のロード処理開始");
+
+        //PhotonNetwork.Instantiate()で生成されたゲームオブジェクトも取得できる
+
+        Debug.Log("照明のロード処理終了");
+    }
+
+    private static void LoadExterior()
+    {
+        Debug.Log("エクステリアのロード処理開始");
+
+        //マテリアルをセットする処理も書く
+        //マテリアルの情報を同期させる処理も必要かも
+        //GameObject obj = PhotonNetwork.Instantiate()で生成されたゲームオブジェクトも取得できる
+
+
+        Debug.Log("エクステリアのロード処理終了");
+    }
+
+
+    private static List<string> ReadAllFilesOfJSON(string loadTag){
+        //フォルダ内の全ての"{loadTag}.json"を読み込む
+        //フォルダ内は"{loadTag}.json"という形式で順に保存されている
+
+        List<string> jsonList = new List<string>();
+        int index = 1;
         while (true)
         {
-            string fileName = "saveData" + i + ".json";
+            string fileName = loadTag + index + ".json";
             string filePath = Path.Combine(dataPath, fileName);
             // ファイルが存在するか確認
             if (File.Exists(filePath))
             {
                 // ファイルからJSONデータを読み込む
                 string jsonData = File.ReadAllText(filePath);
-
-                // JSONをC#のオブジェクトに変換
-                InteriorObject interior = JsonUtility.FromJson<InteriorObject>(jsonData);
-
-                Debug.Log($"ロードしたデータ: 名前: {interior.name}");
-
-                PhotonNetwork.Instantiate(interior.name, interior.position, interior.rotation);
-
-
-
+                jsonList.Add(jsonData);
             }
             else
             {
-                Debug.LogWarning("セーブデータが見つかりません");
                 break;
             }
-            i++;
+            index++;
         }
         
-
-
-        //マスタークライアントのみ、ルームオブジェクトを作成可能
-        //地面などの変わらないものは、ルームオブジェクトにし、家などの変更するものはネットワークオブジェクトにする予定
-        var position1 = new Vector3(0, 0, 0);
-        Quaternion rotate = Quaternion.Euler(0, 90, 0);
-        PhotonNetwork.InstantiateRoomObject("house", position1, rotate);
-        var position2 = new Vector3(15, 0, 0);
-        PhotonNetwork.InstantiateRoomObject("house_mini", position2, rotate);
+        return jsonList;
     }
 
+
+    //初期の環境を設定
     public static void InitialEnnvironment()
     {
-        //マスタークライアントのみ、ルームオブジェクトを作成可能
-        //地面などの変わらないものは、ルームオブジェクトにし、家などの変更するものはネットワークオブジェクトにする予定
-        var position1 = new Vector3(0, 0, 0);
-        Quaternion rotate = Quaternion.Euler(0, 90, 0);
-        PhotonNetwork.InstantiateRoomObject("house", position1, rotate);
-        var position2 = new Vector3(15, 0, 0);
-        PhotonNetwork.InstantiateRoomObject("house_mini", position2, rotate);
+        //houseの生成
+        var housePosition = new Vector3(0, 0, 0);
+        Quaternion houseRotation = Quaternion.Euler(0, 90, 0);
+        PhotonNetwork.Instantiate("house", housePosition, houseRotation);
+
+        //house_miniの生成
+        var houseMiniPosition = new Vector3(15, 0, 0);
+        Quaternion houseMiniRotation = Quaternion.Euler(0, 90, 0);
+        PhotonNetwork.Instantiate("house_mini", houseMiniPosition, houseMiniRotation);
     }
 }

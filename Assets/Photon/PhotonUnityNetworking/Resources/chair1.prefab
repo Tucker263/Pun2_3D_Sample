@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 2682886343608420056}
   m_Layer: 0
   m_Name: chair1
-  m_TagString: interiorObject
+  m_TagString: furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
