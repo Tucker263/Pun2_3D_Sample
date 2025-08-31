@@ -31,7 +31,7 @@ public class Launch_Button : MonoBehaviour
 
     }
 
-    public void Connect()
+    public void Launch()
     {
         //inputbuttonからルーム名を取得
         Config.roomName = inputField_roomName.text;
