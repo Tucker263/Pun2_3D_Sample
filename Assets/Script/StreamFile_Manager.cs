@@ -42,12 +42,15 @@ public static class StreamFile_Manager
 
     public static void save()
     {
-        //家具のセーブ処理
-        StreamFile_Manager.SaveFurniture();
-        //照明のセーブ処理
-        StreamFile_Manager.SaveLight();
-        //エクステリアのセーブ処理
-        StreamFile_Manager.SaveExterior();
+        if (Directory.Exists(directoryPath))
+        {
+            //家具のセーブ処理
+            SaveFurniture();
+            //照明のセーブ処理
+            SaveLight();
+            //エクステリアのセーブ処理
+            SaveExterior();
+        }
     }
 
     private static void SaveFurniture()
@@ -117,23 +120,24 @@ public static class StreamFile_Manager
                 Debug.Log("ディレクトリを中身ごと削除しました");
             }
             Directory.CreateDirectory(directoryPath);
-            StreamFile_Manager.InitialEnnvironment();
+            InitialEnnvironment();
             return;
         }
 
-        //以下の処理は「続きから」
         //ディレクトリがない場合
         if (!Directory.Exists(directoryPath))
         {
             Directory.CreateDirectory(directoryPath);
+            InitialEnnvironment();
+            return;
         }
         
         //家具のロード処理
-        StreamFile_Manager.LoadFurniture();
+        LoadFurniture();
         //照明のロード処理
-        StreamFile_Manager.LoadLight();
+        LoadLight();
         //エクステリアのロード処理
-        StreamFile_Manager.LoadExterior();
+        LoadExterior();
     }
 
     private static void LoadFurniture()
@@ -141,7 +145,7 @@ public static class StreamFile_Manager
         //future1.jsonのような形式を読み込み
         Debug.Log("家具のロード処理開始");
         string loadTag = "furniture";
-        List<string> jsonList = StreamFile_Manager.ReadAllFilesOfJSON(loadTag);
+        List<string> jsonList = ReadAllFilesOfJSON(loadTag);
 
         //jsonからfurnitureオブジェクトに変換
         foreach(string jsonData in jsonList){
