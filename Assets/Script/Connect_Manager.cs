@@ -18,6 +18,8 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         PhotonNetwork.NickName = "Player";
         //どのクライアントも、キックされる処理ができるように設定
         PhotonNetwork.EnableCloseConnection = true;
+        //オフラインモードかオンラインモードか、どちらか設定
+        PhotonNetwork.OfflineMode = Config.isOfflineMode;
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         Debug.Log("マスターサーバへの接続開始");
         PhotonNetwork.ConnectUsingSettings();

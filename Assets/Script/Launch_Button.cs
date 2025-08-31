@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Connect_Button : MonoBehaviour
+public class Launch_Button : MonoBehaviour
 {
     public TMP_InputField inputField_roomName;
     public TMP_InputField inputField_directoryName;
@@ -19,8 +19,10 @@ public class Connect_Button : MonoBehaviour
         //初期のセーブデータ名をSampleDirectoryに設定;
         Config.directoryName = "SampleDirectory";
         inputField_directoryName.text = Config.directoryName;
-        //トグルを初めからにする
+        //初期のセーブデータを初めからにする
         Config.isInitialStart = true;
+        //初期のモードをオンラインモードにする
+        Config.isOfflineMode = false;
     }
 
     // Update is called once per frame
