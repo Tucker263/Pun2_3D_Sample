@@ -214,6 +214,12 @@ public static class StreamFile_Manager
     //初期の環境を設定
     private static void InitialEnnvironment()
     {
+        //sunの生成
+        var sunPosition = new Vector3(0, 100, 0);
+        Quaternion sunRotation = Quaternion.Euler(90, 0, 0);
+        PhotonNetwork.Instantiate("sun", sunPosition, sunRotation);
+
+
         //houseの生成
         var housePosition = new Vector3(0, 0, 0);
         Quaternion houseRotation = Quaternion.Euler(0, 90, 0);
