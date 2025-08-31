@@ -46,13 +46,6 @@ public class Player_Controller : MonoBehaviourPunCallbacks
 
             }
 
-            //試験的にQボタンでセーブ
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                Debug.Log("Q,セーブ処理");
-                StreamFile_Manager.save();
-            }
-
             //ルームからの退出処理、エンターキー
             if (Input.GetKeyDown(KeyCode.Return))
             {

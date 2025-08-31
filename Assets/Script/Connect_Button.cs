@@ -14,9 +14,13 @@ public class Connect_Button : MonoBehaviour
     void Start()
     {
         //初期のルーム名をSampleRoomに設定
-        inputField_roomName.text = "SampleRoom";
+        Config.roomName = "SampleRoom";
+        inputField_roomName.text = Config.roomName;
         //初期のセーブデータ名をSampleDirectoryに設定;
-        inputField_directoryName.text = "SampleDirectory";
+        Config.directoryName = "SampleDirectory";
+        inputField_directoryName.text = Config.directoryName;
+        //トグルを初めからにする
+        Config.isInitialStart = true;
     }
 
     // Update is called once per frame
@@ -41,10 +45,12 @@ public class Connect_Button : MonoBehaviour
         }
 
         //入力された値
+        Debug.Log("---------------------------");
         Debug.Log("入力されたルーム名:" + roomName);
         Debug.Log("入力されたセーブデータ名:" + directoryName);
+        Debug.Log("---------------------------");
         //mainsceneの読み込み
-        Debug.Log("MainSceneへの移行");
+        Debug.Log("MainSceneへの移行します");
         SceneManager.LoadScene("MainScene");
     }
 }

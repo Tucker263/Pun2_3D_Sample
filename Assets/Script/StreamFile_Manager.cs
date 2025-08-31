@@ -107,20 +107,27 @@ public static class StreamFile_Manager
     {
         //ディレクトリのパスを更新
         directoryPath = Path.Combine(dataPath, Config.directoryName);
+        //「初めから」の場合
+        if (Config.isInitialStart)
+        {
+            if (Directory.Exists(directoryPath))
+            {
+                //ディレクトリを中身ごと削除して、新たに生成
+                Directory.Delete(directoryPath, true);
+                Debug.Log("ディレクトリを中身ごと削除しました");
+            }
+            Directory.CreateDirectory(directoryPath);
+            StreamFile_Manager.InitialEnnvironment();
+            return;
+        }
+
+        //以下の処理は「続きから」
         //ディレクトリがない場合
         if (!Directory.Exists(directoryPath))
         {
             Directory.CreateDirectory(directoryPath);
-            StreamFile_Manager.InitialEnnvironment();
         }
-        //「始めから」 の場合、ディレクトリがある状態
-        if (Config.isInitialStart)
-        {
-            Directory.Delete(directoryPath, true);
-            Directory.CreateDirectory(directoryPath);
-
-            StreamFile_Manager.InitialEnnvironment();
-        }
+        
         //家具のロード処理
         StreamFile_Manager.LoadFurniture();
         //照明のロード処理
@@ -165,6 +172,7 @@ public static class StreamFile_Manager
         //マテリアルをセットする処理も書く
         //マテリアルの情報を同期させる処理も必要かも
         //GameObject obj = PhotonNetwork.Instantiate()で生成されたゲームオブジェクトも取得できる
+        InitialEnnvironment();
 
 
         Debug.Log("エクステリアのロード処理終了");
