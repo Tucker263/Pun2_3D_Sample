@@ -20,9 +20,18 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         PhotonNetwork.EnableCloseConnection = true;
         //オフラインモードかオンラインモードか、どちらか設定
         PhotonNetwork.OfflineMode = Config.isOfflineMode;
-        // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
-        Debug.Log("マスターサーバへの接続開始");
-        PhotonNetwork.ConnectUsingSettings();
+        //オンラインモードの場合
+        if (!PhotonNetwork.OfflineMode)
+        {
+            // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
+            Debug.Log("オンラインモード");
+            Debug.Log("マスターサーバ-への接続開始");
+            PhotonNetwork.ConnectUsingSettings();
+        }
+        else
+        {
+            Debug.Log("オフラインモード");
+        }
     }
 
     private void Update()
@@ -33,7 +42,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
     // マスターサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnConnectedToMaster()
     {
-        Debug.Log("マスターサーバーの接続成功");
+         Debug.Log("マスターサーバーの接続成功");
         //参加可能人数を3人に設定
         var roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 3;
