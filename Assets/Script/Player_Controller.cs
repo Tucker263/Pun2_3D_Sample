@@ -35,6 +35,17 @@ public class Player_Controller : MonoBehaviourPunCallbacks
 
             }
 
+            //オブジェクトの生成処理、P
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
+                Quaternion rotation = Quaternion.Euler(0, 90, 0);
+                GameObject myObject = PhotonNetwork.Instantiate("table1", position, rotation);
+                Debug.Log("自分が生成したオブジェクト: " + myObject.name);
+  
+
+            }
+
             //試験的にQボタンでセーブ
             if (Input.GetKeyDown(KeyCode.Q))
             {
