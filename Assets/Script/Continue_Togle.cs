@@ -18,6 +18,6 @@ public class Continue_Togle : MonoBehaviour
 
     public void switchContinue_Togle()
     {
-        Config.initialStart = false;
+        Config.isInitialStart = false;
     }
 }

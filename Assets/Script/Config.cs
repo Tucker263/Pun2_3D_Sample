@@ -4,5 +4,5 @@ public static class Config
 {
     public static string roomName = "SampleRoom";
     public static string directoryName = "SampleDirectory";
-    public static bool initialStart = true;
+    public static bool isInitialStart = true;
 }

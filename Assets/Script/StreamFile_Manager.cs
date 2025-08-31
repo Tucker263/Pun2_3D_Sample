@@ -38,9 +38,7 @@ public class ExteriorInfo
 public static class StreamFile_Manager
 {
     private static string dataPath = Application.persistentDataPath;
-    //ルームごとにセーブフォルダを作って、そこに保存したい
-    //ルームごとのフォルダを削除したり、作成する処理もほしい
-
+    private static string directoryPath = Path.Combine(dataPath, Config.directoryName);
 
     public static void save()
     {
@@ -107,11 +105,21 @@ public static class StreamFile_Manager
 
     public static void Load()
     {
-        string loadDirectoryPath = Path.Combine(dataPath, Config.roomName);
-        if (!Directory.Exists(loadDirectoryPath))
+        //ディレクトリのパスを更新
+        directoryPath = Path.Combine(dataPath, Config.directoryName);
+        //ディレクトリがない場合
+        if (!Directory.Exists(directoryPath))
         {
-            Directory.CreateDirectory(loadDirectoryPath);
-            Debug.Log("フォルダを生成しました" + loadDirectoryPath);
+            Directory.CreateDirectory(directoryPath);
+            StreamFile_Manager.InitialEnnvironment();
+        }
+        //「始めから」 の場合、ディレクトリがある状態
+        if (Config.isInitialStart)
+        {
+            Directory.Delete(directoryPath, true);
+            Directory.CreateDirectory(directoryPath);
+
+            StreamFile_Manager.InitialEnnvironment();
         }
         //家具のロード処理
         StreamFile_Manager.LoadFurniture();
@@ -119,9 +127,6 @@ public static class StreamFile_Manager
         StreamFile_Manager.LoadLight();
         //エクステリアのロード処理
         StreamFile_Manager.LoadExterior();
-
-
-        StreamFile_Manager.InitialEnnvironment();
     }
 
     private static void LoadFurniture()
@@ -165,8 +170,8 @@ public static class StreamFile_Manager
         Debug.Log("エクステリアのロード処理終了");
     }
 
-
-    private static List<string> ReadAllFilesOfJSON(string loadTag){
+    private static List<string> ReadAllFilesOfJSON(string loadTag)
+    {
         //フォルダ内の全ての"{loadTag}.json"を読み込む
         //フォルダ内は"{loadTag}.json"という形式で順に保存されている
 
@@ -189,13 +194,13 @@ public static class StreamFile_Manager
             }
             index++;
         }
-        
+
         return jsonList;
     }
 
 
     //初期の環境を設定
-    public static void InitialEnnvironment()
+    private static void InitialEnnvironment()
     {
         //houseの生成
         var housePosition = new Vector3(0, 0, 0);

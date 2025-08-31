@@ -18,6 +18,6 @@ public class FromTheStart_Togle : MonoBehaviour
     
     public void switchFromTheStart_Togle()
     {
-        Config.initialStart = true;
+        Config.isInitialStart = true;
     }
 }
