@@ -40,7 +40,7 @@ public static class StreamFile_Manager
     private static string dataPath = Application.persistentDataPath;
     private static string directoryPath = Path.Combine(dataPath, Config.directoryName);
 
-    public static void save()
+    public static void Save()
     {
         if (Directory.Exists(directoryPath))
         {

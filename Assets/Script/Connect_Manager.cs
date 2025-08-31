@@ -44,7 +44,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
     // マスターサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnConnectedToMaster()
     {
-         Debug.Log("マスターサーバーの接続成功");
+        Debug.Log("マスターサーバーの接続成功");
         //参加可能人数を3人に設定
         var roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 3;
