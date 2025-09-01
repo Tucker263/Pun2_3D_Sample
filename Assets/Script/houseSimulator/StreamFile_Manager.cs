@@ -20,8 +20,8 @@ public class FurnitureInfo
 public class LightingInfo
 {
     public string name; //照明の名前、白熱灯、常夜灯、などアセットから色々追加する、照明の種類の切り替えはコントローラーでdistacegrabみたいに
-    public bool isOn; //コントローラーで、オンオフの切り替えが可能、distacegrabみたいに
-    public int brightness; //光の明るさ、UIのスライダーでセットをして、コントローラでクリックして変更、distancegrabみたいに
+    public bool enabled; //コントローラーで、オンオフの切り替えが可能、distacegrabみたいに
+    public float intensity; //光の明るさ、UIのスライダーでセットをして、コントローラでクリックして変更、distancegrabみたいに
 
 }
 
@@ -102,17 +102,17 @@ public static class StreamFile_Manager
             GameObject obj = view.gameObject;
             string objName = obj.name;
             objName = objName.Replace("(Clone)", "");
-            //Tagが照明だった時
             if (obj.CompareTag(saveTag))
             {
-                //家具の情報を取得
-                FurnitureInfo funiture = new FurnitureInfo();
-                funiture.name = objName;
-                funiture.position = obj.GetComponent<Transform>().position;
-                funiture.rotation = obj.GetComponent<Transform>().rotation;
+                Light light = obj.GetComponent<Light>();
+                //照明の情報を取得
+                LightingInfo lightingInfo = new LightingInfo();
+                lightingInfo.name = objName;
+                lightingInfo.enabled = light.enabled;
+                lightingInfo.intensity = light.intensity;
 
                 // JSONに変換
-                string jsonData = JsonUtility.ToJson(funiture);
+                string jsonData = JsonUtility.ToJson(lightingInfo);
 
                 string fileName = saveTag + index + ".json";
                 string filePath = Path.Combine(directoryPath, fileName);
@@ -131,7 +131,36 @@ public static class StreamFile_Manager
 
     private static void SaveExterior()
     {
+        //exterior1.jsonのような形式で保存
         Debug.Log("エクステリアのセーブ処理開始");
+        string saveTag = "exterior";
+        int index = 1;
+        foreach (PhotonView view in PhotonNetwork.PhotonViews)
+        {
+            GameObject obj = view.gameObject;
+            string objName = obj.name;
+            objName = objName.Replace("(Clone)", "");
+            if (obj.CompareTag(saveTag))
+            {
+                Renderer renderer = obj.GetComponent<Renderer>();
+                //エクステリアの情報を取得
+                ExteriorInfo exteriorInfo = new ExteriorInfo();
+                exteriorInfo.name = objName;
+                exteriorInfo.materialName = rederer.material;
+
+                // JSONに変換
+                string jsonData = JsonUtility.ToJson(exteriorInfo);
+
+                string fileName = saveTag + index + ".json";
+                string filePath = Path.Combine(directoryPath, fileName);
+                // ファイルに保存
+                File.WriteAllText(filePath, jsonData);
+                Debug.Log($"セーブするデータ: {jsonData}");
+                index++;
+
+            }
+
+        }
 
         Debug.Log("エクステリアのセーブ処理終了");
     }

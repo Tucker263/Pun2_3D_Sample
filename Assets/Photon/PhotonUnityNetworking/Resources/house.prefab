@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 1726883081631426606}
   - component: {fileID: 100015432643639461}
   - component: {fileID: 2443169236565453299}
+  - component: {fileID: 4465787478235876244}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (3)
   m_TagString: exteior
@@ -365,6 +366,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4465787478235876244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21674122714005640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &39535525521528862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,6 +1344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1638885399792984904}
   - component: {fileID: 351338010285886245}
+  - component: {fileID: 3201585145154158954}
   m_Layer: 0
   m_Name: Point Light (2)
   m_TagString: lighting
@@ -1405,6 +1429,28 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &3201585145154158954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283926189623322256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &290225515239867735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,6 +2539,7 @@ GameObject:
   - component: {fileID: 2250138590918788376}
   - component: {fileID: 1778860275115912837}
   - component: {fileID: 2083652419930537046}
+  - component: {fileID: 6969951803000075770}
   m_Layer: 0
   m_Name: Ext_Apt_01_Corner_01 (2)
   m_TagString: exteior
@@ -2565,6 +2612,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6969951803000075770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476883820003539046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &485014766394456152
 GameObject:
   m_ObjectHideFlags: 0
@@ -12065,6 +12134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6266873363442933057}
   - component: {fileID: 1638375479527029745}
+  - component: {fileID: 5641842268145020225}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: lighting
@@ -12149,6 +12219,28 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &5641842268145020225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863619618662657219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1869239633908193485
 GameObject:
   m_ObjectHideFlags: 0
@@ -13756,6 +13848,7 @@ GameObject:
   - component: {fileID: 6514955174620979385}
   - component: {fileID: 6058894483492630592}
   - component: {fileID: 8679219917619890840}
+  - component: {fileID: 1141414149816660327}
   m_Layer: 0
   m_Name: Ext_Apt_01_Corner_01
   m_TagString: exteior
@@ -13828,6 +13921,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1141414149816660327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034736932715605321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2046188615124502620
 GameObject:
   m_ObjectHideFlags: 0
@@ -14922,6 +15037,7 @@ GameObject:
   - component: {fileID: 6359008746766577051}
   - component: {fileID: 7490794588497880103}
   - component: {fileID: 2389663019172190993}
+  - component: {fileID: 4445551311881691237}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01
   m_TagString: exteior
@@ -14994,6 +15110,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4445551311881691237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125433095572785019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2243920937592880281
 GameObject:
   m_ObjectHideFlags: 0
@@ -20160,6 +20298,7 @@ GameObject:
   - component: {fileID: 7496557158529852193}
   - component: {fileID: 859608536799311234}
   - component: {fileID: 5260528184000960745}
+  - component: {fileID: 6507223038731123390}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (9)
   m_TagString: exteior
@@ -20232,6 +20371,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6507223038731123390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204870095596266205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3222595766345810830
 GameObject:
   m_ObjectHideFlags: 0
@@ -20432,6 +20593,7 @@ GameObject:
   - component: {fileID: 1752968005815168197}
   - component: {fileID: 1644504622379477911}
   - component: {fileID: 4532754985292860793}
+  - component: {fileID: 9064801845421357781}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (1)
   m_TagString: exteior
@@ -20504,6 +20666,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9064801845421357781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275333701764584379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3275579215088481827
 GameObject:
   m_ObjectHideFlags: 0
@@ -21213,6 +21397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8379063244722580289}
   - component: {fileID: 7084697970898431535}
+  - component: {fileID: 8388439835225625704}
   m_Layer: 0
   m_Name: Point Light (8)
   m_TagString: lighting
@@ -21297,6 +21482,28 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &8388439835225625704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3374889603660808827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3380204059563627452
 GameObject:
   m_ObjectHideFlags: 0
@@ -24467,6 +24674,7 @@ GameObject:
   - component: {fileID: 7416719022298200957}
   - component: {fileID: 2658070431730137253}
   - component: {fileID: 8217676956169059336}
+  - component: {fileID: 228913761965026640}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (15)
   m_TagString: exteior
@@ -24539,6 +24747,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &228913761965026640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3844513977706321510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3845286050221169783
 GameObject:
   m_ObjectHideFlags: 0
@@ -24678,6 +24908,7 @@ GameObject:
   - component: {fileID: 1396050907755418744}
   - component: {fileID: 8721159691414269639}
   - component: {fileID: 3541625198833536850}
+  - component: {fileID: 6533806661469353650}
   m_Layer: 0
   m_Name: Ext_Apt_01_Corner_01 (3)
   m_TagString: exteior
@@ -24750,6 +24981,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6533806661469353650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847249522939101271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3860788270978000235
 GameObject:
   m_ObjectHideFlags: 0
@@ -24898,6 +25151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1761313655484232165}
   - component: {fileID: 4896981610750140845}
+  - component: {fileID: 5160722192248596311}
   m_Layer: 0
   m_Name: Point Light (7)
   m_TagString: lighting
@@ -24982,6 +25236,28 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &5160722192248596311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885599568606638287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3899727238953165265
 GameObject:
   m_ObjectHideFlags: 0
@@ -25663,6 +25939,7 @@ GameObject:
   - component: {fileID: 8944637348326712133}
   - component: {fileID: 6310834848909274730}
   - component: {fileID: 3231035886088143441}
+  - component: {fileID: 1218005456838151695}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (7)
   m_TagString: exteior
@@ -25735,6 +26012,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1218005456838151695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4007619436759351451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4017317878500297600
 GameObject:
   m_ObjectHideFlags: 0
@@ -29995,6 +30294,7 @@ GameObject:
   - component: {fileID: 8568813772114148613}
   - component: {fileID: 2832775728141184239}
   - component: {fileID: 4515371627571838679}
+  - component: {fileID: 5071121953511315233}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01 (2)
   m_TagString: exteior
@@ -30067,6 +30367,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5071121953511315233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4584148516702559740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4592165977807845274
 GameObject:
   m_ObjectHideFlags: 0
@@ -32479,6 +32801,7 @@ GameObject:
   - component: {fileID: 3039425070270172166}
   - component: {fileID: 1754112434967731928}
   - component: {fileID: 2092646742937879163}
+  - component: {fileID: 3312959468262330449}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01 (1)
   m_TagString: exteior
@@ -32551,6 +32874,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3312959468262330449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5023196733487634402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5037518283944149814
 GameObject:
   m_ObjectHideFlags: 0
@@ -32562,6 +32907,7 @@ GameObject:
   - component: {fileID: 597769176883087742}
   - component: {fileID: 3909435277437853734}
   - component: {fileID: 3283449866230826036}
+  - component: {fileID: 4204342671452889919}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01 (3)
   m_TagString: exteior
@@ -32634,6 +32980,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4204342671452889919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5037518283944149814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5057726585270339276
 GameObject:
   m_ObjectHideFlags: 0
@@ -32812,6 +33180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 173212912375846882}
   - component: {fileID: 7681900733545247766}
+  - component: {fileID: 4787816690699966915}
   m_Layer: 0
   m_Name: Point Light (6)
   m_TagString: lighting
@@ -32896,6 +33265,28 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &4787816690699966915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5082741666296862801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5083585991080930043
 GameObject:
   m_ObjectHideFlags: 0
@@ -34505,6 +34896,7 @@ GameObject:
   - component: {fileID: 4661603223665196606}
   - component: {fileID: 5482119314641912968}
   - component: {fileID: 6325924125497194096}
+  - component: {fileID: 1543103349407284473}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (6)
   m_TagString: exteior
@@ -34577,6 +34969,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1543103349407284473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5350293871084278870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5355991905213120843
 GameObject:
   m_ObjectHideFlags: 0
@@ -37351,6 +37765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6279359818777172673}
   - component: {fileID: 7704911740809172582}
+  - component: {fileID: 550564623019486602}
   m_Layer: 0
   m_Name: Spot Light (2)
   m_TagString: lighting
@@ -37435,6 +37850,28 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &550564623019486602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935167955107419674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5940597747955060544
 GameObject:
   m_ObjectHideFlags: 0
@@ -37445,6 +37882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1802371131203453749}
   - component: {fileID: 5698962106085946298}
+  - component: {fileID: 8746966481169083192}
   m_Layer: 0
   m_Name: Spot Light (1)
   m_TagString: lighting
@@ -37529,6 +37967,28 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &8746966481169083192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940597747955060544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5954582575420709014
 GameObject:
   m_ObjectHideFlags: 0
@@ -40854,6 +41314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6738065693962334807}
   - component: {fileID: 4296778148845803145}
+  - component: {fileID: 4447216761710380281}
   m_Layer: 0
   m_Name: Point Light (5)
   m_TagString: lighting
@@ -40938,6 +41399,28 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &4447216761710380281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340425084447497981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &6357478762712750661
 GameObject:
   m_ObjectHideFlags: 0
@@ -41183,6 +41666,7 @@ GameObject:
   - component: {fileID: 4767575865245135181}
   - component: {fileID: 6457552318147440851}
   - component: {fileID: 2715414557430917574}
+  - component: {fileID: 7413322815264170895}
   m_Layer: 0
   m_Name: Ext_Apt_01_Corner_01 (1)
   m_TagString: exteior
@@ -41255,6 +41739,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7413322815264170895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6384913757708107328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &6386151770501645351
 GameObject:
   m_ObjectHideFlags: 0
@@ -44960,6 +45466,7 @@ GameObject:
   - component: {fileID: 2459593784530530506}
   - component: {fileID: 8572403031515815190}
   - component: {fileID: 5707906984773325605}
+  - component: {fileID: 1230488164300938393}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (13)
   m_TagString: exteior
@@ -45032,6 +45539,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1230488164300938393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6875435683242161909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &6887018449055094777
 GameObject:
   m_ObjectHideFlags: 0
@@ -46785,6 +47314,7 @@ GameObject:
   - component: {fileID: 4539920183761853988}
   - component: {fileID: 7241139104760060050}
   - component: {fileID: 4293438548497077172}
+  - component: {fileID: 2040314466079027409}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (14)
   m_TagString: exteior
@@ -46857,6 +47387,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2040314466079027409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061762521743853858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7117675513031026273
 GameObject:
   m_ObjectHideFlags: 0
@@ -47500,6 +48052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8452164651402476181}
   - component: {fileID: 7163441064220805737}
+  - component: {fileID: 6696728349234662028}
   m_Layer: 0
   m_Name: Point Light (4)
   m_TagString: lighting
@@ -47584,6 +48137,28 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &6696728349234662028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206127140193800927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7208589965143409654
 GameObject:
   m_ObjectHideFlags: 0
@@ -47881,6 +48456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 272117027539933124}
   - component: {fileID: 9179017397255033411}
+  - component: {fileID: 5084771130443259785}
   m_Layer: 0
   m_Name: Point Light (1)
   m_TagString: lighting
@@ -47965,6 +48541,28 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &5084771130443259785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7261514860786559238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7264408594450076131
 GameObject:
   m_ObjectHideFlags: 0
@@ -51747,6 +52345,7 @@ GameObject:
   - component: {fileID: 1758252035713840499}
   - component: {fileID: 3184881879665239641}
   - component: {fileID: 3299835917618874543}
+  - component: {fileID: 6926812466328049418}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_02
   m_TagString: exteior
@@ -51819,6 +52418,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6926812466328049418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7930167307996161022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7935151857462511335
 GameObject:
   m_ObjectHideFlags: 0
@@ -52337,6 +52958,7 @@ GameObject:
   - component: {fileID: 4623949289245016093}
   - component: {fileID: 3670431745420022289}
   - component: {fileID: 6534708950661160459}
+  - component: {fileID: 4329034018365898139}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (12)
   m_TagString: exteior
@@ -52409,6 +53031,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4329034018365898139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983772154436946631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7985023846042246198
 GameObject:
   m_ObjectHideFlags: 0
@@ -55059,6 +55703,7 @@ GameObject:
   - component: {fileID: 6608824675326423338}
   - component: {fileID: 628734676861598637}
   - component: {fileID: 6989859102013225338}
+  - component: {fileID: 1570371179619737789}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (2)
   m_TagString: exteior
@@ -55131,6 +55776,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1570371179619737789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8295939706489889682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8330393462636006454
 GameObject:
   m_ObjectHideFlags: 0
@@ -56749,6 +57416,7 @@ GameObject:
   - component: {fileID: 1599275156316970133}
   - component: {fileID: 7996969180193636453}
   - component: {fileID: 1818266294079890889}
+  - component: {fileID: 170139133339531169}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (8)
   m_TagString: exteior
@@ -56821,6 +57489,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &170139133339531169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467803170631600442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8484811330450731501
 GameObject:
   m_ObjectHideFlags: 0
@@ -56998,6 +57688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1196008186848187854}
   - component: {fileID: 5304726797782913839}
+  - component: {fileID: 1434041754232953127}
   m_Layer: 0
   m_Name: Point Light (3)
   m_TagString: lighting
@@ -57082,6 +57773,28 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1434041754232953127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8545956444390559203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8547342705872223249
 GameObject:
   m_ObjectHideFlags: 0
@@ -57650,6 +58363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8702506039494474014}
   - component: {fileID: 2544305232693581020}
+  - component: {fileID: 7267840299365283965}
   m_Layer: 0
   m_Name: Point Light (9)
   m_TagString: lighting
@@ -57734,6 +58448,28 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &7267840299365283965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613387862605942829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8650978388287399438
 GameObject:
   m_ObjectHideFlags: 0
@@ -57745,6 +58481,7 @@ GameObject:
   - component: {fileID: 3501039401658048993}
   - component: {fileID: 6009103240151109691}
   - component: {fileID: 3371645198499014432}
+  - component: {fileID: 9101197714692808338}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (5)
   m_TagString: exteior
@@ -57817,6 +58554,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9101197714692808338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650978388287399438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8695845028000638628
 GameObject:
   m_ObjectHideFlags: 0
@@ -58644,6 +59403,7 @@ GameObject:
   - component: {fileID: 6017038685879849404}
   - component: {fileID: 7897946693488162339}
   - component: {fileID: 7315699879828033658}
+  - component: {fileID: 5885755044541868484}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (4)
   m_TagString: exteior
@@ -58716,6 +59476,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5885755044541868484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953668282614946848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8957445528702404028
 GameObject:
   m_ObjectHideFlags: 0
@@ -58939,6 +59721,7 @@ GameObject:
   - component: {fileID: 2578724100258433025}
   - component: {fileID: 5440015185904410632}
   - component: {fileID: 5804689967722465365}
+  - component: {fileID: 6232402161081553505}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01 (4)
   m_TagString: exteior
@@ -59011,6 +59794,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6232402161081553505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8959008287282332782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8975277064064317713
 GameObject:
   m_ObjectHideFlags: 0
@@ -59484,6 +60289,7 @@ GameObject:
   - component: {fileID: 636206707996690599}
   - component: {fileID: 3624483527675589765}
   - component: {fileID: 229730059958715060}
+  - component: {fileID: 8701081944781275969}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01
   m_TagString: exteior
@@ -59556,6 +60362,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8701081944781275969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9039797834604998306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &9055991461680083227
 GameObject:
   m_ObjectHideFlags: 0
