@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 4465787478235876244}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (3)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2542,7 +2542,7 @@ GameObject:
   - component: {fileID: 6969951803000075770}
   m_Layer: 0
   m_Name: Ext_Apt_01_Corner_01 (2)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13851,7 +13851,7 @@ GameObject:
   - component: {fileID: 1141414149816660327}
   m_Layer: 0
   m_Name: Ext_Apt_01_Corner_01
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15040,7 +15040,7 @@ GameObject:
   - component: {fileID: 4445551311881691237}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20301,7 +20301,7 @@ GameObject:
   - component: {fileID: 6507223038731123390}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (9)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20596,7 +20596,7 @@ GameObject:
   - component: {fileID: 9064801845421357781}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (1)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24677,7 +24677,7 @@ GameObject:
   - component: {fileID: 228913761965026640}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (15)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24911,7 +24911,7 @@ GameObject:
   - component: {fileID: 6533806661469353650}
   m_Layer: 0
   m_Name: Ext_Apt_01_Corner_01 (3)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25942,7 +25942,7 @@ GameObject:
   - component: {fileID: 1218005456838151695}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (7)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30297,7 +30297,7 @@ GameObject:
   - component: {fileID: 5071121953511315233}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01 (2)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32804,7 +32804,7 @@ GameObject:
   - component: {fileID: 3312959468262330449}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01 (1)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32910,7 +32910,7 @@ GameObject:
   - component: {fileID: 4204342671452889919}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01 (3)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34899,7 +34899,7 @@ GameObject:
   - component: {fileID: 1543103349407284473}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (6)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41669,7 +41669,7 @@ GameObject:
   - component: {fileID: 7413322815264170895}
   m_Layer: 0
   m_Name: Ext_Apt_01_Corner_01 (1)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45469,7 +45469,7 @@ GameObject:
   - component: {fileID: 1230488164300938393}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (13)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47317,7 +47317,7 @@ GameObject:
   - component: {fileID: 2040314466079027409}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (14)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52348,7 +52348,7 @@ GameObject:
   - component: {fileID: 6926812466328049418}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_02
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52961,7 +52961,7 @@ GameObject:
   - component: {fileID: 4329034018365898139}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (12)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55706,7 +55706,7 @@ GameObject:
   - component: {fileID: 1570371179619737789}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (2)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57419,7 +57419,7 @@ GameObject:
   - component: {fileID: 170139133339531169}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (8)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58484,7 +58484,7 @@ GameObject:
   - component: {fileID: 9101197714692808338}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (5)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59406,7 +59406,7 @@ GameObject:
   - component: {fileID: 5885755044541868484}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (4)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59724,7 +59724,7 @@ GameObject:
   - component: {fileID: 6232402161081553505}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01 (4)
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60292,7 +60292,7 @@ GameObject:
   - component: {fileID: 8701081944781275969}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01
-  m_TagString: exteior
+  m_TagString: exterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

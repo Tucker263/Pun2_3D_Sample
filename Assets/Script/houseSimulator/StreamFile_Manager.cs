@@ -20,8 +20,6 @@ public class FurnitureInfo
 public class LightingInfo
 {
     public string name; //照明の名前、白熱灯、常夜灯、などアセットから色々追加する、照明の種類の切り替えはコントローラーでdistacegrabみたいに
-    public Vector3 position;
-    public Quaternion rotation;
     public bool enabled; //コントローラーで、オンオフの切り替えが可能、distacegrabみたいに
     public float intensity; //光の明るさ、UIのスライダーでセットをして、コントローラでクリックして変更、distancegrabみたいに
 
@@ -33,8 +31,6 @@ public class LightingInfo
 public class ExteriorInfo
 {
     public string name;
-    public Vector3 position;
-    public Quaternion rotation;
     public string materialName;
 }
 
@@ -61,7 +57,7 @@ public static class StreamFile_Manager
     private static void SaveFurniture()
     {
         //future1.jsonのような形式で保存
-        Debug.Log("家具のセーブ処理開始");
+        //Debug.Log("家具のセーブ処理開始");
         string saveTag = "furniture";
         int index = 1;
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
@@ -85,20 +81,20 @@ public static class StreamFile_Manager
                 string filePath = Path.Combine(directoryPath, fileName);
                 // ファイルに保存
                 File.WriteAllText(filePath, jsonData);
-                Debug.Log($"セーブするデータ: {jsonData}");
+                //Debug.Log($"セーブするデータ: {jsonData}");
                 index++;
 
             }
 
         }
-        Debug.Log("家具のセーブ処理終了");
+        //Debug.Log("家具のセーブ処理終了");
     }
 
 
     private static void SaveLighting()
     {
         //lighting1.jsonのような形式で保存
-        Debug.Log("照明のセーブ処理開始");
+        //Debug.Log("照明のセーブ処理開始");
         string saveTag = "lighting";
         int index = 1;
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
@@ -112,10 +108,11 @@ public static class StreamFile_Manager
                 //照明の情報を取得
                 LightingInfo lighting = new LightingInfo();
                 lighting.name = objName;
-                lighting.position = obj.GetComponent<Transform>().position;
-                lighting.rotation = obj.GetComponent<Transform>().rotation;
                 lighting.enabled = light.enabled;
                 lighting.intensity = light.intensity;
+
+                //Debug.Log(objName);
+                //Debug.Log(light.enabled);
 
                 // JSONに変換
                 string jsonData = JsonUtility.ToJson(lighting);
@@ -124,21 +121,28 @@ public static class StreamFile_Manager
                 string filePath = Path.Combine(directoryPath, fileName);
                 // ファイルに保存
                 File.WriteAllText(filePath, jsonData);
-                Debug.Log($"セーブするデータ: {jsonData}");
+                if (light.enabled)
+                {
+                    Debug.Log($"セーブするデータ: {jsonData}");
+                    jsonData = File.ReadAllText(filePath);
+                    Debug.Log($"ロードいデータ: {jsonData}");
+                }
+                Debug.Log(index);
+                //Debug.Log($"セーブするデータ: {jsonData}");
                 index++;
 
             }
 
         }
 
-        Debug.Log("照明のセーブ処理終了");
+        //Debug.Log("照明のセーブ処理終了");
     }
 
 
     private static void SaveExterior()
     {
         //exterior1.jsonのような形式で保存
-        Debug.Log("エクステリアのセーブ処理開始");
+        //Debug.Log("エクステリアのセーブ処理開始");
         string saveTag = "exterior";
         int index = 1;
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
@@ -152,8 +156,6 @@ public static class StreamFile_Manager
                 //エクステリアの情報を取得
                 ExteriorInfo exterior = new ExteriorInfo();
                 exterior.name = objName;
-                exterior.position = obj.GetComponent<Transform>().position;
-                exterior.rotation = obj.GetComponent<Transform>().rotation;
                 exterior.materialName = renderer.material.name;
 
                 // JSONに変換
@@ -170,7 +172,7 @@ public static class StreamFile_Manager
 
         }
 
-        Debug.Log("エクステリアのセーブ処理終了");
+        //Debug.Log("エクステリアのセーブ処理終了");
     }
 
 
@@ -185,7 +187,7 @@ public static class StreamFile_Manager
             {
                 //ディレクトリを中身ごと削除して、新たに生成
                 Directory.Delete(directoryPath, true);
-                Debug.Log("ディレクトリを中身ごと削除しました");
+                //Debug.Log("ディレクトリを中身ごと削除しました");
             }
             Directory.CreateDirectory(directoryPath);
             InitialEnnvironment();
@@ -213,21 +215,22 @@ public static class StreamFile_Manager
     private static void LoadFurniture()
     {
         //future1.jsonのような形式を読み込み
-        Debug.Log("家具のロード処理開始");
+        //Debug.Log("家具のロード処理開始");
         string loadTag = "furniture";
         List<string> jsonList = ReadAllFilesOfJSON(loadTag);
 
         //jsonからfurnitureオブジェクトに変換
-        foreach(string jsonData in jsonList){
-            Debug.Log($"ロードするデータ: {jsonData}");
+        foreach (string jsonData in jsonList)
+        {
+            //Debug.Log($"ロードするデータ: {jsonData}");
             //JSONをC#のオブジェクトに変換
             FurnitureInfo funiture = JsonUtility.FromJson<FurnitureInfo>(jsonData);
             //ネットワークオブジェクト化
             PhotonNetwork.Instantiate(funiture.name, funiture.position, funiture.rotation);
 
         }
-        
-        Debug.Log("家具のロード処理終了");
+
+        //Debug.Log("家具のロード処理終了");
     }
 
     private static void LoadLighting()
@@ -240,12 +243,25 @@ public static class StreamFile_Manager
         //jsonからlightingオブジェクトに変換
         foreach (string jsonData in jsonList)
         {
-            Debug.Log($"ロードするデータ: {jsonData}");
             //JSONをC#のオブジェクトに変換
             LightingInfo lighting = JsonUtility.FromJson<LightingInfo>(jsonData);
-            //ネットワークオブジェクト化
-            GameObject light = PhotonNetwork.Instantiate(lighting.name, lighting.position, lighting.rotation);
-            //照明の情報を付与、ネットワークオブジェクト化したhouseからlightを手に入れて詳細を詰める
+            //ネットワークオブジェクトしたhouseからlightingを手に入れる
+            foreach (PhotonView view in PhotonNetwork.PhotonViews)
+            {
+                GameObject obj = view.gameObject;
+                string objName = obj.name;
+                objName = objName.Replace("(Clone)", "");
+
+                //名前が被るとうまくロードができなくなるので注意
+                if (obj.CompareTag(loadTag) && objName == lighting.name)
+                {
+                    Light light = obj.GetComponent<Light>();
+                    light.name = lighting.name;
+                    light.enabled = lighting.enabled;
+                    light.intensity = lighting.intensity;
+                }
+
+            }
 
         }
 
@@ -256,12 +272,35 @@ public static class StreamFile_Manager
     private static void LoadExterior()
     {
         Debug.Log("エクステリアのロード処理開始");
+        string loadTag = "exterior";
+        List<string> jsonList = ReadAllFilesOfJSON(loadTag);
+        foreach (string jsonData in jsonList)
+        {
+            //JSONをC#のオブジェクトに変換
+            ExteriorInfo exterior = JsonUtility.FromJson<ExteriorInfo>(jsonData);
+            //ネットワークオブジェクトしたhouseからexteriorを手に入れる
+            foreach (PhotonView view in PhotonNetwork.PhotonViews)
+            {
+                GameObject obj = view.gameObject;
+                string objName = obj.name;
+                objName = objName.Replace("(Clone)", "");
 
-        //マテリアルをセットする処理も書く
-        //マテリアルの情報を同期させる処理も必要かも
-        //GameObject obj = PhotonNetwork.Instantiate()で生成されたゲームオブジェクトも取得できる
-        
+                //名前が被るとうまくロードができなくなるので注意
+                if (obj.CompareTag(loadTag) && objName == exterior.name)
+                {
+                    Renderer renderer = obj.GetComponent<Renderer>();
+                    obj.name = exterior.name;
+                    renderer.material.name = exterior.materialName;
 
+                    // Resourcesフォルダ内のパスを指定してマテリアルをロード,例えば、"Materials/MyMaterial"
+                    Material material = Resources.Load<Material>(exterior.materialName);
+                    renderer.material = material;
+                    
+                }
+
+            }
+
+        }
 
         Debug.Log("エクステリアのロード処理終了");
     }
@@ -298,6 +337,22 @@ public static class StreamFile_Manager
     //初期の環境を設定
     private static void InitialEnnvironment()
     {
+        //house_miniの生成
+        var houseMiniPosition = new Vector3(15, 0, 0);
+        Quaternion houseMiniRotation = Quaternion.Euler(0, 90, 0);
+        PhotonNetwork.Instantiate("house_mini", houseMiniPosition, houseMiniRotation);
+        //名前が被るとうまくセーブできないので、先に_miniという接尾語を足す
+        foreach (PhotonView view in PhotonNetwork.PhotonViews)
+        {
+            GameObject obj = view.gameObject;
+            string objName = obj.name;
+            objName = objName.Replace("(Clone)", "");
+            if ((obj.CompareTag("lighting") || obj.CompareTag("exterior")) && !objName.Contains("_mini"))
+            {
+                obj.name += "_mini";
+            }
+        }
+
         //sunの生成
         var sunPosition = new Vector3(0, 100, 0);
         Quaternion sunRotation = Quaternion.Euler(90, 0, 0);
@@ -312,10 +367,7 @@ public static class StreamFile_Manager
         var housePosition = new Vector3(0, 0, 0);
         Quaternion houseRotation = Quaternion.Euler(0, 90, 0);
         PhotonNetwork.Instantiate("house", housePosition, houseRotation);
-
-        //house_miniの生成
-        var houseMiniPosition = new Vector3(15, 0, 0);
-        Quaternion houseMiniRotation = Quaternion.Euler(0, 90, 0);
-        PhotonNetwork.Instantiate("house_mini", houseMiniPosition, houseMiniRotation);
     }
-}
+
+}   
+        
