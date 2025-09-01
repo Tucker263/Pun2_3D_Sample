@@ -17,10 +17,8 @@ public class LightingInfo
 
 public static class LightingFile_Manager
 {
-    private static string dataPath = Application.persistentDataPath;
-    private static string directoryPath = Path.Combine(dataPath, Config.directoryName);
 
-    public static void Save()
+    public static void Save(string directoryPath)
     {
         //lighting1.jsonのような形式で保存
         Debug.Log("照明のセーブ処理開始");
@@ -58,12 +56,12 @@ public static class LightingFile_Manager
     }
 
 
-    public static void Load()
+    public static void Load(string directoryPath)
     {
         //light1.jsonのような形式を読み込み
         Debug.Log("照明のロード処理開始");
         string loadTag = "lighting";
-        List<string> jsonList = ReadAllFilesOfJSON(loadTag);
+        List<string> jsonList = ReadAllFilesOfJSON(loadTag, directoryPath);
 
         //jsonからlightingオブジェクトに変換
         foreach (string jsonData in jsonList)
@@ -93,7 +91,7 @@ public static class LightingFile_Manager
         Debug.Log("照明のロード処理終了");
     }
 
-    private static List<string> ReadAllFilesOfJSON(string loadTag)
+    private static List<string> ReadAllFilesOfJSON(string loadTag, string directoryPath)
     {
         //フォルダ内の全ての"{loadTag}.json"を読み込む
         //フォルダ内は"{loadTag}.json"という形式で順に保存されている

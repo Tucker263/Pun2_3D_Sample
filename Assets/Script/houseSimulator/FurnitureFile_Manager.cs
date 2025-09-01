@@ -16,10 +16,8 @@ public class FurnitureInfo
 
 public static class FurnitureFile_Manager
 {
-    private static string dataPath = Application.persistentDataPath;
-    private static string directoryPath = Path.Combine(dataPath, Config.directoryName);
 
-    public static void Save()
+    public static void Save(string directoryPath)
     {
         //future1.jsonのような形式で保存
         Debug.Log("家具のセーブ処理開始");
@@ -54,12 +52,12 @@ public static class FurnitureFile_Manager
         Debug.Log("家具のセーブ処理終了");
     }
 
-    public static void Load()
+    public static void Load(string directoryPath)
     {
         //future1.jsonのような形式を読み込み
         Debug.Log("家具のロード処理開始");
         string loadTag = "furniture";
-        List<string> jsonList = ReadAllFilesOfJSON(loadTag);
+        List<string> jsonList = ReadAllFilesOfJSON(loadTag, directoryPath);
 
         //jsonからfurnitureオブジェクトに変換
         foreach (string jsonData in jsonList)
@@ -75,7 +73,7 @@ public static class FurnitureFile_Manager
     }
     
 
-    private static List<string> ReadAllFilesOfJSON(string loadTag)
+    private static List<string> ReadAllFilesOfJSON(string loadTag, string directoryPath)
     {
         //フォルダ内の全ての"{loadTag}.json"を読み込む
         //フォルダ内は"{loadTag}.json"という形式で順に保存されている

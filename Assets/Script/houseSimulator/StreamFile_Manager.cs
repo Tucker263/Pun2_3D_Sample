@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Photon.Pun;
 using UnityEngine;
 using System.IO;
 
@@ -15,11 +14,11 @@ public static class StreamFile_Manager
         if (Directory.Exists(directoryPath))
         {
             //家具のセーブ処理
-            FurnitureFile_Manager.Save();
+            FurnitureFile_Manager.Save(directoryPath);
             //照明のセーブ処理
-            LightingFile_Manager.Save();
+            LightingFile_Manager.Save(directoryPath);
             //エクステリアのセーブ処理
-            ExteriorFile_Manager.Save();
+            ExteriorFile_Manager.Save(directoryPath);
         }
     }
 
@@ -54,11 +53,11 @@ public static class StreamFile_Manager
         //初期環境をロード
         Create_InitialEnvironment.Create();
         //家具のロード処理
-        FurnitureFile_Manager.Load();
+        FurnitureFile_Manager.Load(directoryPath);
         //照明のロード処理
-        LightingFile_Manager.Load();
+        LightingFile_Manager.Load(directoryPath);
         //エクステリアのロード処理
-        ExteriorFile_Manager.Load();
+        ExteriorFile_Manager.Load(directoryPath);
     }
 }   
         

@@ -16,11 +16,8 @@ public class ExteriorInfo
 
 public static class ExteriorFile_Manager
 {
-    private static string dataPath = Application.persistentDataPath;
-    private static string directoryPath = Path.Combine(dataPath, Config.directoryName);
 
-
-    public static void Save()
+    public static void Save(string directoryPath)
     {
         //exterior1.jsonのような形式で保存
         Debug.Log("エクステリアのセーブ処理開始");
@@ -57,11 +54,11 @@ public static class ExteriorFile_Manager
     }
 
 
-    public static void Load()
+    public static void Load(string directoryPath)
     {
         Debug.Log("エクステリアのロード処理開始");
         string loadTag = "exterior";
-        List<string> jsonList = ReadAllFilesOfJSON(loadTag);
+        List<string> jsonList = ReadAllFilesOfJSON(loadTag, directoryPath);
         foreach (string jsonData in jsonList)
         {
             //JSONをC#のオブジェクトに変換
@@ -100,7 +97,7 @@ public static class ExteriorFile_Manager
     }
 
 
-    private static List<string> ReadAllFilesOfJSON(string loadTag)
+    private static List<string> ReadAllFilesOfJSON(string loadTag, string directoryPath)
     {
         //フォルダ内の全ての"{loadTag}.json"を読み込む
         //フォルダ内は"{loadTag}.json"という形式で順に保存されている
