@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Continue_Toggle : MonoBehaviour
+public class FromTheStart_Button : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,9 +15,9 @@ public class Continue_Toggle : MonoBehaviour
     {
 
     }
-
-    public void switchContinue_Toggle()
+    
+    public void switchFromTheStart_Button()
     {
-        Config.isInitialStart = false;
+        Config.isInitialStart = true;
     }
 }
