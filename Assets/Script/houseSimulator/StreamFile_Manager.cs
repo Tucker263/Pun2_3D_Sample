@@ -20,6 +20,8 @@ public class FurnitureInfo
 public class LightingInfo
 {
     public string name; //照明の名前、白熱灯、常夜灯、などアセットから色々追加する、照明の種類の切り替えはコントローラーでdistacegrabみたいに
+    public Vector3 position;
+    public Quaternion rotation;
     public bool enabled; //コントローラーで、オンオフの切り替えが可能、distacegrabみたいに
     public float intensity; //光の明るさ、UIのスライダーでセットをして、コントローラでクリックして変更、distancegrabみたいに
 
@@ -31,6 +33,8 @@ public class LightingInfo
 public class ExteriorInfo
 {
     public string name;
+    public Vector3 position;
+    public Quaternion rotation;
     public string materialName;
 }
 
@@ -106,13 +110,15 @@ public static class StreamFile_Manager
             {
                 Light light = obj.GetComponent<Light>();
                 //照明の情報を取得
-                LightingInfo lightingInfo = new LightingInfo();
-                lightingInfo.name = objName;
-                lightingInfo.enabled = light.enabled;
-                lightingInfo.intensity = light.intensity;
+                LightingInfo lighting = new LightingInfo();
+                lighting.name = objName;
+                lighting.position = obj.GetComponent<Transform>().position;
+                lighting.rotation = obj.GetComponent<Transform>().rotation;
+                lighting.enabled = light.enabled;
+                lighting.intensity = light.intensity;
 
                 // JSONに変換
-                string jsonData = JsonUtility.ToJson(lightingInfo);
+                string jsonData = JsonUtility.ToJson(lighting);
 
                 string fileName = saveTag + index + ".json";
                 string filePath = Path.Combine(directoryPath, fileName);
@@ -144,12 +150,14 @@ public static class StreamFile_Manager
             {
                 Renderer renderer = obj.GetComponent<Renderer>();
                 //エクステリアの情報を取得
-                ExteriorInfo exteriorInfo = new ExteriorInfo();
-                exteriorInfo.name = objName;
-                exteriorInfo.materialName = renderer.material.name;
+                ExteriorInfo exterior = new ExteriorInfo();
+                exterior.name = objName;
+                exterior.position = obj.GetComponent<Transform>().position;
+                exterior.rotation = obj.GetComponent<Transform>().rotation;
+                exterior.materialName = renderer.material.name;
 
                 // JSONに変換
-                string jsonData = JsonUtility.ToJson(exteriorInfo);
+                string jsonData = JsonUtility.ToJson(exterior);
 
                 string fileName = saveTag + index + ".json";
                 string filePath = Path.Combine(directoryPath, fileName);
@@ -191,7 +199,9 @@ public static class StreamFile_Manager
             InitialEnnvironment();
             return;
         }
-        
+
+        //初期環境をロード
+        InitialEnnvironment();
         //家具のロード処理
         LoadFurniture();
         //照明のロード処理
@@ -227,18 +237,18 @@ public static class StreamFile_Manager
         string loadTag = "lighting";
         List<string> jsonList = ReadAllFilesOfJSON(loadTag);
 
-        //jsonからfurnitureオブジェクトに変換
-        foreach(string jsonData in jsonList){
+        //jsonからlightingオブジェクトに変換
+        foreach (string jsonData in jsonList)
+        {
             Debug.Log($"ロードするデータ: {jsonData}");
             //JSONをC#のオブジェクトに変換
-            FurnitureInfo funiture = JsonUtility.FromJson<FurnitureInfo>(jsonData);
+            LightingInfo lighting = JsonUtility.FromJson<LightingInfo>(jsonData);
             //ネットワークオブジェクト化
-            PhotonNetwork.Instantiate(funiture.name, funiture.position, funiture.rotation);
+            GameObject light = PhotonNetwork.Instantiate(lighting.name, lighting.position, lighting.rotation);
+            //照明の情報を付与、ネットワークオブジェクト化したhouseからlightを手に入れて詳細を詰める
 
         }
 
-
-        //PhotonNetwork.Instantiate()で生成されたゲームオブジェクトも取得できる
 
         Debug.Log("照明のロード処理終了");
     }
@@ -250,7 +260,7 @@ public static class StreamFile_Manager
         //マテリアルをセットする処理も書く
         //マテリアルの情報を同期させる処理も必要かも
         //GameObject obj = PhotonNetwork.Instantiate()で生成されたゲームオブジェクトも取得できる
-        InitialEnnvironment();
+        
 
 
         Debug.Log("エクステリアのロード処理終了");
