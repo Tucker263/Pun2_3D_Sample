@@ -146,7 +146,7 @@ public static class StreamFile_Manager
                 //エクステリアの情報を取得
                 ExteriorInfo exteriorInfo = new ExteriorInfo();
                 exteriorInfo.name = objName;
-                exteriorInfo.materialName = rederer.material;
+                exteriorInfo.materialName = renderer.material.name;
 
                 // JSONに変換
                 string jsonData = JsonUtility.ToJson(exteriorInfo);

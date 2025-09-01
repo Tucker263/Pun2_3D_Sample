@@ -6,7 +6,7 @@ TagManager:
   tags:
   - furniture
   - lighting
-  - exteior
+  - exterior
   layers:
   - Default
   - TransparentFX
