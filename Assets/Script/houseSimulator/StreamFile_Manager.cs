@@ -17,10 +17,11 @@ public class FurnitureInfo
 
 //照明の情報
 [System.Serializable] // JSON化するにはSerializable属性が必要
-public class LightInfo
+public class LightingInfo
 {
-    public string name;
-    public bool active;
+    public string name; //照明の名前、白熱灯、常夜灯、などアセットから色々追加する、照明の種類の切り替えはコントローラーでdistacegrabみたいに
+    public bool isOn; //コントローラーで、オンオフの切り替えが可能、distacegrabみたいに
+    public int brightness; //光の明るさ、UIのスライダーでセットをして、コントローラでクリックして変更、distancegrabみたいに
 
 }
 
@@ -47,7 +48,7 @@ public static class StreamFile_Manager
             //家具のセーブ処理
             SaveFurniture();
             //照明のセーブ処理
-            SaveLight();
+            SaveLighting();
             //エクステリアのセーブ処理
             SaveExterior();
         }
@@ -90,9 +91,39 @@ public static class StreamFile_Manager
     }
 
 
-    private static void SaveLight()
+    private static void SaveLighting()
     {
+        //lighting1.jsonのような形式で保存
         Debug.Log("照明のセーブ処理開始");
+        string saveTag = "lighting";
+        int index = 1;
+        foreach (PhotonView view in PhotonNetwork.PhotonViews)
+        {
+            GameObject obj = view.gameObject;
+            string objName = obj.name;
+            objName = objName.Replace("(Clone)", "");
+            //Tagが照明だった時
+            if (obj.CompareTag(saveTag))
+            {
+                //家具の情報を取得
+                FurnitureInfo funiture = new FurnitureInfo();
+                funiture.name = objName;
+                funiture.position = obj.GetComponent<Transform>().position;
+                funiture.rotation = obj.GetComponent<Transform>().rotation;
+
+                // JSONに変換
+                string jsonData = JsonUtility.ToJson(funiture);
+
+                string fileName = saveTag + index + ".json";
+                string filePath = Path.Combine(directoryPath, fileName);
+                // ファイルに保存
+                File.WriteAllText(filePath, jsonData);
+                Debug.Log($"セーブするデータ: {jsonData}");
+                index++;
+
+            }
+
+        }
 
         Debug.Log("照明のセーブ処理終了");
     }
@@ -135,7 +166,7 @@ public static class StreamFile_Manager
         //家具のロード処理
         LoadFurniture();
         //照明のロード処理
-        LoadLight();
+        LoadLighting();
         //エクステリアのロード処理
         LoadExterior();
     }
@@ -160,9 +191,23 @@ public static class StreamFile_Manager
         Debug.Log("家具のロード処理終了");
     }
 
-    private static void LoadLight()
+    private static void LoadLighting()
     {
+        //light1.jsonのような形式を読み込み
         Debug.Log("照明のロード処理開始");
+        string loadTag = "lighting";
+        List<string> jsonList = ReadAllFilesOfJSON(loadTag);
+
+        //jsonからfurnitureオブジェクトに変換
+        foreach(string jsonData in jsonList){
+            Debug.Log($"ロードするデータ: {jsonData}");
+            //JSONをC#のオブジェクトに変換
+            FurnitureInfo funiture = JsonUtility.FromJson<FurnitureInfo>(jsonData);
+            //ネットワークオブジェクト化
+            PhotonNetwork.Instantiate(funiture.name, funiture.position, funiture.rotation);
+
+        }
+
 
         //PhotonNetwork.Instantiate()で生成されたゲームオブジェクトも取得できる
 
