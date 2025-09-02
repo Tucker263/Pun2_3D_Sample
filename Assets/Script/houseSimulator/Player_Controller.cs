@@ -46,14 +46,6 @@ public class Player_Controller : MonoBehaviourPunCallbacks
 
             }
 
-
-            //オブジェクトの生成処理、スペースキー
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-  
-
-            }
-
             //ルームからの退出処理、エンターキー
             if (Input.GetKeyDown(KeyCode.Return))
             {

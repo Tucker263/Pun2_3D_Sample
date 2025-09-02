@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8818420504659761562
+--- !u!1 &4517684541990329485
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7138512281879383708}
-  - component: {fileID: 2498216729505642471}
-  - component: {fileID: 8456989217445964091}
-  - component: {fileID: 2767941655535161184}
-  - component: {fileID: 2250334843481109169}
+  - component: {fileID: 3809665692089556426}
+  - component: {fileID: 2283407341198578351}
+  - component: {fileID: 4071355114685629168}
+  - component: {fileID: 8697633900357843488}
+  - component: {fileID: 8312606440079759898}
+  - component: {fileID: 4316284697124274998}
   m_Layer: 0
   m_Name: sun
   m_TagString: Untagged
@@ -20,13 +21,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7138512281879383708
+--- !u!4 &3809665692089556426
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8818420504659761562}
+  m_GameObject: {fileID: 4517684541990329485}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 100, z: 0}
@@ -35,13 +36,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!108 &2498216729505642471
+--- !u!108 &2283407341198578351
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8818420504659761562}
+  m_GameObject: {fileID: 4517684541990329485}
   m_Enabled: 1
   serializedVersion: 10
   m_Type: 1
@@ -97,13 +98,13 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &8456989217445964091
+--- !u!114 &4071355114685629168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8818420504659761562}
+  m_GameObject: {fileID: 4517684541990329485}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
@@ -113,20 +114,20 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 2767941655535161184}
+  - {fileID: 8697633900357843488}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2767941655535161184
+--- !u!114 &8697633900357843488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8818420504659761562}
+  m_GameObject: {fileID: 4517684541990329485}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
@@ -136,15 +137,27 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &2250334843481109169
+--- !u!114 &8312606440079759898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8818420504659761562}
+  m_GameObject: {fileID: 4517684541990329485}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5744a05a5f321704f896c70adb4e9016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4316284697124274998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4517684541990329485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f3b1657f48c2a4d9604fd27b52bd35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

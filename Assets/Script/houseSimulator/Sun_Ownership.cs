@@ -4,24 +4,25 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
-public class Ownership_Cube : MonoBehaviourPunCallbacks
+public class Sun_Ownership : MonoBehaviourPunCallbacks
 {
+    // Start is called before the first frame update
     void Start()
     {
 
     }
 
+    // Update is called once per frame
     void Update()
     {
-        //エンターキー、オーサーシップの譲渡
-        if (Input.GetKeyDown(KeyCode.Return))
+        //オーサーシップの譲渡、W
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log("Cubeオブジェクトの所有権の譲渡");
+            Debug.Log("Sunオブジェクトの所有権の譲渡");
             photonView.RequestOwnership();
 
         }
-    }
 
+    }
 }

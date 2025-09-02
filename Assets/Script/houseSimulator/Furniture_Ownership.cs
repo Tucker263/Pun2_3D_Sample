@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
-public class Ownership_Cube : MonoBehaviourPunCallbacks
+public class Furniture_Ownership: MonoBehaviourPunCallbacks
 {
     void Start()
     {
@@ -15,10 +15,10 @@ public class Ownership_Cube : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        //エンターキー、オーサーシップの譲渡
-        if (Input.GetKeyDown(KeyCode.Return))
+        //オーサーシップの譲渡,E
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Cubeオブジェクトの所有権の譲渡");
+            Debug.Log("Furnitureの所有権の譲渡");
             photonView.RequestOwnership();
 
         }

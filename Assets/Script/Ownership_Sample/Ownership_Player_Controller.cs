@@ -32,13 +32,13 @@ public class Ownership_Player_Controller : MonoBehaviourPunCallbacks
 
             }
 
-            //エンターキー
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                //Debug.Log("オブジェクトの所有権の譲渡");
-            }
+        }
 
-
+        //所有権の譲渡,P
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            photonView.RequestOwnership();
+            Debug.Log("オブジェクトの所有権の譲渡");
         }
     }
 
