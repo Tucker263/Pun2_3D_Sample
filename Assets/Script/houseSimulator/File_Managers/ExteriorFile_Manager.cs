@@ -77,8 +77,8 @@ public static class ExteriorFile_Manager
                     obj.name = exterior.name;
                     renderer.material.name = exterior.materialName;
 
-                    // Resourcesフォルダ内のパスを指定してマテリアルをロード,例えば、"Materials/MyMaterial"
-                    Object obj_material = Resources.Load("Red");
+                    // Assets/Resourcesフォルダ内のパスを指定してマテリアルをロード,例えば、"Materials/MyMaterial"
+                    Object obj_material = Resources.Load("Materials/"+ "Red");
                     Debug.Log(obj_material);
                     Debug.Log(Resources.Load(exterior.materialName));
                     Debug.Log(exterior.materialName);
