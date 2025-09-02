@@ -20,7 +20,7 @@ public class RPC_Exterior_Material : MonoBehaviour
 
             Debug.Log("マテリアルの変更処理： ");
             PhotonView photonView = PhotonView.Get(this);
-            photonView.RPC("ChangeMaterial", RpcTarget.All, "Red");
+            photonView.RPC("ChangeMaterial", RpcTarget.AllBuffered, "Red");
 
         }
 
@@ -30,7 +30,7 @@ public class RPC_Exterior_Material : MonoBehaviour
 
             Debug.Log("マテリアルの変更処理： ");
             PhotonView photonView = PhotonView.Get(this);
-            photonView.RPC("ChangeMaterial", RpcTarget.All, "Blue");
+            photonView.RPC("ChangeMaterial", RpcTarget.AllBuffered, "Blue");
 
         }
     }

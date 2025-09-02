@@ -21,7 +21,7 @@ public class RPC_Lighting_OnOff : MonoBehaviour
 
             Debug.Log("照明のオンオフ処理");
             PhotonView photonView = PhotonView.Get(this);
-            photonView.RPC("OnOffLight", RpcTarget.All);
+            photonView.RPC("OnOffLight", RpcTarget.AllBuffered);
 
         }
     }
