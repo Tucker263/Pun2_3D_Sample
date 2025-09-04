@@ -42,6 +42,11 @@ MonoBehaviour:
   - ChangeLight
   - ChangeMaterial
   - OnOffLight
+  - BrightLighting
+  - DarkLighting
+  - MakeCurrentExterior
+  - MakeCurrentLighting
+  - NameHouseToMini
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 0

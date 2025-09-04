@@ -8,6 +8,8 @@ TagManager:
   - lighting
   - exterior
   - exteior
+  - sun
+  - avator
   layers:
   - Default
   - TransparentFX
