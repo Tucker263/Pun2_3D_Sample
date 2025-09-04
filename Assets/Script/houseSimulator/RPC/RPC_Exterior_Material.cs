@@ -20,7 +20,7 @@ public class RPC_Exterior_Material : MonoBehaviour
 
             Debug.Log("マテリアルの変更処理： ");
             PhotonView photonView = PhotonView.Get(this);
-            photonView.RPC("ChangeMaterial", RpcTarget.AllBuffered, "Red");
+            photonView.RPC("ChangeMaterial", RpcTarget.All, "Red");
 
         }
 
@@ -30,30 +30,20 @@ public class RPC_Exterior_Material : MonoBehaviour
 
             Debug.Log("マテリアルの変更処理： ");
             PhotonView photonView = PhotonView.Get(this);
-            photonView.RPC("ChangeMaterial", RpcTarget.AllBuffered, "Blue");
+            photonView.RPC("ChangeMaterial", RpcTarget.All, "Blue");
 
         }
     }
     
     [PunRPC]
-    public void ChangeMaterial(string color)
+    public void ChangeMaterial(string materialName)
     {
-        Debug.Log("マテリアルを変更しました: " + color);
+        Debug.Log("マテリアルを変更しました: " + materialName);
 
         Renderer renderer = GetComponent<Renderer>();
-
-        // マテリアルの色を変更
-        if (renderer != null)
-        {
-            if(color == "Red")
-            {
-                renderer.material.color = Color.red; // 赤色に変更
-            }
-            if(color == "Blue")
-            {
-                renderer.material.color = Color.blue; // 青色に変更
-            }
-        }
-
+        //Resourcesフォルダ内のマテリアルをロード
+        Material material = Resources.Load<Material>("Materials/"+ materialName);
+        //マテリアルを変更
+        renderer.material = material;
     }
 }

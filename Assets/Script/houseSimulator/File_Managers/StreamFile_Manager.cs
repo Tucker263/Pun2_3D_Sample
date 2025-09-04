@@ -13,6 +13,10 @@ public static class StreamFile_Manager
     {
         if (Directory.Exists(directoryPath))
         {
+            //アバター情報のセーブ処理
+            AvatorFile_Manager.Save(directoryPath);
+            //太陽のセーブ処理
+            SunFile_Manager.Save(directoryPath);
             //家具のセーブ処理
             FurnitureFile_Manager.Save(directoryPath);
             //照明のセーブ処理
@@ -21,7 +25,6 @@ public static class StreamFile_Manager
             ExteriorFile_Manager.Save(directoryPath);
         }
     }
-
 
 
     public static void Load()
@@ -38,7 +41,7 @@ public static class StreamFile_Manager
                 //Debug.Log("ディレクトリを中身ごと削除しました");
             }
             Directory.CreateDirectory(directoryPath);
-            Create_InitialEnvironment.Create();
+            Environment_Creator.CreateInitial();
             return;
         }
 
@@ -46,12 +49,16 @@ public static class StreamFile_Manager
         if (!Directory.Exists(directoryPath))
         {
             Directory.CreateDirectory(directoryPath);
-            Create_InitialEnvironment.Create();
+            Environment_Creator.CreateInitial();
             return;
         }
 
-        //初期環境をロード
-        Create_InitialEnvironment.Create();
+        //環境を生成
+        Environment_Creator.CreateAfterLoad();
+        //アバター情報のロード処理
+        AvatorFile_Manager.Load(directoryPath);
+        //太陽のロード処理
+        SunFile_Manager.Load(directoryPath);
         //家具のロード処理
         FurnitureFile_Manager.Load(directoryPath);
         //照明のロード処理

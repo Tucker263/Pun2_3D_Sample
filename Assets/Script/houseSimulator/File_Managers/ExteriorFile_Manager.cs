@@ -9,8 +9,8 @@ using System.IO;
 [System.Serializable] // JSON化するにはSerializable属性が必要
 public class ExteriorInfo
 {
-    public string name;
-    public string materialName;
+    public string name; //ここの名前が被るとうまくロードができなくなるので注意
+    public string materialName; //マテリアルの名前から、マテリアルを取得してセット
 }
 
 
@@ -26,15 +26,14 @@ public static class ExteriorFile_Manager
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
             GameObject obj = view.gameObject;
-            string objName = obj.name;
-            objName = objName.Replace("(Clone)", "");
             if (obj.CompareTag(saveTag))
             {
                 Renderer renderer = obj.GetComponent<Renderer>();
                 //エクステリアの情報を取得
                 ExteriorInfo exterior = new ExteriorInfo();
-                exterior.name = objName;
-                exterior.materialName = renderer.material.name;
+                exterior.name = obj.name;
+                string materialName = renderer.material.name;
+                exterior.materialName = materialName.Replace(" (Instance)", "");
 
                 // JSONに変換
                 string jsonData = JsonUtility.ToJson(exterior);
@@ -43,7 +42,6 @@ public static class ExteriorFile_Manager
                 string filePath = Path.Combine(directoryPath, fileName);
                 // ファイルに保存
                 File.WriteAllText(filePath, jsonData);
-                Debug.Log($"セーブするデータ: {jsonData}");
                 index++;
 
             }
@@ -63,34 +61,20 @@ public static class ExteriorFile_Manager
         {
             //JSONをC#のオブジェクトに変換
             ExteriorInfo exterior = JsonUtility.FromJson<ExteriorInfo>(jsonData);
-            //ネットワークオブジェクトしたhouseからexteriorを手に入れる
+            //ネットワークオブジェクト化したhouseからexteriorを手に入れる
             foreach (PhotonView view in PhotonNetwork.PhotonViews)
             {
                 GameObject obj = view.gameObject;
-                string objName = obj.name;
-                objName = objName.Replace("(Clone)", "");
-
-                //名前が被るとうまくロードができなくなるので注意
-                if (obj.CompareTag(loadTag) && objName == exterior.name)
+                if (obj.CompareTag(loadTag) && obj.name == exterior.name)
                 {
                     Renderer renderer = obj.GetComponent<Renderer>();
                     obj.name = exterior.name;
-                    renderer.material.name = exterior.materialName;
-
-                    // Assets/Resourcesフォルダ内のパスを指定してマテリアルをロード
-                    Object obj_material = Resources.Load("Materials/"+ "Red");
-                    Debug.Log(obj_material);
-                    Debug.Log(Resources.Load(exterior.materialName));
-                    Debug.Log(exterior.materialName);
-                    Object material = obj_material;
-                    Debug.Log(material);
-                    Debug.Log(jsonData);
-                    //renderer.material = material;
-
+                    // Resourcesフォルダ内のマテリアルをロード
+                    Material material = Resources.Load<Material>("Materials/"+ exterior.materialName);
+                    // ロードしたマテリアルをオブジェクトに適用
+                    renderer.material = material;
                 }
-
             }
-
         }
 
         Debug.Log("エクステリアのロード処理終了");

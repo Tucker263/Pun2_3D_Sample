@@ -10,6 +10,7 @@ using System.IO;
 public class LightingInfo
 {
     public string name; //照明の名前、白熱灯、常夜灯、などアセットから色々追加する、照明の種類の切り替えはコントローラーでdistacegrabみたいに
+    //ここの名前が被るとうまくロードができなくなるので注意
     public bool enabled; //コントローラーで、オンオフの切り替えが可能、distacegrabみたいに
     public float intensity; //光の明るさ、UIのスライダーでセットをして、コントローラでクリックして変更、distancegrabみたいに
 
@@ -26,19 +27,16 @@ public static class LightingFile_Manager
         int index = 1;
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
-            //名前が被るとうまくセーブができなくなるので注意
             GameObject obj = view.gameObject;
-            string objName = obj.name;
-            objName = objName.Replace("(Clone)", "");
             if (obj.CompareTag(saveTag))
             {
                 Light light = obj.GetComponent<Light>();
                 //照明の情報を取得
                 LightingInfo lighting = new LightingInfo();
-                lighting.name = objName;
+                lighting.name = obj.name;
                 lighting.enabled = light.enabled;
                 lighting.intensity = light.intensity;
-
+                
                 // JSONに変換
                 string jsonData = JsonUtility.ToJson(lighting);
 
@@ -63,20 +61,15 @@ public static class LightingFile_Manager
         string loadTag = "lighting";
         List<string> jsonList = ReadAllFilesOfJSON(loadTag, directoryPath);
 
-        //jsonからlightingオブジェクトに変換
         foreach (string jsonData in jsonList)
         {
-            //JSONをC#のオブジェクトに変換
+            //jsonからlightingオブジェクトに変換
             LightingInfo lighting = JsonUtility.FromJson<LightingInfo>(jsonData);
             //ネットワークオブジェクトしたhouseからlightingを手に入れる
             foreach (PhotonView view in PhotonNetwork.PhotonViews)
             {
                 GameObject obj = view.gameObject;
-                string objName = obj.name;
-                objName = objName.Replace("(Clone)", "");
-
-                //名前が被るとうまくロードができなくなるので注意
-                if (obj.CompareTag(loadTag) && objName == lighting.name)
+                if (obj.CompareTag(loadTag) && obj.name == lighting.name)
                 {
                     Light light = obj.GetComponent<Light>();
                     light.name = lighting.name;

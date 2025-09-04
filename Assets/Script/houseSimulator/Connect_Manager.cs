@@ -10,12 +10,10 @@ using UnityEngine.SceneManagement;
 public class Connect_Manager : MonoBehaviourPunCallbacks
 {
     public Light directionalLight;
-    private void Start()
+    public void Start()
     {
 
         Debug.Log("Connect_Managerのコンストラクタ処理");
-        //プレイヤー自身の名前を"Player"に設定
-        PhotonNetwork.NickName = "Player";
         //どのクライアントも、キックされる処理ができるように設定
         PhotonNetwork.EnableCloseConnection = true;
         //オフラインモードかオンラインモードか、どちらか設定
@@ -36,7 +34,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         }
     }
 
-    private void Update()
+    public void Update()
     {
 
     }
@@ -67,6 +65,9 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("ルームへの参加成功");
+        //ニックネームを、ホスト、ゲストに分ける
+        PhotonNetwork.NickName = PhotonNetwork.IsMasterClient ? "Host" : "Guest";
+
         //マスタークライアントのみ、セーブデータを読み込み処理
         if (PhotonNetwork.IsMasterClient)
         {
@@ -75,10 +76,12 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
             Debug.Log("データのロード処理完了");
 
         }
-
-        // ランダムな座標に自身のアバター（ネットワークオブジェクト）を生成する
-        var position = new Vector3(Random.Range(-8, 8), 2, Random.Range(-17, -10));
-        PhotonNetwork.Instantiate("Player", position, Quaternion.identity);
+        else
+        {
+            //ゲストは、ランダムな座標に自身のアバターを生成
+            var position = new Vector3(Random.Range(-8, 8), 2, Random.Range(-17, -10));
+            PhotonNetwork.Instantiate("avator", position, Quaternion.identity);
+        }
         //元からあるライトをオフに
         directionalLight.enabled = false;
     }
@@ -92,4 +95,104 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("TitleScene");
     }
     
+
+    //自分以外のプレイヤーがルームに入室した時に呼ばれるコールバック
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        //house_miniの名前の同期処理、これをしないとゲスト側の家の名前が被る
+        if(PhotonNetwork.IsMasterClient)
+        {
+            PhotonView photonView = PhotonView.Get(this);
+            photonView.RPC("NameHouseToMini", RpcTarget.Others);
+        }
+
+        //マスタークライアントのみ、今の状況を他のプレイヤー全員に送る
+        //この処理がないと、今の状況を途中参加者に反映できない
+        if (PhotonNetwork.IsMasterClient)
+        {
+            //エクステリアの情報、照明の情報を送信して他のプレイヤーに反映
+            Debug.Log("他のプレイヤーが参加しました。今の状況を反映させます。");
+            PhotonView photonView = PhotonView.Get(this);
+            foreach (PhotonView view in PhotonNetwork.PhotonViews)
+            {
+                GameObject obj = view.gameObject;
+                //照明の情報を送信
+                if(obj.CompareTag("lighting"))
+                {
+                    Light light = obj.GetComponent<Light>();
+                    //照明の情報を取得
+                    LightingInfo lighting = new LightingInfo();
+                    lighting.name = obj.name;
+                    lighting.enabled = light.enabled;
+                    lighting.intensity = light.intensity;
+                    //JSONに変換
+                    string jsonData = JsonUtility.ToJson(lighting);               
+                    photonView.RPC("MakeCurrentLighting", RpcTarget.Others, jsonData);
+                }
+                //エクステリアの情報を送信
+                if(obj.CompareTag("exterior"))
+                {
+                    //エクステリアの情報を取得
+                    ExteriorInfo exterior = new ExteriorInfo();
+                    exterior.name = obj.name;
+                    string materialName = obj.GetComponent<Renderer>().material.name;
+                    exterior.materialName = materialName.Replace(" (Instance)", "");
+                    //JSONに変換
+                    string jsonData = JsonUtility.ToJson(exterior);
+                    photonView.RPC("MakeCurrentExterior", RpcTarget.Others, jsonData);
+                }
+            }
+        }
+    }
+
+    [PunRPC]
+    public void NameHouseToMini()
+    {
+        //名前が同期できていないため、_miniをつけるように同期する
+        Environment_Creator.NameHouseToMini();
+    }
+    
+    [PunRPC]
+    public void MakeCurrentLighting(string jsonData)
+    {
+        //JSONをC#のオブジェクトに変換
+        LightingInfo lighting = JsonUtility.FromJson<LightingInfo>(jsonData);
+        //ネットワークオブジェクトの中からlightingを手に入れて反映
+        foreach (PhotonView view in PhotonNetwork.PhotonViews)
+        {
+            GameObject obj = view.gameObject;
+            //名前が被るとうまく反映できなくなるので注意
+            if (obj.CompareTag("lighting") && obj.name == lighting.name)
+            {
+                Light light = obj.GetComponent<Light>();
+                light.name = lighting.name;
+                light.enabled = lighting.enabled;
+                light.intensity = lighting.intensity;
+            }
+        }
+
+    }
+
+    [PunRPC]
+    public void MakeCurrentExterior(string jsonData)
+    {
+        //JSONをC#のオブジェクトに変換
+        ExteriorInfo exterior = JsonUtility.FromJson<ExteriorInfo>(jsonData);
+        //ネットワークオブジェクトの中からexteriorを手に入れて反映
+        foreach (PhotonView view in PhotonNetwork.PhotonViews)
+        {
+            GameObject obj = view.gameObject;
+            //名前が被るとうまく反映ができなくなるので注意
+            if (obj.CompareTag("exterior") && obj.name == exterior.name)
+            {
+                Renderer renderer = obj.GetComponent<Renderer>();
+                obj.name = exterior.name;
+                // Resourcesフォルダ内のマテリアルをロード
+                Material material = Resources.Load<Material>("Materials/"+ exterior.materialName);
+                // ロードしたマテリアルをオブジェクトに適用
+                renderer.material = material;
+            }
+        }
+
+    }
 }

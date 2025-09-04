@@ -15,13 +15,13 @@ public class RPC_Lighting_OnOff : MonoBehaviour
     void Update()
     {
 
-        //照明のオンオフ処理、スペース
-        if (Input.GetKeyDown(KeyCode.Space))
+        //照明のオンオフ処理、Q
+        if (Input.GetKeyDown(KeyCode.Q))
         {
 
             Debug.Log("照明のオンオフ処理");
             PhotonView photonView = PhotonView.Get(this);
-            photonView.RPC("OnOffLight", RpcTarget.AllBuffered);
+            photonView.RPC("OnOffLight", RpcTarget.All);
 
         }
     }

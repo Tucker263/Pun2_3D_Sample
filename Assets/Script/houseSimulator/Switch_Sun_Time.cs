@@ -15,8 +15,8 @@ public class Switch_Sun_Time : MonoBehaviour
     void Update()
     {
         Transform tf = GetComponent<Transform>();
-        //昼夜の切り替え
-        if (Input.GetKeyDown(KeyCode.Q))
+        //昼夜の切り替え、スペース
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isSunset)
             {
