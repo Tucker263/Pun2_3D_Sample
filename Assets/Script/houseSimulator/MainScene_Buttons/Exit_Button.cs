@@ -55,6 +55,7 @@ public class Exit_Button : MonoBehaviourPunCallbacks
             }
         }
 
+        //avatorの配列から退出するプレイヤーのavatorを削除
         foreach (GameObject avator in avatorList)
         {
             Avator_Controller avator_Controller = avator.GetComponent<Avator_Controller>();
