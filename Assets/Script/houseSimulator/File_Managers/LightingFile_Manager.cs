@@ -33,7 +33,7 @@ public static class LightingFile_Manager
             if (obj.CompareTag(saveTag))
             {
                 Light light = obj.GetComponent<Light>();
-                TextMeshProUGUI objTMP = obj.GetComponent<TextMeshProUGUI>();
+                TMP_Text objTMP = obj.GetComponent<TMP_Text>();
                 //照明の情報を取得
                 LightingInfo lighting = new LightingInfo();
                 lighting.name = obj.name;
@@ -76,7 +76,7 @@ public static class LightingFile_Manager
                 if (obj.CompareTag(loadTag) && obj.name == lighting.name)
                 {
                     Light light = obj.GetComponent<Light>();
-                    TextMeshProUGUI objTMP = obj.GetComponent<TextMeshProUGUI>();
+                    TMP_Text objTMP = obj.GetComponent<TMP_Text>();
 
                     //Resourcesフォルダ内の照明の種類をロードして、アタッチ
                     light = FetchLightFromKind(lighting.lightKind);
