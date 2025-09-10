@@ -11,7 +11,7 @@ public class SmallHouse_Disapear_Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ネットワークオブジェクトからSunを取得
+        //ネットワークオブジェクトからhouse_smallを取得
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
             GameObject obj = view.gameObject;

@@ -24,28 +24,7 @@ public class Player_Controller : MonoBehaviourPunCallbacks
             //移動処理
             var input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
             transform.Translate(6f * Time.deltaTime * input.normalized);
-
-            //オブジェクトの生成処理、P
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
-                Quaternion rotation = Quaternion.Euler(0, 90, 0);
-                GameObject myObject = PhotonNetwork.Instantiate("chair1", position, rotation);
-                Debug.Log("自分が生成したオブジェクト: " + myObject.name);
-  
-
-            }
-
-            //オブジェクトの生成処理、O
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
-                Quaternion rotation = Quaternion.Euler(0, 90, 0);
-                GameObject myObject = PhotonNetwork.Instantiate("table1", position, rotation);
-                Debug.Log("自分が生成したオブジェクト: " + myObject.name);
-  
-
-            }
+        
 
             //ルームからの退出処理、エンターキー
             if (Input.GetKeyDown(KeyCode.Return))
