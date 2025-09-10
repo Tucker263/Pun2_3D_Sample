@@ -10,7 +10,7 @@ public class AvatorUI_Display : MonoBehaviourPunCallbacks
     void Start()
     {
         GameObject obj = this.gameObject;
-        // 自身のオブジェクトの時はアクティブ化
+        // 自身のUIオブジェクトの時はアクティブ化
         bool isActive = photonView.IsMine ? true : false;
         obj.SetActive(isActive);
 

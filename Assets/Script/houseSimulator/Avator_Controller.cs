@@ -7,12 +7,13 @@ using UnityEngine;
 
 
 // MonoBehaviourPunCallbacksを継承して、photonViewプロパティを使えるようにする
-public class Avator_Move_Controller : MonoBehaviourPunCallbacks
+public class Avator_Controller : MonoBehaviourPunCallbacks
 {
+    public int createrID;
     //public GameObject object1;カメラ用
     void Start()
     {
-
+        createrID = photonView.CreatorActorNr;
     }
     private void Update()
     {

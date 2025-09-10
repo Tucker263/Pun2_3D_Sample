@@ -8,29 +8,10 @@ using UnityEngine.SceneManagement;
 // MonoBehaviourPunCallbacksを継承して、photonViewプロパティを使えるようにする
 public class Exit_Button : MonoBehaviourPunCallbacks
 {
-    private GameObject avator;
-    private int createrID;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        createrID = photonView.CreatorActorNr;
-
-        //ネットワークオブジェクトからavatorを取得
-        foreach (PhotonView view in PhotonNetwork.PhotonViews)
-        {
-            GameObject obj = view.gameObject;
-            string objName = obj.name;
-            objName = objName.Replace("(Clone)", "");
-            Debug.Log(obj);
-            //Tagがavator、かつ自身のオブジェクトだった時
-            if (obj.CompareTag("avator") && photonView.IsMine)
-            {
-                avator = obj;
-                break;
-            }
-        }
 
     }
 
@@ -57,17 +38,37 @@ public class Exit_Button : MonoBehaviourPunCallbacks
     }
 
 
-    //他の人が退出した時に、このavatorオブジェクトを破棄
+    //他の人が退出した時に、このavator(ネットワークオブジェクト)を破棄
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
-        //他の人が退出すると、所有権がマスタークライアントに移るため、マスタークライアントが削除できる
-        //自分がマスタークライアントで、マスタークライアント以外の生産者だったら、プレイヤーオブジェクトを削除
-        if (PhotonNetwork.IsMasterClient && this.createrID != 1)
+        List<GameObject> avatorList = new List<GameObject>();
+        //ネットワークオブジェクトからavatorの配列を取得
+        foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
-            Debug.Log(otherPlayer.ActorNumber);
-            Debug.Log(photonView.ControllerActorNr);
-            PhotonNetwork.Destroy(avator);
+            GameObject obj = view.gameObject;
+            string objName = obj.name;
+            objName = objName.Replace("(Clone)", "");
+            //Tagがavatorの時
+            if (obj.CompareTag("avator"))
+            {
+                avatorList.Add(obj);
+            }
         }
+
+        foreach (GameObject avator in avatorList)
+        {
+            Avator_Controller avator_Controller = avator.GetComponent<Avator_Controller>();
+            //他の人が退出すると、所有権がマスタークライアントに移るため、マスタークライアントが削除できる
+            //自分がマスタークライアントで、マスタークライアント以外の生産者だったら、プレイヤーオブジェクトを削除
+            if (PhotonNetwork.IsMasterClient && avator_Controller.createrID != 1)
+            {
+                Debug.Log(otherPlayer.ActorNumber);
+                Debug.Log(photonView.ControllerActorNr);
+                PhotonNetwork.Destroy(avator);
+            }
+
+        }
+
     }
 
 

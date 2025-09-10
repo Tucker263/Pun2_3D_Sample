@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 3168359891366972177}
   - component: {fileID: 5385539212037897367}
   - component: {fileID: 4670640971403896511}
-  - component: {fileID: 417985034147884806}
+  - component: {fileID: -5559862465216863824}
   m_Layer: 0
   m_Name: avator
   m_TagString: avator
@@ -1263,7 +1263,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &417985034147884806
+--- !u!114 &-5559862465216863824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3557536371100717517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 339fd63ff1a47134da150ad8c1407c49, type: 3}
+  m_Script: {fileID: 11500000, guid: 344e209d5daaa00419fabadfc1538ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3672328520989347082
