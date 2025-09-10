@@ -81,6 +81,8 @@ public static class LightingFile_Manager
                     //Resourcesフォルダ内の照明の種類をロードして、アタッチ
                     light = FetchLightFromKind(lighting.lightKind);
 
+                    //多分ここの処理がうまくいってない.
+
                     //lightの情報を書き換え
                     objTMP.text = lighting.lightKind;
                     light.name = lighting.name;
@@ -126,6 +128,7 @@ public static class LightingFile_Manager
 
     private static Light FetchLightFromKind(string lightKind)
     {
+        lightKind = "NightLamp1";
         //Resourcesフォルダ内のlightプレハブをロード
         GameObject objLight = Resources.Load<GameObject>("Lights/" + lightKind);
         Light light = objLight.GetComponent<Light>();

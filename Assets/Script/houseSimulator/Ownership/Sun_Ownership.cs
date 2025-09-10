@@ -25,4 +25,10 @@ public class Sun_Ownership : MonoBehaviourPunCallbacks
         }
 
     }
+
+    public void Change()
+    {
+        Debug.Log("Sunオブジェクトの所有権の譲渡");
+        photonView.RequestOwnership();
+    }
 }

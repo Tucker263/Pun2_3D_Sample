@@ -45,12 +45,12 @@ public static class Environment_Creator
         //house_miniの生成
         var houseMiniPosition = new Vector3(15, 0, 0);
         Quaternion houseMiniRotation = Quaternion.Euler(0, 90, 0);
-        GameObject houseMini = PhotonNetwork.Instantiate("house_mini", houseMiniPosition, houseMiniRotation);
-        //houseと名前被りを避けるため、子孫のオブジェクト全部に_miniという接尾語を足す
+        GameObject houseMini = PhotonNetwork.Instantiate("house_small", houseMiniPosition, houseMiniRotation);
+        //houseと名前被りを避けるため、子孫のオブジェクト全部に_smallという接尾語を足す
         List<Transform> houseMini_children = GetAllChildObjects(houseMini.GetComponent<Transform>());
         foreach(Transform child in houseMini_children)
         {
-            child.name += "_mini";
+            child.name += "_small";
         }
 
     }
@@ -78,21 +78,21 @@ public static class Environment_Creator
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
             GameObject obj = view.gameObject;
-            if(obj.CompareTag("house_mini") || obj.name == "house_mini(Clone)")
+            if(obj.CompareTag("house_small") || obj.name == "house_small(Clone)")
             {
                 houseMini = obj;
                 break;
             }
 
         }
-        //houseと名前被りを避けるため、子孫のオブジェクト全部に_miniという接尾語を足す
+        //houseと名前被りを避けるため、子孫のオブジェクト全部に_smallという接尾語を足す
         List<Transform> houseMini_children = GetAllChildObjects(houseMini.GetComponent<Transform>());
         foreach(Transform child in houseMini_children)
         {
             string childName = child.name;
-            if(!childName.Contains("_mini"))
+            if(!childName.Contains("_small"))
             {
-                child.name += "_mini";
+                child.name += "_small";
             }
         }
     }

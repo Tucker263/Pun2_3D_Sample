@@ -7,9 +7,10 @@ TagManager:
   - furniture
   - lighting
   - exterior
-  - exteior
   - sun
   - avator
+  - house
+  - house_small
   layers:
   - Default
   - TransparentFX
