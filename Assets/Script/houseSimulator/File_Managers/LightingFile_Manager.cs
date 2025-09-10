@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Photon.Pun;
 using UnityEngine;
 using System.IO;
+
 
 
 //照明の情報
 [System.Serializable] // JSON化するにはSerializable属性が必要
 public class LightingInfo
 {
-    public string name; //照明の名前、白熱灯、常夜灯、などアセットから色々追加する、照明の種類の切り替えはコントローラーでdistacegrabみたいに
-    //ここの名前が被るとうまくロードができなくなるので注意
+    public string name; //照明の場所の名前,ここの名前が被るとうまくロードができなくなるので注意
     public bool enabled; //コントローラーで、オンオフの切り替えが可能、distacegrabみたいに
     public float intensity; //光の明るさ、UIのスライダーでセットをして、コントローラでクリックして変更、distancegrabみたいに
+    public string lightKind;//照明の種類、distancegrabみたいに変える、常夜灯、白熱灯、LEDなど
 
 }
 
@@ -31,12 +33,14 @@ public static class LightingFile_Manager
             if (obj.CompareTag(saveTag))
             {
                 Light light = obj.GetComponent<Light>();
+                TextMeshProUGUI objTMP = obj.GetComponent<TextMeshProUGUI>();
                 //照明の情報を取得
                 LightingInfo lighting = new LightingInfo();
                 lighting.name = obj.name;
                 lighting.enabled = light.enabled;
                 lighting.intensity = light.intensity;
-                
+                lighting.lightKind = objTMP.text;
+
                 // JSONに変換
                 string jsonData = JsonUtility.ToJson(lighting);
 
@@ -72,6 +76,13 @@ public static class LightingFile_Manager
                 if (obj.CompareTag(loadTag) && obj.name == lighting.name)
                 {
                     Light light = obj.GetComponent<Light>();
+                    TextMeshProUGUI objTMP = obj.GetComponent<TextMeshProUGUI>();
+
+                    //Resourcesフォルダ内の照明の種類をロードして、アタッチ
+                    light = FetchLightFromKind(lighting.lightKind);
+
+                    //lightの情報を書き換え
+                    objTMP.text = lighting.lightKind;
                     light.name = lighting.name;
                     light.enabled = lighting.enabled;
                     light.intensity = lighting.intensity;
@@ -110,5 +121,14 @@ public static class LightingFile_Manager
         }
 
         return jsonList;
+    }
+
+
+    private static Light FetchLightFromKind(string lightKind)
+    {
+        //Resourcesフォルダ内のlightをロード
+        GameObject objLight = Resources.Load<GameObject>("Lights/" + lightKind);
+        Light light = objLight.GetComponent<Light>();
+        return light;
     }
 }
