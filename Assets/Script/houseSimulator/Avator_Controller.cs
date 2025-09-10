@@ -33,6 +33,13 @@ public class Avator_Controller : MonoBehaviourPunCallbacks
                 obj.SetActive(!obj.activeSelf);
             }
 
+            //マテリアルの変更処理、エンターキー
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                //Exterior_Material_Changeからchange関数を呼び出してマテリアルを変更
+
+            }
+
         }
     }
 }

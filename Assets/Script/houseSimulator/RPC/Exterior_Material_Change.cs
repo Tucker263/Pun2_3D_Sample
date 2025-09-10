@@ -3,36 +3,27 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class RPC_Exterior_Material : MonoBehaviour
+public class Exterior_Material_Change : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
-    {
+    { 
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //マテリアルの変更処理、L
-        if (Input.GetKeyDown(KeyCode.L))
-        {
+        
+    }
 
-            Debug.Log("マテリアルの変更処理： ");
-            PhotonView photonView = PhotonView.Get(this);
-            photonView.RPC("ChangeMaterial", RpcTarget.All, "Red");
+    public void Change()
+    {
+        //staticクラス:Exterior_SelectedMaterialからマテリアル名を取得してRPC通信
+        Debug.Log("マテリアルの変更処理： ");
+        PhotonView photonView = PhotonView.Get(this);
+        photonView.RPC("ChangeMaterial", RpcTarget.All, Exterior_SelectedMaterial.materialName);
 
-        }
-
-        //マテリアルの変更処理、K
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-
-            Debug.Log("マテリアルの変更処理： ");
-            PhotonView photonView = PhotonView.Get(this);
-            photonView.RPC("ChangeMaterial", RpcTarget.All, "Blue");
-
-        }
     }
     
     [PunRPC]

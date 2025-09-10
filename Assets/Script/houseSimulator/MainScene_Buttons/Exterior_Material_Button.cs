@@ -9,12 +9,14 @@ using TMPro;
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class Exterior_Material_Button : MonoBehaviourPunCallbacks
 {
-    private string furnitureName;
+    private TextMeshProUGUI buttonTMP;
+    private string materialName;
     // Start is called before the first frame update
     void Start()
     {
         TextMeshProUGUI buttonTMP = GetComponentInChildren<TextMeshProUGUI>();
-        furnitureName = buttonTMP.text;
+        materialName = buttonTMP.text;
+  
     }
 
     // Update is called once per frame
@@ -24,11 +26,9 @@ public class Exterior_Material_Button : MonoBehaviourPunCallbacks
 
     }
 
-    public void Generate()
+    public void Select()
     {
-            var position = new Vector3(Random.Range(-8, 13), 2, Random.Range(-17, -10));
-            Quaternion rotation = Quaternion.Euler(0, 90, 0);
-            GameObject myObject = PhotonNetwork.Instantiate(furnitureName, position, rotation);
-            Debug.Log("自分が生成したオブジェクト: " + myObject.name);
+        //staticクラスのExterior_SelectedMaterialに選んだマテリアル名を入力
+        Exterior_SelectedMaterial.materialName = materialName;
     }
 }
