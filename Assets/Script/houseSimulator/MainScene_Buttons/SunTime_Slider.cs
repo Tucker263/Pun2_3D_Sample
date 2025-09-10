@@ -15,13 +15,12 @@ public class SunTime_Slider : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        //ネットワークオブジェクトからSunを取得
+        //ネットワークオブジェクトからsunを取得
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
             GameObject obj = view.gameObject;
             string objName = obj.name;
             objName = objName.Replace("(Clone)", "");
-            Debug.Log(obj);
             //Tagがsunだった時
             if (obj.CompareTag("sun"))
             {

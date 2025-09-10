@@ -5,47 +5,59 @@ using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-
 // MonoBehaviourPunCallbacksを継承して、photonViewプロパティを使えるようにする
-public class Player_Controller : MonoBehaviourPunCallbacks
+public class Exit_Button : MonoBehaviourPunCallbacks
 {
+    private GameObject avator;
     private int createrID;
-    //public GameObject object1;カメラ用
+
+
+    // Start is called before the first frame update
     void Start()
     {
         createrID = photonView.CreatorActorNr;
-    }
-    private void Update()
-    {
-        // 自身のオブジェクト
-        if (photonView.IsMine)
+
+        //ネットワークオブジェクトからavatorを取得
+        foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
-            //移動処理
-            var input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-            transform.Translate(6f * Time.deltaTime * input.normalized);
-        
-
-            //ルームからの退出処理、エンターキー
-            if (Input.GetKeyDown(KeyCode.Return))
+            GameObject obj = view.gameObject;
+            string objName = obj.name;
+            objName = objName.Replace("(Clone)", "");
+            Debug.Log(obj);
+            //Tagがavator、かつ自身のオブジェクトだった時
+            if (obj.CompareTag("avator") && photonView.IsMine)
             {
-                //マスタークライアントのみ
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    //データのセーブ処理
-                    Debug.Log("マスタークライアントのみ、データのセーブ処理開始");
-                    StreamFile_Manager.Save();
-                    Debug.Log("データのセーブ処理完了");
-                    //プレイヤー全員をキック処理
-                    KickOtherAllPlayers();
-                }
-                PhotonNetwork.LeaveRoom();
+                avator = obj;
+                break;
             }
-
         }
+
     }
 
-    //他の人が退出した時に、このネットワークオブジェクトを破棄
+    // Update is called once per frame
+    void Update()
+    {
+
+
+    }
+
+    public void Exit()
+    {
+        //マスタークライアントのみ
+        if (PhotonNetwork.IsMasterClient)
+        {
+            //データのセーブ処理
+            Debug.Log("マスタークライアントのみ、データのセーブ処理開始");
+            StreamFile_Manager.Save();
+            Debug.Log("データのセーブ処理完了");
+            //プレイヤー全員をキック処理
+            KickOtherAllPlayers();
+        }
+        PhotonNetwork.LeaveRoom();
+    }
+
+
+    //他の人が退出した時に、このavatorオブジェクトを破棄
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
         //他の人が退出すると、所有権がマスタークライアントに移るため、マスタークライアントが削除できる
@@ -54,7 +66,7 @@ public class Player_Controller : MonoBehaviourPunCallbacks
         {
             Debug.Log(otherPlayer.ActorNumber);
             Debug.Log(photonView.ControllerActorNr);
-            PhotonNetwork.Destroy(this.gameObject);
+            PhotonNetwork.Destroy(avator);
         }
     }
 
@@ -80,5 +92,4 @@ public class Player_Controller : MonoBehaviourPunCallbacks
         }
         Debug.Log("他のプレイヤーのキック処理完了");
     }
-
 }
