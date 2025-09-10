@@ -30,11 +30,18 @@ public class SmallHouse_Disapear_Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
 
     }
 
     public void Disappear()
+    {
+        PhotonView photonView = PhotonView.Get(this);
+        photonView.RPC("Disappear_RPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void Disappear_RPC()
     {
         if (house_small.activeSelf)
         {

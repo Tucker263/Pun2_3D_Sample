@@ -30,11 +30,19 @@ public class SmallHouse_Appear_Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
 
     }
 
     public void Appear()
+    {
+        PhotonView photonView = PhotonView.Get(this);
+        photonView.RPC("Appear_RPC", RpcTarget.All);
+        
+    }
+
+    [PunRPC]
+    public void Appear_RPC()
     {
         if (!house_small.activeSelf)
         {

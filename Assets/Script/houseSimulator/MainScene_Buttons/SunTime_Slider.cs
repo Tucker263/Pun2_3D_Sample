@@ -45,6 +45,7 @@ public class SunTime_Slider : MonoBehaviourPunCallbacks
     public void Change_SunTime()
     {
         //所有権の譲渡がないと、同期できない
+        //他のオブジェクトからスクリプトを実行
         sun_Ownership.Change();
         float sunRotateX = slider.value;
         sun_tf.eulerAngles = new Vector3(sunRotateX, 0, 0);

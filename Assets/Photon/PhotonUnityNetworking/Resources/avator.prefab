@@ -508,6 +508,7 @@ GameObject:
   - component: {fileID: 5168468326397992475}
   - component: {fileID: 2306002569466678763}
   - component: {fileID: 1417083074265269860}
+  - component: {fileID: 277710380868245674}
   m_Layer: 5
   m_Name: SmallHouse_Disappear_Button
   m_TagString: Untagged
@@ -641,6 +642,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7414d84fe229fc24fa348e4763df3b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &277710380868245674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305469902325127088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5073678747343270673
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,6 +828,7 @@ GameObject:
   - component: {fileID: 7293855214318995747}
   - component: {fileID: 8551153294256454552}
   - component: {fileID: 6835975144689945989}
+  - component: {fileID: 8943905731015818519}
   m_Layer: 5
   m_Name: SmallHouse_Appear_Button
   m_TagString: Untagged
@@ -938,6 +962,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66155100d9db7c54385f7265edf3c963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8943905731015818519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280723127290362775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &6359988843990160707
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,19 +16,11 @@ public class Sun_Ownership : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        //オーナーシップの譲渡、Z
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Debug.Log("Sunオブジェクトの所有権の譲渡");
-            photonView.RequestOwnership();
-
-        }
 
     }
 
     public void Change()
     {
-        Debug.Log("Sunオブジェクトの所有権の譲渡");
         photonView.RequestOwnership();
     }
 }
