@@ -126,7 +126,7 @@ public static class LightingFile_Manager
 
     private static Light FetchLightFromKind(string lightKind)
     {
-        //Resourcesフォルダ内のlightをロード
+        //Resourcesフォルダ内のlightプレハブをロード
         GameObject objLight = Resources.Load<GameObject>("Lights/" + lightKind);
         Light light = objLight.GetComponent<Light>();
         return light;
