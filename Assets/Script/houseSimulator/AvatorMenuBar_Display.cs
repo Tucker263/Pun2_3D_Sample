@@ -4,7 +4,7 @@ using Photon.Pun;
 using UnityEngine;
 
 // MonoBehaviourPunCallbacksを継承して、photonViewプロパティを使えるようにする
-public class AvatorUI_Display : MonoBehaviourPunCallbacks
+public class AvatorMenuBar_Display : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,6 @@ public class AvatorUI_Display : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }

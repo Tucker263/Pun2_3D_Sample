@@ -10,10 +10,12 @@ using UnityEngine;
 public class Avator_Controller : MonoBehaviourPunCallbacks
 {
     public int createrID;
+    private GameObject menuBar;
     //public GameObject object1;カメラ用
     void Start()
     {
         createrID = photonView.CreatorActorNr;
+        menuBar = GameObject.Find("MenuBar");
     }
     private void Update()
     {
@@ -23,6 +25,13 @@ public class Avator_Controller : MonoBehaviourPunCallbacks
             //移動処理
             var input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
             transform.Translate(6f * Time.deltaTime * input.normalized);
+
+            //メニューバーのオンオフ処理、Space
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GameObject obj = menuBar;
+                obj.SetActive(!obj.activeSelf);
+            }
 
         }
     }
