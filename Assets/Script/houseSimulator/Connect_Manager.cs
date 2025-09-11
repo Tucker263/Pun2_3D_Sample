@@ -143,5 +143,4 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
 
     }
 
-
 }

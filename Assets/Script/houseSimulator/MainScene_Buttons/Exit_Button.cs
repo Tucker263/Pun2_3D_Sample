@@ -32,14 +32,14 @@ public class Exit_Button : MonoBehaviourPunCallbacks
             StreamFile_Manager.Save();
             Debug.Log("データのセーブ処理完了");
             //プレイヤー全員をキック処理
-            KickOtherAllPlayers();
+            KickOtherAllClients();
         }
         PhotonNetwork.LeaveRoom();
     }
 
-    private void KickOtherAllPlayers()
+    private void KickOtherAllClients()
     {
-        Debug.Log("マスタークライアントのみ、他のプレイヤーのキック処理開始");
+        Debug.Log("マスタークライアントのみ、他クライアントのキック処理開始");
         //自分以外のプレイヤーオブジェクトを取得し、キック処理
         var otherPlayers = PhotonNetwork.PlayerListOthers;
         for (int i = 0; i < otherPlayers.Length; i++)
@@ -47,6 +47,6 @@ public class Exit_Button : MonoBehaviourPunCallbacks
             PhotonNetwork.CloseConnection(otherPlayers[i]);
             Debug.Log(otherPlayers[i] + "をキックしました");
         }
-        Debug.Log("他のプレイヤーのキック処理完了");
+        Debug.Log("他クライアントのキック処理完了");
     }
 }
