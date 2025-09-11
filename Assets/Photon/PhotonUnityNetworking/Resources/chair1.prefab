@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: -6016821701517522748}
   - component: {fileID: -2733114081004232382}
   - component: {fileID: 7341158412877566875}
+  - component: {fileID: -2509150548140017419}
   m_Layer: 0
   m_Name: chair1
   m_TagString: furniture
@@ -303,6 +304,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: -2509150548140017419}
+          m_TargetAssemblyTypeName: Furniture_Destroy, Assembly-CSharp
+          m_MethodName: Destroy
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 5
     callback:
       m_PersistentCalls:
@@ -352,3 +365,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.84524024, y: 0.88424855, z: 0.7526914}
   m_Center: {x: -0.049308583, y: 1.0096358, z: 0.0022395253}
+--- !u!114 &-2509150548140017419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8429721823874684442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ca86c551235164386eb3ad7765445e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

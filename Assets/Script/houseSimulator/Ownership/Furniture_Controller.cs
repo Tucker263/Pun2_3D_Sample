@@ -22,6 +22,9 @@ public class Furniture_Controller : MonoBehaviourPunCallbacks
     //家具をドラッグ中、家具が移動する
     public void Move()
     {
+        //家具をクリックした瞬間、オーナーシップが変わる
+        photonView.RequestOwnership();
+
         Vector3 mousePos = Input.mousePosition;
         //奥行指定、カメラからユニット先
         mousePos.z = 20.0f;

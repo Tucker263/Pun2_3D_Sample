@@ -33,33 +33,6 @@ public class Avator_Controller : MonoBehaviourPunCallbacks
                 obj.SetActive(!obj.activeSelf);
             }
 
-            //エクステリアのマテリアルの変更処理、エンターキー
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                List<GameObject> exteriorList = new List<GameObject>();
-                //ネットワークオブジェクトからexteriorのリストを取得
-                string targetTag = "exterior";
-                foreach (PhotonView view in PhotonNetwork.PhotonViews)
-                {
-                    GameObject obj = view.gameObject;
-                    if (obj.CompareTag(targetTag))
-                    {
-                        exteriorList.Add(obj);
-                    }
-                }
-                //Exterior_Material_ChangeからChange関数を呼び出してマテリアルを変更
-                foreach (GameObject obj in exteriorList)
-                {
-                    Exterior_Material_Change exterior_Material_Change = obj.GetComponent<Exterior_Material_Change>();
-                    if (exterior_Material_Change != null)
-                    {
-                        exterior_Material_Change.Change();
-                    }
-                    
-                }
-
-            }
-
         }
     }
 }
