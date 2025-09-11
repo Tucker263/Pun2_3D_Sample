@@ -12,7 +12,6 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
     public Light directionalLight;
     public void Start()
     {
-
         Debug.Log("Connect_Managerのコンストラクタ処理");
         //どのクライアントも、キックされる処理ができるように設定
         PhotonNetwork.EnableCloseConnection = true;
@@ -84,6 +83,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         }
         //元からあるライトをオフに
         directionalLight.enabled = false;
+
     }
 
     //ルームへの参加が失敗した時に呼ばれるコールバック
@@ -99,123 +99,17 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
     //自分以外のプレイヤーがルームに入室した時に呼ばれるコールバック
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        //house_miniの名前の同期処理、これをしないとゲスト側の家の名前が被る
-        if (PhotonNetwork.IsMasterClient)
-        {
-            PhotonView photonView = PhotonView.Get(this);
-            photonView.RPC("NameHouseToMini", RpcTarget.Others);
-        }
-
-        //マスタークライアントのみ、今の状況を他のプレイヤー全員に送る
+        //自分がマスタークライアントの時、全クライアントに向けて最新の状態を同期する処理を行う
         //この処理がないと、今の状況を途中参加者に反映できない
+        GameObject obj = NetworkObject_Search.GetObjectFromName("LatestState_Synchronize");
+        LatestState_Synchronize latestState_Synchronize = obj.GetComponent<LatestState_Synchronize>();
         if (PhotonNetwork.IsMasterClient)
         {
-            //家の外壁の情報、照明の情報を送信して他のプレイヤーに反映
-            Debug.Log("他のプレイヤーが参加しました。今の状況を反映させます。");
-            PhotonView photonView = PhotonView.Get(this);
-            foreach (PhotonView view in PhotonNetwork.PhotonViews)
-            {
-                GameObject obj = view.gameObject;
-                //照明の情報を送信
-                if (obj.CompareTag("lighting"))
-                {
-                    Light light = obj.GetComponent<Light>();
-                    //照明の情報を取得
-                    LightingInfo lighting = new LightingInfo();
-                    lighting.name = obj.name;
-                    lighting.enabled = light.enabled;
-                    lighting.intensity = light.intensity;
-                    //JSONに変換
-                    string jsonData = JsonUtility.ToJson(lighting);
-                    photonView.RPC("MakeCurrentLighting", RpcTarget.Others, jsonData);
-                }
-                //家の外壁の情報を送信
-                if (obj.CompareTag("outerWall"))
-                {
-                    //家の外壁の情報を取得
-                    OuterWallInfo outerWall = new OuterWallInfo();
-                    outerWall.name = obj.name;
-                    string materialName = obj.GetComponent<Renderer>().material.name;
-                    outerWall.materialName = materialName.Replace(" (Instance)", "");
-                    //JSONに変換
-                    string jsonData = JsonUtility.ToJson(outerWall);
-                    photonView.RPC("MakeCurrentOutWall", RpcTarget.Others, jsonData);
-                }
-                //house_smallのアクティブ情報を送信
-                if (obj.CompareTag("house_small"))
-                {
-                    bool isActive = obj.activeSelf;
-                    photonView.RPC("MakeCurrentHouseSmall", RpcTarget.Others, isActive);
-                }
-
-            }
-        }
-    }
-
-    [PunRPC]
-    public void NameHouseToMini()
-    {
-        //名前が同期できていないため、_miniをつけるように同期する
-        Environment_Creator.NameHouseToMini();
-    }
-
-    [PunRPC]
-    public void MakeCurrentLighting(string jsonData)
-    {
-        //JSONをC#のオブジェクトに変換
-        LightingInfo lighting = JsonUtility.FromJson<LightingInfo>(jsonData);
-        //ネットワークオブジェクトの中からlightingを手に入れて反映
-        foreach (PhotonView view in PhotonNetwork.PhotonViews)
-        {
-            GameObject obj = view.gameObject;
-            //名前が被るとうまく反映できなくなるので注意
-            if (obj.CompareTag("lighting") && obj.name == lighting.name)
-            {
-                Light light = obj.GetComponent<Light>();
-                light.name = lighting.name;
-                light.enabled = lighting.enabled;
-                light.intensity = lighting.intensity;
-            }
+            Debug.Log("他プレイヤーが参加しました。最新の状況を反映させます。");
+            latestState_Synchronize.Synchronize();
+            Debug.Log("他プレイヤーの同期完了");
         }
 
-    }
-
-    [PunRPC]
-    public void MakeCurrentOutWall(string jsonData)
-    {
-        //JSONをC#のオブジェクトに変換
-        OuterWallInfo outerWall = JsonUtility.FromJson<OuterWallInfo>(jsonData);
-        //ネットワークオブジェクトの中からouterWallを手に入れて反映
-        foreach (PhotonView view in PhotonNetwork.PhotonViews)
-        {
-            GameObject obj = view.gameObject;
-            //名前が被るとうまく反映ができなくなるので注意
-            if (obj.CompareTag("outerWall") && obj.name == outerWall.name)
-            {
-                Renderer renderer = obj.GetComponent<Renderer>();
-                obj.name = outerWall.name;
-                // Resourcesフォルダ内のマテリアルをロード
-                Material material = Resources.Load<Material>("Materials/" + outerWall.materialName);
-                // ロードしたマテリアルをオブジェクトに適用
-                renderer.material = material;
-            }
-        }
-
-    }
-
-
-    [PunRPC]
-    public void MakeCurrentHouseSmall(bool isActive)
-    {
-        //ネットワークオブジェクトの中からhouse_smallを手に入れて反映
-        foreach (PhotonView view in PhotonNetwork.PhotonViews)
-        {
-            GameObject obj = view.gameObject;
-            if (obj.CompareTag("house_small"))
-            {
-                obj.SetActive(isActive);
-            }
-        }
     }
 
 }
