@@ -71,23 +71,12 @@ public static class Environment_Creator
     }
 
 
-    public static void NameHouseToMini()
+    public static void NameHouseToSmall()
     {
-        GameObject houseMini = null;
-        int i = 0;
-        foreach (PhotonView view in PhotonNetwork.PhotonViews)
-        {
-            GameObject obj = view.gameObject;
-            if(obj.CompareTag("house_small") || obj.name == "house_small(Clone)")
-            {
-                houseMini = obj;
-                break;
-            }
-
-        }
+        GameObject house_small = NetworkObject_Search.GetObjectFromTag("house_small");
         //houseと名前被りを避けるため、子孫のオブジェクト全部に_smallという接尾語を足す
-        List<Transform> houseMini_children = GetAllChildObjects(houseMini.GetComponent<Transform>());
-        foreach(Transform child in houseMini_children)
+        List<Transform> houseSmall_children = GetAllChildObjects(house_small.GetComponent<Transform>());
+        foreach(Transform child in houseSmall_children)
         {
             string childName = child.name;
             if(!childName.Contains("_small"))

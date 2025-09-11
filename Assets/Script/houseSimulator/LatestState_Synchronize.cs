@@ -65,7 +65,7 @@ public class LatestState_Synchronize : MonoBehaviourPunCallbacks
     public void NameHouseToSmall()
     {
         //名前が同期できていないため、_smallをつけるように同期する
-        Environment_Creator.NameHouseToMini();
+        Environment_Creator.NameHouseToSmall();
     }
 
     [PunRPC]
@@ -117,14 +117,9 @@ public class LatestState_Synchronize : MonoBehaviourPunCallbacks
     public void SynchronizeHouseSmallActive(bool isActive)
     {
         //ネットワークオブジェクトの中からhouse_smallを手に入れて反映
-        foreach (PhotonView view in PhotonNetwork.PhotonViews)
-        {
-            GameObject obj = view.gameObject;
-            if (obj.CompareTag("house_small"))
-            {
-                obj.SetActive(isActive);
-            }
-        }
+        GameObject house_small = NetworkObject_Search.GetObjectFromTag("house_small");
+        house_small.SetActive(isActive);
+        
     }
 
 }

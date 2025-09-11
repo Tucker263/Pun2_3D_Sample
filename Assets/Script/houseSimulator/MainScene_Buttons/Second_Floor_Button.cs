@@ -11,14 +11,12 @@ public class Second_Floor_Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ネットワークオブジェクトからavatorを取得
-        foreach (PhotonView view in PhotonNetwork.PhotonViews)
+        //ネットワークオブジェクトからavatorListを取得
+        List<GameObject> avatorList = NetworkObject_Search.GetListFromTag("avator");
+        foreach (GameObject obj in avatorList)
         {
-            GameObject obj = view.gameObject;
-            string objName = obj.name;
-            objName = objName.Replace("(Clone)", "");
-            //Tagがavatorだった時
-            if (obj.CompareTag("avator"))
+            Avator_Controller avator_Controller = obj.GetComponent<Avator_Controller>();
+            if (avator_Controller.IsMine)
             {
                 avator = obj;
                 break;

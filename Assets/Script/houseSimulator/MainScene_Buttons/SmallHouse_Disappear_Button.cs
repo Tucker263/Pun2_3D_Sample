@@ -43,19 +43,7 @@ public class SmallHouse_Disapear_Button : MonoBehaviour
 
     private void Set_House_Small()
     {
-        //ネットワークオブジェクトからhouse_smallを取得
-        foreach (PhotonView view in PhotonNetwork.PhotonViews)
-        {
-            GameObject obj = view.gameObject;
-            string objName = obj.name;
-            objName = objName.Replace("(Clone)", "");
-            //Tagがhouse_smallだった時
-            if (obj.CompareTag("house_small"))
-            {
-                house_small = obj;
-                break;
-            }
-        }
+        house_small = NetworkObject_Search.GetObjectFromTag("house_small");
         
     }
 }

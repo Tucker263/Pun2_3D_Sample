@@ -17,7 +17,7 @@ public class Avator_Controller : MonoBehaviourPunCallbacks
         createrID = photonView.CreatorActorNr;
         menuBar = GameObject.Find("MenuBar");
     }
-    private void Update()
+    public void Update()
     {
         // 自身のオブジェクト
         if (photonView.IsMine)
@@ -34,5 +34,10 @@ public class Avator_Controller : MonoBehaviourPunCallbacks
             }
 
         }
+    }
+
+    public bool IsMine()
+    {
+        return photonView.IsMine;
     }
 }

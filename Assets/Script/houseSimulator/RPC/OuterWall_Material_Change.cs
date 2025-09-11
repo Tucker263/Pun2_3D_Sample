@@ -19,17 +19,8 @@ public class OuterWall_Material_Change : MonoBehaviour
 
     public void ChangeAll()
     {
-        List<GameObject> outerWallList = new List<GameObject>();
-        //ネットワークオブジェクトからouterWallのリストを取得
-        string targetTag = "outerWall";
-        foreach (PhotonView view in PhotonNetwork.PhotonViews)
-        {
-            GameObject obj = view.gameObject;
-            if (obj.CompareTag(targetTag))
-            {
-                outerWallList.Add(obj);
-            }
-        }
+        List<GameObject> outerWallList = NetworkObject_Search.GetListFromTag("outerWall");
+        
         //OuterWall_Material_ChangeからChange関数を呼び出してマテリアルを変更
         foreach (GameObject obj in outerWallList)
         {
@@ -38,7 +29,7 @@ public class OuterWall_Material_Change : MonoBehaviour
             {
                 outerWall_Material_Change.Change();
             }
-                    
+
         }
         
     }

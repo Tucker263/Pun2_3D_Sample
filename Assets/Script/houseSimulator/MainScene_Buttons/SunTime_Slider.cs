@@ -16,18 +16,7 @@ public class SunTime_Slider : MonoBehaviourPunCallbacks
     void Start()
     {
         //ネットワークオブジェクトからsunを取得
-        foreach (PhotonView view in PhotonNetwork.PhotonViews)
-        {
-            GameObject obj = view.gameObject;
-            string objName = obj.name;
-            objName = objName.Replace("(Clone)", "");
-            //Tagがsunだった時
-            if (obj.CompareTag("sun"))
-            {
-                sun = obj;
-                break;
-            }
-        }
+        sun = NetworkObject_Search.GetObjectFromTag("sun");
 
         slider = GetComponent<Slider>();
         sun_tf = sun.GetComponent<Transform>();

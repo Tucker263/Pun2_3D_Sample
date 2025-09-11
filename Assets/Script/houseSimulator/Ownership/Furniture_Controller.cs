@@ -26,7 +26,7 @@ public class Furniture_Controller : MonoBehaviourPunCallbacks
         photonView.RequestOwnership();
 
         Vector3 mousePos = Input.mousePosition;
-        //奥行指定、カメラからユニット先
+        //奥行指定、カメラから20ユニット先
         mousePos.z = 20.0f;
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         furniture_tf.position = worldPos;

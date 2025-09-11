@@ -41,20 +41,7 @@ public class Exit_Button : MonoBehaviourPunCallbacks
     //他の人が退出した時に、このavator(ネットワークオブジェクト)を破棄
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
-        List<GameObject> avatorList = new List<GameObject>();
-        //ネットワークオブジェクトからavatorの配列を取得
-        foreach (PhotonView view in PhotonNetwork.PhotonViews)
-        {
-            GameObject obj = view.gameObject;
-            string objName = obj.name;
-            objName = objName.Replace("(Clone)", "");
-            //Tagがavatorの時
-            if (obj.CompareTag("avator"))
-            {
-                avatorList.Add(obj);
-            }
-        }
-
+        List<GameObject> avatorList = NetworkObject_Search.GetListFromTag("avator");
         //avatorの配列から退出するプレイヤーのavatorを削除
         foreach (GameObject avator in avatorList)
         {

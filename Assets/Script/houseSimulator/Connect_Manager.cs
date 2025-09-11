@@ -105,7 +105,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         LatestState_Synchronize latestState_Synchronize = obj.GetComponent<LatestState_Synchronize>();
         if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("他プレイヤーが参加しました。最新の状況を反映させます。");
+            Debug.Log("他プレイヤーが参加しました。最新の状況を反映させます");
             latestState_Synchronize.Synchronize();
             Debug.Log("他プレイヤーの同期完了");
         }
