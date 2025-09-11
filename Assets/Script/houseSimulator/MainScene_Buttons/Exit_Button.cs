@@ -37,38 +37,6 @@ public class Exit_Button : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
     }
 
-
-    //他の人が退出した時に、このavator(ネットワークオブジェクト)を破棄
-    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
-    {
-        List<GameObject> avatorList = NetworkObject_Search.GetListFromTag("avator");
-        //avatorの配列から退出するプレイヤーのavatorを削除
-        foreach (GameObject avator in avatorList)
-        {
-            Avator_Controller avator_Controller = avator.GetComponent<Avator_Controller>();
-            //他の人が退出すると、所有権がマスタークライアントに移るため、マスタークライアントが削除できる
-            //自分がマスタークライアントで、マスタークライアント以外の生産者だったら、プレイヤーオブジェクトを削除
-            if (PhotonNetwork.IsMasterClient && avator_Controller.createrID != 1)
-            {
-                Debug.Log(otherPlayer.ActorNumber);
-                Debug.Log(photonView.ControllerActorNr);
-                PhotonNetwork.Destroy(avator);
-            }
-
-        }
-
-    }
-
-
-    //自分が退出した時の処理
-    public override void OnLeftRoom()
-    {
-        Debug.Log("部屋から退出しました");
-        PhotonNetwork.Disconnect();
-        Debug.Log("TitleSceneへ戻ります");
-        SceneManager.LoadScene("TitleScene");
-    }
-
     private void KickOtherAllPlayers()
     {
         Debug.Log("マスタークライアントのみ、他のプレイヤーのキック処理開始");

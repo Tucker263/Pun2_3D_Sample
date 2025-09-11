@@ -95,21 +95,53 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("TitleScene");
     }
 
+    //自分が退出した時の処理
+    public override void OnLeftRoom()
+    {
+        Debug.Log("部屋から退出しました");
+        PhotonNetwork.Disconnect();
+        Debug.Log("TitleSceneへ戻ります");
+        SceneManager.LoadScene("TitleScene");
+    }
 
-    //自分以外のプレイヤーがルームに入室した時に呼ばれるコールバック
+
+    //他の人が退出した時に、avator(ネットワークオブジェクト)を破棄
+    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
+    {
+        List<GameObject> avatorList = NetworkObject_Search.GetListFromTag("avator");
+        //avatorの配列から退出するプレイヤーのavatorを削除
+        foreach (GameObject avator in avatorList)
+        {
+            Avator_Controller avator_Controller = avator.GetComponent<Avator_Controller>();
+            //他の人が退出すると、所有権がマスタークライアントに移るため、マスタークライアントが削除できる
+            //自分がマスタークライアントで、マスタークライアント以外の生産者だったら、プレイヤーオブジェクトを削除
+            if (PhotonNetwork.IsMasterClient && avator_Controller.createrID != 1)
+            {
+                Debug.Log(otherPlayer.ActorNumber);
+                Debug.Log(photonView.ControllerActorNr);
+                PhotonNetwork.Destroy(avator);
+            }
+
+        }
+
+    }
+
+
+    //他のプレイヤーがルームに入室した時に呼ばれるコールバック
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         //自分がマスタークライアントの時、全クライアントに向けて最新の状態を同期する処理を行う
         //この処理がないと、今の状況を途中参加者に反映できない
-        GameObject obj = NetworkObject_Search.GetObjectFromName("LatestState_Synchronize");
-        LatestState_Synchronize latestState_Synchronize = obj.GetComponent<LatestState_Synchronize>();
         if (PhotonNetwork.IsMasterClient)
         {
             Debug.Log("他プレイヤーが参加しました。最新の状況を反映させます");
+            GameObject obj = NetworkObject_Search.GetObjectFromName("LatestState_Synchronize");
+            LatestState_Synchronize latestState_Synchronize = obj.GetComponent<LatestState_Synchronize>();
             latestState_Synchronize.Synchronize();
             Debug.Log("他プレイヤーの同期完了");
         }
 
     }
+
 
 }
