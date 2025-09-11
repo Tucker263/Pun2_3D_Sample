@@ -11,20 +11,7 @@ public class SmallHouse_Appear_Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ネットワークオブジェクトからhouse_smallを取得
-        foreach (PhotonView view in PhotonNetwork.PhotonViews)
-        {
-            GameObject obj = view.gameObject;
-            string objName = obj.name;
-            objName = objName.Replace("(Clone)", "");
-            //Tagがhouse_smallだった時
-            if (obj.CompareTag("house_small"))
-            {
-                house_small = obj;
-                break;
-            }
-        }
-
+        Set_House_Small();
     }
 
     // Update is called once per frame
@@ -44,9 +31,32 @@ public class SmallHouse_Appear_Button : MonoBehaviour
     [PunRPC]
     public void Appear_RPC()
     {
+        if (house_small == null)
+        {
+            Set_House_Small();
+        }
         if (!house_small.activeSelf)
         {
             house_small.SetActive(true);
         }
+    }
+
+
+    private void Set_House_Small()
+    {
+        //ネットワークオブジェクトからhouse_smallを取得
+        foreach (PhotonView view in PhotonNetwork.PhotonViews)
+        {
+            GameObject obj = view.gameObject;
+            string objName = obj.name;
+            objName = objName.Replace("(Clone)", "");
+            //Tagがhouse_smallだった時
+            if (obj.CompareTag("house_small"))
+            {
+                house_small = obj;
+                break;
+            }
+        }
+        
     }
 }
