@@ -38,7 +38,7 @@ public class Second_Floor_Button : MonoBehaviour
 
     public void Move_Position()
     {
-        avator_tf.position = new Vector3(0, 6, 0);
+        avator_tf.position = new Vector3(0, 7, 0);
 
     }
 
