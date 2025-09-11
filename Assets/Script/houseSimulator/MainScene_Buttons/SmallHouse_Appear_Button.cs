@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class SmallHouse_Appear_Button : MonoBehaviour
 {
@@ -45,5 +46,8 @@ public class SmallHouse_Appear_Button : MonoBehaviour
     private void Set_House_Small()
     {
         house_small = NetworkObject_Search.GetObjectFromTag("house_small");  
+
+        //selected状態を解除,この処理がないとメニューバーの表示で二重で動く
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }

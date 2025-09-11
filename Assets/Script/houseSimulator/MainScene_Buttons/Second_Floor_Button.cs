@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Second_Floor_Button : MonoBehaviour
 {
@@ -37,6 +38,9 @@ public class Second_Floor_Button : MonoBehaviour
     public void Move_Position()
     {
         avator_tf.position = new Vector3(0, 7, 0);
+        
+        //selected状態を解除,この処理がないとメニューバーの表示で二重で動く
+        EventSystem.current.SetSelectedGameObject(null);
 
     }
 
