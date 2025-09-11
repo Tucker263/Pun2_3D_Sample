@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class Interior_Position_Button : MonoBehaviour
+public class Inside_Position_Button : MonoBehaviour
 {
     private GameObject avator;
     private Transform avator_tf;
