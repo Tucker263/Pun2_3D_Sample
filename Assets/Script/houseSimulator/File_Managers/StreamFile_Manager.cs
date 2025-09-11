@@ -11,20 +11,22 @@ public static class StreamFile_Manager
 
     public static void Save()
     {
-        if (Directory.Exists(directoryPath))
-        {
-            //アバター情報のセーブ処理
-            AvatorFile_Manager.Save(directoryPath);
-            //太陽のセーブ処理
-            SunFile_Manager.Save(directoryPath);
-            //家具のセーブ処理
-            FurnitureFile_Manager.Save(directoryPath);
-            //照明のセーブ処理
-            LightingFile_Manager.Save(directoryPath);
-            //家の外壁のセーブ処理
-            OuterWallFile_Manager.Save(directoryPath);
-            //家の屋根のセーブ処理
-        }
+        //常に最新の状態にしたいので、データを初期化(中身ごと削除)してセーブ
+        Directory.Delete(directoryPath, true);
+        Directory.CreateDirectory(directoryPath);
+
+        //アバター情報のセーブ処理
+        AvatorFile_Manager.Save(directoryPath);
+        //太陽のセーブ処理
+        SunFile_Manager.Save(directoryPath);
+        //家具のセーブ処理
+        FurnitureFile_Manager.Save(directoryPath);
+        //照明のセーブ処理
+        LightingFile_Manager.Save(directoryPath);
+        //家の外壁のセーブ処理
+        OuterWallFile_Manager.Save(directoryPath);
+        //家の屋根のセーブ処理
+        
     }
 
 
