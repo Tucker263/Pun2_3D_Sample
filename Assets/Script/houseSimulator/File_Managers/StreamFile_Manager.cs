@@ -21,8 +21,9 @@ public static class StreamFile_Manager
             FurnitureFile_Manager.Save(directoryPath);
             //照明のセーブ処理
             LightingFile_Manager.Save(directoryPath);
-            //エクステリアのセーブ処理
-            ExteriorFile_Manager.Save(directoryPath);
+            //家の外壁のセーブ処理
+            OuterWallFile_Manager.Save(directoryPath);
+            //家の屋根のセーブ処理
         }
     }
 
@@ -63,8 +64,9 @@ public static class StreamFile_Manager
         FurnitureFile_Manager.Load(directoryPath);
         //照明のロード処理
         LightingFile_Manager.Load(directoryPath);
-        //エクステリアのロード処理
-        ExteriorFile_Manager.Load(directoryPath);
+        //家の外壁のロード処理
+        OuterWallFile_Manager.Load(directoryPath);
+        //家の屋根のロード処理
     }
 }   
         

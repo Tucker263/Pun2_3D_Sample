@@ -43,8 +43,6 @@ public static class SunFile_Manager
                 string filePath = Path.Combine(directoryPath, fileName);
                 // ファイルに保存
                 File.WriteAllText(filePath, jsonData);
-
-                Debug.Log(jsonData);
             }
 
         }
@@ -59,7 +57,6 @@ public static class SunFile_Manager
         string jsonData = ReadFileOfJSON(loadTag, directoryPath);
 
         //jsonからsunオブジェクトに変換
-        Debug.Log(jsonData);
         SunInfo sun = JsonUtility.FromJson<SunInfo>(jsonData);
 
         //ネットワークオブジェクト化

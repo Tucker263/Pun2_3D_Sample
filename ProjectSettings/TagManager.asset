@@ -6,11 +6,12 @@ TagManager:
   tags:
   - furniture
   - lighting
-  - exterior
   - sun
   - avator
   - house
   - house_small
+  - outerWall
+  - exterior
   layers:
   - Default
   - TransparentFX

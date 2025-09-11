@@ -110,7 +110,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         //この処理がないと、今の状況を途中参加者に反映できない
         if (PhotonNetwork.IsMasterClient)
         {
-            //エクステリアの情報、照明の情報を送信して他のプレイヤーに反映
+            //家の外壁の情報、照明の情報を送信して他のプレイヤーに反映
             Debug.Log("他のプレイヤーが参加しました。今の状況を反映させます。");
             PhotonView photonView = PhotonView.Get(this);
             foreach (PhotonView view in PhotonNetwork.PhotonViews)
@@ -129,17 +129,17 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
                     string jsonData = JsonUtility.ToJson(lighting);               
                     photonView.RPC("MakeCurrentLighting", RpcTarget.Others, jsonData);
                 }
-                //エクステリアの情報を送信
-                if(obj.CompareTag("exterior"))
+                //家の外壁の情報を送信
+                if(obj.CompareTag("outerWall"))
                 {
-                    //エクステリアの情報を取得
-                    ExteriorInfo exterior = new ExteriorInfo();
-                    exterior.name = obj.name;
+                    //家の外壁の情報を取得
+                    OuterWallInfo outerWall = new OuterWallInfo();
+                    outerWall.name = obj.name;
                     string materialName = obj.GetComponent<Renderer>().material.name;
-                    exterior.materialName = materialName.Replace(" (Instance)", "");
+                    outerWall.materialName = materialName.Replace(" (Instance)", "");
                     //JSONに変換
-                    string jsonData = JsonUtility.ToJson(exterior);
-                    photonView.RPC("MakeCurrentExterior", RpcTarget.Others, jsonData);
+                    string jsonData = JsonUtility.ToJson(outerWall);
+                    photonView.RPC("MakeCurrentOutWall", RpcTarget.Others, jsonData);
                 }
             }
         }
@@ -174,21 +174,21 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void MakeCurrentExterior(string jsonData)
+    public void MakeCurrentOutWall(string jsonData)
     {
         //JSONをC#のオブジェクトに変換
-        ExteriorInfo exterior = JsonUtility.FromJson<ExteriorInfo>(jsonData);
+        OuterWallInfo outerWall = JsonUtility.FromJson<OuterWallInfo>(jsonData);
         //ネットワークオブジェクトの中からexteriorを手に入れて反映
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
             GameObject obj = view.gameObject;
             //名前が被るとうまく反映ができなくなるので注意
-            if (obj.CompareTag("exterior") && obj.name == exterior.name)
+            if (obj.CompareTag("outerWall") && obj.name == outerWall.name)
             {
                 Renderer renderer = obj.GetComponent<Renderer>();
-                obj.name = exterior.name;
+                obj.name = outerWall.name;
                 // Resourcesフォルダ内のマテリアルをロード
-                Material material = Resources.Load<Material>("Materials/"+ exterior.materialName);
+                Material material = Resources.Load<Material>("Materials/"+ outerWall.materialName);
                 // ロードしたマテリアルをオブジェクトに適用
                 renderer.material = material;
             }

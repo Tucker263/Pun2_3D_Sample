@@ -294,12 +294,12 @@ GameObject:
   - component: {fileID: 100015432643639461}
   - component: {fileID: 2443169236565453299}
   - component: {fileID: 4465787478235876244}
-  - component: {fileID: 1310587500671928003}
   - component: {fileID: 8022864619239479562}
   - component: {fileID: 6156414775582642194}
+  - component: {fileID: 2254881668761678997}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (3)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -391,18 +391,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1310587500671928003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21674122714005640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8022864619239479562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,8 +408,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1310587500671928003}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 2254881668761678997}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -454,6 +442,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &2254881668761678997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21674122714005640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &39535525521528862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,6 +1668,10 @@ GameObject:
   - component: {fileID: 6880505862031651059}
   - component: {fileID: 4137837535494028567}
   - component: {fileID: 404089129507700868}
+  - component: {fileID: 3948369508059584230}
+  - component: {fileID: 7858858183827575417}
+  - component: {fileID: 6257768666290283011}
+  - component: {fileID: 3273417672127211282}
   m_Layer: 0
   m_Name: Lamp_Apt_03
   m_TagString: Untagged
@@ -1741,6 +1745,91 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3948369508059584230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290225515239867735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6257768666290283011}
+          m_TargetAssemblyTypeName: Light_Itensity_Change, Assembly-CSharp
+          m_MethodName: Change
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!64 &7858858183827575417
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290225515239867735}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6690907983005014119, guid: 7a1dd57bd8b6ca44cbf5f922801b2975, type: 3}
+--- !u!114 &6257768666290283011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290225515239867735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9fe95fdff013141bb732dfbe2035e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3273417672127211282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290225515239867735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &291952406091043129
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,12 +2835,12 @@ GameObject:
   - component: {fileID: 1778860275115912837}
   - component: {fileID: 2083652419930537046}
   - component: {fileID: 6969951803000075770}
-  - component: {fileID: 1531144660221805746}
   - component: {fileID: 7674877526144941486}
   - component: {fileID: 3682012191748231815}
+  - component: {fileID: 3966699464235962651}
   m_Layer: 0
   m_Name: Ext_Apt_01_Corner_01 (2)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2843,18 +2932,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1531144660221805746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476883820003539046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7674877526144941486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2872,8 +2949,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1531144660221805746}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 3966699464235962651}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -2906,6 +2983,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300016, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &3966699464235962651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476883820003539046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &485014766394456152
 GameObject:
   m_ObjectHideFlags: 0
@@ -8746,7 +8835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3253777436517127}
   m_Layer: 0
-  m_Name: Walls
+  m_Name: OuterWalls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14261,12 +14350,12 @@ GameObject:
   - component: {fileID: 6058894483492630592}
   - component: {fileID: 8679219917619890840}
   - component: {fileID: 1141414149816660327}
-  - component: {fileID: 3923293971830817136}
   - component: {fileID: 5786832186495446121}
   - component: {fileID: 8957366946529638171}
+  - component: {fileID: 8209821866780471055}
   m_Layer: 0
   m_Name: Ext_Apt_01_Corner_01
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14358,18 +14447,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &3923293971830817136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034736932715605321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5786832186495446121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14387,8 +14464,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3923293971830817136}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 8209821866780471055}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -14421,6 +14498,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300016, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &8209821866780471055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034736932715605321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2046188615124502620
 GameObject:
   m_ObjectHideFlags: 0
@@ -15516,12 +15605,12 @@ GameObject:
   - component: {fileID: 7490794588497880103}
   - component: {fileID: 2389663019172190993}
   - component: {fileID: 4445551311881691237}
-  - component: {fileID: 7777461132716917239}
   - component: {fileID: 4789558102035808036}
   - component: {fileID: 8297791863038835719}
+  - component: {fileID: 4121128681400337318}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15613,18 +15702,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &7777461132716917239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125433095572785019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4789558102035808036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15642,8 +15719,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7777461132716917239}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 4121128681400337318}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -15676,6 +15753,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &4121128681400337318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125433095572785019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2243920937592880281
 GameObject:
   m_ObjectHideFlags: 0
@@ -20843,12 +20932,12 @@ GameObject:
   - component: {fileID: 859608536799311234}
   - component: {fileID: 5260528184000960745}
   - component: {fileID: 6507223038731123390}
-  - component: {fileID: 5870603900849202022}
   - component: {fileID: 7995430946152508137}
   - component: {fileID: 1010419830988956765}
+  - component: {fileID: 5918232487553753091}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (9)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20940,18 +21029,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5870603900849202022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3204870095596266205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7995430946152508137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20969,9 +21046,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5870603900849202022}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
-          m_MethodName: ChangeAll
+        - m_Target: {fileID: 5918232487553753091}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
+          m_MethodName: Change
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -21003,6 +21080,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &5918232487553753091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204870095596266205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3222595766345810830
 GameObject:
   m_ObjectHideFlags: 0
@@ -21204,12 +21293,12 @@ GameObject:
   - component: {fileID: 1644504622379477911}
   - component: {fileID: 4532754985292860793}
   - component: {fileID: 9064801845421357781}
-  - component: {fileID: 2857985671117805480}
   - component: {fileID: 5331400478353550873}
   - component: {fileID: 3044054252258734484}
+  - component: {fileID: 3903252816475459857}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (1)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21301,18 +21390,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2857985671117805480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3275333701764584379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5331400478353550873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21330,8 +21407,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2857985671117805480}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 3903252816475459857}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -21364,6 +21441,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &3903252816475459857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275333701764584379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3275579215088481827
 GameObject:
   m_ObjectHideFlags: 0
@@ -25491,12 +25580,12 @@ GameObject:
   - component: {fileID: 2658070431730137253}
   - component: {fileID: 8217676956169059336}
   - component: {fileID: 228913761965026640}
-  - component: {fileID: 5566313469124664787}
   - component: {fileID: 4161288727204569155}
   - component: {fileID: 3717113607529931025}
+  - component: {fileID: 185878894617912629}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (15)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25588,18 +25677,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5566313469124664787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3844513977706321510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4161288727204569155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25617,8 +25694,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5566313469124664787}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 185878894617912629}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -25651,6 +25728,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &185878894617912629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3844513977706321510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3845286050221169783
 GameObject:
   m_ObjectHideFlags: 0
@@ -25791,12 +25880,12 @@ GameObject:
   - component: {fileID: 8721159691414269639}
   - component: {fileID: 3541625198833536850}
   - component: {fileID: 6533806661469353650}
-  - component: {fileID: 171710502008459628}
   - component: {fileID: 5535489219497299975}
   - component: {fileID: 3718468201562592008}
+  - component: {fileID: 4035793523178893495}
   m_Layer: 0
   m_Name: Ext_Apt_01_Corner_01 (3)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25888,18 +25977,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &171710502008459628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3847249522939101271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5535489219497299975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25917,8 +25994,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 171710502008459628}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 4035793523178893495}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -25951,6 +26028,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300016, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &4035793523178893495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847249522939101271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3860788270978000235
 GameObject:
   m_ObjectHideFlags: 0
@@ -27028,12 +27117,12 @@ GameObject:
   - component: {fileID: 6310834848909274730}
   - component: {fileID: 3231035886088143441}
   - component: {fileID: 1218005456838151695}
-  - component: {fileID: 4005353056081758877}
   - component: {fileID: 1608363320789974288}
   - component: {fileID: 2201182456225305726}
+  - component: {fileID: 8668174647809816479}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (7)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27125,18 +27214,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &4005353056081758877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4007619436759351451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1608363320789974288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27154,8 +27231,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4005353056081758877}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 8668174647809816479}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -27188,6 +27265,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &8668174647809816479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4007619436759351451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4017317878500297600
 GameObject:
   m_ObjectHideFlags: 0
@@ -31449,12 +31538,12 @@ GameObject:
   - component: {fileID: 2832775728141184239}
   - component: {fileID: 4515371627571838679}
   - component: {fileID: 5071121953511315233}
-  - component: {fileID: 7299737401358693419}
   - component: {fileID: 6899386436569716721}
   - component: {fileID: 1612239401682636762}
+  - component: {fileID: 157215474389355369}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01 (2)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31546,18 +31635,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &7299737401358693419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4584148516702559740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6899386436569716721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31575,8 +31652,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7299737401358693419}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 157215474389355369}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -31609,6 +31686,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7235250662584022555, guid: cd0bf29c9c9af6f4098b74076d25f0cd, type: 3}
+--- !u!114 &157215474389355369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4584148516702559740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4592165977807845274
 GameObject:
   m_ObjectHideFlags: 0
@@ -34022,12 +34111,12 @@ GameObject:
   - component: {fileID: 1754112434967731928}
   - component: {fileID: 2092646742937879163}
   - component: {fileID: 3312959468262330449}
-  - component: {fileID: 8704369355130506343}
   - component: {fileID: 7114277270296121172}
   - component: {fileID: 5774576757603211084}
+  - component: {fileID: 1358974329856231920}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01 (1)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34119,18 +34208,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8704369355130506343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5023196733487634402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7114277270296121172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34148,8 +34225,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8704369355130506343}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 1358974329856231920}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -34182,6 +34259,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7235250662584022555, guid: cd0bf29c9c9af6f4098b74076d25f0cd, type: 3}
+--- !u!114 &1358974329856231920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5023196733487634402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5037518283944149814
 GameObject:
   m_ObjectHideFlags: 0
@@ -34194,12 +34283,12 @@ GameObject:
   - component: {fileID: 3909435277437853734}
   - component: {fileID: 3283449866230826036}
   - component: {fileID: 4204342671452889919}
-  - component: {fileID: 3478391410325791317}
   - component: {fileID: 3665862635343329527}
   - component: {fileID: 7801935383276812698}
+  - component: {fileID: 7664308583419328446}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01 (3)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34291,18 +34380,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &3478391410325791317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5037518283944149814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3665862635343329527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34320,8 +34397,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3478391410325791317}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 7664308583419328446}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -34354,6 +34431,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7235250662584022555, guid: cd0bf29c9c9af6f4098b74076d25f0cd, type: 3}
+--- !u!114 &7664308583419328446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5037518283944149814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5057726585270339276
 GameObject:
   m_ObjectHideFlags: 0
@@ -36389,12 +36478,12 @@ GameObject:
   - component: {fileID: 5482119314641912968}
   - component: {fileID: 6325924125497194096}
   - component: {fileID: 1543103349407284473}
-  - component: {fileID: 2685780943175093317}
   - component: {fileID: 2279858660129056551}
   - component: {fileID: 8783119190330363591}
+  - component: {fileID: 1940547981459591055}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (6)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36486,18 +36575,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2685780943175093317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5350293871084278870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2279858660129056551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36515,8 +36592,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2685780943175093317}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 1940547981459591055}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -36549,6 +36626,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &1940547981459591055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5350293871084278870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5355991905213120843
 GameObject:
   m_ObjectHideFlags: 0
@@ -39325,9 +39414,11 @@ GameObject:
   - component: {fileID: 7704911740809172582}
   - component: {fileID: 550564623019486602}
   - component: {fileID: 975265024790731804}
-  - component: {fileID: 3170957748219713018}
   - component: {fileID: 515077091654852520}
   - component: {fileID: 7086063752847014519}
+  - component: {fileID: 6786229526823253246}
+  - component: {fileID: 2599859995879432225}
+  - component: {fileID: 8252173479618310244}
   m_Layer: 0
   m_Name: Spot Light (2)
   m_TagString: lighting
@@ -39448,18 +39539,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00a6ffeba992fa34ea5a9200e4078db3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3170957748219713018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5935167955107419674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f7f4b021a94dd4b9b8dfa518e07e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!23 &515077091654852520
@@ -39596,6 +39675,69 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 515077091654852520}
   m_maskType: 0
+--- !u!114 &6786229526823253246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935167955107419674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9fe95fdff013141bb732dfbe2035e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2599859995879432225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935167955107419674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6786229526823253246}
+          m_TargetAssemblyTypeName: Light_Itensity_Change, Assembly-CSharp
+          m_MethodName: Change
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!64 &8252173479618310244
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935167955107419674}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &5940597747955060544
 GameObject:
   m_ObjectHideFlags: 0
@@ -39608,9 +39750,11 @@ GameObject:
   - component: {fileID: 5698962106085946298}
   - component: {fileID: 8746966481169083192}
   - component: {fileID: 8118763544096352753}
-  - component: {fileID: 5732022351380843930}
   - component: {fileID: 4920783961172487768}
   - component: {fileID: 5346399729494391801}
+  - component: {fileID: 625370983523059963}
+  - component: {fileID: 162254282000704651}
+  - component: {fileID: 6307471545961244265}
   m_Layer: 0
   m_Name: Spot Light (1)
   m_TagString: lighting
@@ -39731,18 +39875,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00a6ffeba992fa34ea5a9200e4078db3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5732022351380843930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5940597747955060544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f7f4b021a94dd4b9b8dfa518e07e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!23 &4920783961172487768
@@ -39879,6 +40011,69 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 4920783961172487768}
   m_maskType: 0
+--- !u!114 &625370983523059963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940597747955060544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 162254282000704651}
+          m_TargetAssemblyTypeName: Light_Itensity_Change, Assembly-CSharp
+          m_MethodName: Change
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &162254282000704651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940597747955060544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9fe95fdff013141bb732dfbe2035e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &6307471545961244265
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940597747955060544}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &5954582575420709014
 GameObject:
   m_ObjectHideFlags: 0
@@ -43697,12 +43892,12 @@ GameObject:
   - component: {fileID: 6457552318147440851}
   - component: {fileID: 2715414557430917574}
   - component: {fileID: 7413322815264170895}
-  - component: {fileID: 4436742073292868357}
   - component: {fileID: 2755176838086549435}
   - component: {fileID: 6059570175908338781}
+  - component: {fileID: 3400970447955618949}
   m_Layer: 0
   m_Name: Ext_Apt_01_Corner_01 (1)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43794,18 +43989,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &4436742073292868357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6384913757708107328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2755176838086549435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43823,8 +44006,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4436742073292868357}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 3400970447955618949}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -43857,6 +44040,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300016, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &3400970447955618949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6384913757708107328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6386151770501645351
 GameObject:
   m_ObjectHideFlags: 0
@@ -47563,12 +47758,12 @@ GameObject:
   - component: {fileID: 8572403031515815190}
   - component: {fileID: 5707906984773325605}
   - component: {fileID: 1230488164300938393}
-  - component: {fileID: 4404095473274613603}
   - component: {fileID: 1099741014388987003}
   - component: {fileID: 7201806447869545903}
+  - component: {fileID: 8522243139900125512}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (13)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47660,18 +47855,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &4404095473274613603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875435683242161909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1099741014388987003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47689,8 +47872,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4404095473274613603}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 8522243139900125512}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -47723,6 +47906,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &8522243139900125512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6875435683242161909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6887018449055094777
 GameObject:
   m_ObjectHideFlags: 0
@@ -49477,12 +49672,12 @@ GameObject:
   - component: {fileID: 7241139104760060050}
   - component: {fileID: 4293438548497077172}
   - component: {fileID: 2040314466079027409}
-  - component: {fileID: 3023008926900805597}
   - component: {fileID: 2737506172531089811}
   - component: {fileID: 4336291965411574474}
+  - component: {fileID: 8519767519558920300}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (14)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49574,18 +49769,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &3023008926900805597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7061762521743853858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2737506172531089811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49603,8 +49786,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3023008926900805597}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 8519767519558920300}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -49637,6 +49820,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &8519767519558920300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061762521743853858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7117675513031026273
 GameObject:
   m_ObjectHideFlags: 0
@@ -54854,12 +55049,12 @@ GameObject:
   - component: {fileID: 3184881879665239641}
   - component: {fileID: 3299835917618874543}
   - component: {fileID: 6926812466328049418}
-  - component: {fileID: 6592452251315177650}
   - component: {fileID: 6995989160217347663}
   - component: {fileID: 799912016657045336}
+  - component: {fileID: 576528437048263532}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_02
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54951,18 +55146,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &6592452251315177650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7930167307996161022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6995989160217347663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54980,8 +55163,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6592452251315177650}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 576528437048263532}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -55014,6 +55197,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &576528437048263532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7930167307996161022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7935151857462511335
 GameObject:
   m_ObjectHideFlags: 0
@@ -55533,12 +55728,12 @@ GameObject:
   - component: {fileID: 3670431745420022289}
   - component: {fileID: 6534708950661160459}
   - component: {fileID: 4329034018365898139}
-  - component: {fileID: 1827958600140332018}
   - component: {fileID: 5114427062246909014}
   - component: {fileID: 8111319489009798272}
+  - component: {fileID: 1502001111965375427}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (12)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55630,18 +55825,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1827958600140332018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983772154436946631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5114427062246909014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55659,8 +55842,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1827958600140332018}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 1502001111965375427}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -55693,6 +55876,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &1502001111965375427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983772154436946631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7985023846042246198
 GameObject:
   m_ObjectHideFlags: 0
@@ -58344,12 +58539,12 @@ GameObject:
   - component: {fileID: 628734676861598637}
   - component: {fileID: 6989859102013225338}
   - component: {fileID: 1570371179619737789}
-  - component: {fileID: 7653511786562895051}
   - component: {fileID: 2714014255934945289}
   - component: {fileID: 3184746811123288438}
+  - component: {fileID: 5397693817609790193}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (2)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58441,18 +58636,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &7653511786562895051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8295939706489889682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2714014255934945289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58470,8 +58653,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7653511786562895051}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 5397693817609790193}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -58504,6 +58687,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &5397693817609790193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8295939706489889682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8330393462636006454
 GameObject:
   m_ObjectHideFlags: 0
@@ -60123,12 +60318,12 @@ GameObject:
   - component: {fileID: 7996969180193636453}
   - component: {fileID: 1818266294079890889}
   - component: {fileID: 170139133339531169}
-  - component: {fileID: 1186126668229432452}
   - component: {fileID: 7478153368180847585}
   - component: {fileID: 484182205143982128}
+  - component: {fileID: 7419001791839797748}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (8)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60220,18 +60415,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1186126668229432452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8467803170631600442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7478153368180847585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60249,8 +60432,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1186126668229432452}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 7419001791839797748}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -60283,6 +60466,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &7419001791839797748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467803170631600442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8484811330450731501
 GameObject:
   m_ObjectHideFlags: 0
@@ -61534,12 +61729,12 @@ GameObject:
   - component: {fileID: 6009103240151109691}
   - component: {fileID: 3371645198499014432}
   - component: {fileID: 9101197714692808338}
-  - component: {fileID: 3104491761344839024}
   - component: {fileID: 3965221737423365192}
   - component: {fileID: 5886385609800630460}
+  - component: {fileID: 7007948747436940320}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (5)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61631,18 +61826,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &3104491761344839024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8650978388287399438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3965221737423365192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61660,8 +61843,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3104491761344839024}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 7007948747436940320}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -61694,6 +61877,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &7007948747436940320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650978388287399438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8695845028000638628
 GameObject:
   m_ObjectHideFlags: 0
@@ -62522,12 +62717,12 @@ GameObject:
   - component: {fileID: 7897946693488162339}
   - component: {fileID: 7315699879828033658}
   - component: {fileID: 5885755044541868484}
-  - component: {fileID: 510099039607678610}
   - component: {fileID: 3032469383522001294}
   - component: {fileID: 4537340950590705814}
+  - component: {fileID: 4925292878836819479}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_01 (4)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62619,18 +62814,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &510099039607678610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8953668282614946848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3032469383522001294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62648,8 +62831,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 510099039607678610}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 4925292878836819479}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -62682,6 +62865,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 1e4c9d0deb3bcc144ae6e91318e143a7, type: 3}
+--- !u!114 &4925292878836819479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953668282614946848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8957445528702404028
 GameObject:
   m_ObjectHideFlags: 0
@@ -62906,12 +63101,12 @@ GameObject:
   - component: {fileID: 5440015185904410632}
   - component: {fileID: 5804689967722465365}
   - component: {fileID: 6232402161081553505}
-  - component: {fileID: 8717133137099761215}
   - component: {fileID: 3835082332304246012}
   - component: {fileID: 1236478794705701774}
+  - component: {fileID: 6170620632798944347}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01 (4)
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63003,18 +63198,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8717133137099761215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8959008287282332782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3835082332304246012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63032,8 +63215,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8717133137099761215}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 6170620632798944347}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -63066,6 +63249,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7235250662584022555, guid: cd0bf29c9c9af6f4098b74076d25f0cd, type: 3}
+--- !u!114 &6170620632798944347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8959008287282332782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8975277064064317713
 GameObject:
   m_ObjectHideFlags: 0
@@ -63540,12 +63735,12 @@ GameObject:
   - component: {fileID: 3624483527675589765}
   - component: {fileID: 229730059958715060}
   - component: {fileID: 8701081944781275969}
-  - component: {fileID: 4852872681354347918}
   - component: {fileID: 134691718867407225}
   - component: {fileID: 2475293597940930722}
+  - component: {fileID: 879346221193213677}
   m_Layer: 0
   m_Name: Ext_Apt_01_Wall_Window_01
-  m_TagString: exterior
+  m_TagString: outerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63637,18 +63832,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &4852872681354347918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9039797834604998306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293df40c61dbad145a7cd6968385ce6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &134691718867407225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63666,8 +63849,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4852872681354347918}
-          m_TargetAssemblyTypeName: Exterior_Material_Change, Assembly-CSharp
+        - m_Target: {fileID: 879346221193213677}
+          m_TargetAssemblyTypeName: OuterWall_Material_Change, Assembly-CSharp
           m_MethodName: ChangeAll
           m_Mode: 1
           m_Arguments:
@@ -63700,6 +63883,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7235250662584022555, guid: cd0bf29c9c9af6f4098b74076d25f0cd, type: 3}
+--- !u!114 &879346221193213677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9039797834604998306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d21c9b42f6a0a4787cf10a4d0e1ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9055991461680083227
 GameObject:
   m_ObjectHideFlags: 0

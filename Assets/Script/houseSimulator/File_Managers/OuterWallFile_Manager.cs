@@ -5,23 +5,23 @@ using UnityEngine;
 using System.IO;
 
 
-//エクステリアの情報
+//家の外壁の情報
 [System.Serializable] // JSON化するにはSerializable属性が必要
-public class ExteriorInfo
+public class OuterWallInfo
 {
     public string name; //ここの名前が被るとうまくロードができなくなるので注意
     public string materialName; //マテリアルの名前から、マテリアルを取得してセット
 }
 
 
-public static class ExteriorFile_Manager
+public static class OuterWallFile_Manager
 {
 
     public static void Save(string directoryPath)
     {
-        //exterior1.jsonのような形式で保存
-        Debug.Log("エクステリアのセーブ処理開始");
-        string saveTag = "exterior";
+        //outerWall1.jsonのような形式で保存
+        Debug.Log("家の外壁のセーブ処理開始");
+        string saveTag = "outerWall";
         int index = 1;
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
@@ -29,14 +29,14 @@ public static class ExteriorFile_Manager
             if (obj.CompareTag(saveTag))
             {
                 Renderer renderer = obj.GetComponent<Renderer>();
-                //エクステリアの情報を取得
-                ExteriorInfo exterior = new ExteriorInfo();
-                exterior.name = obj.name;
+                //家の外壁の情報を取得
+                OuterWallInfo outerWall = new OuterWallInfo();
+                outerWall.name = obj.name;
                 string materialName = renderer.material.name;
-                exterior.materialName = materialName.Replace(" (Instance)", "");
+                outerWall.materialName = materialName.Replace(" (Instance)", "");
 
                 // JSONに変換
-                string jsonData = JsonUtility.ToJson(exterior);
+                string jsonData = JsonUtility.ToJson(outerWall);
 
                 string fileName = saveTag + index + ".json";
                 string filePath = Path.Combine(directoryPath, fileName);
@@ -48,36 +48,36 @@ public static class ExteriorFile_Manager
 
         }
 
-        Debug.Log("エクステリアのセーブ処理終了");
+        Debug.Log("家の外壁のセーブ処理終了");
     }
 
 
     public static void Load(string directoryPath)
     {
-        Debug.Log("エクステリアのロード処理開始");
-        string loadTag = "exterior";
+        Debug.Log("家の外壁のロード処理開始");
+        string loadTag = "outerWall";
         List<string> jsonList = ReadAllFilesOfJSON(loadTag, directoryPath);
         foreach (string jsonData in jsonList)
         {
             //JSONをC#のオブジェクトに変換
-            ExteriorInfo exterior = JsonUtility.FromJson<ExteriorInfo>(jsonData);
-            //ネットワークオブジェクト化したhouseからexteriorを手に入れる
+            OuterWallInfo outerWall = JsonUtility.FromJson<OuterWallInfo>(jsonData);
+            //ネットワークオブジェクト化したhouseからouterWallを手に入れる
             foreach (PhotonView view in PhotonNetwork.PhotonViews)
             {
                 GameObject obj = view.gameObject;
-                if (obj.CompareTag(loadTag) && obj.name == exterior.name)
+                if (obj.CompareTag(loadTag) && obj.name == outerWall.name)
                 {
                     Renderer renderer = obj.GetComponent<Renderer>();
-                    obj.name = exterior.name;
+                    obj.name = outerWall.name;
                     // Resourcesフォルダ内のマテリアルをロード
-                    Material material = Resources.Load<Material>("Materials/"+ exterior.materialName);
+                    Material material = Resources.Load<Material>("Materials/"+ outerWall.materialName);
                     // ロードしたマテリアルをオブジェクトに適用
                     renderer.material = material;
                 }
             }
         }
 
-        Debug.Log("エクステリアのロード処理終了");
+        Debug.Log("家の外壁のロード処理終了");
     }
 
 

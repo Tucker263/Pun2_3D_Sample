@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class Exterior_Material_Change : MonoBehaviour
+public class OuterWall_Material_Change : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -19,24 +19,24 @@ public class Exterior_Material_Change : MonoBehaviour
 
     public void ChangeAll()
     {
-        List<GameObject> exteriorList = new List<GameObject>();
-        //ネットワークオブジェクトからexteriorのリストを取得
-        string targetTag = "exterior";
+        List<GameObject> outerWallList = new List<GameObject>();
+        //ネットワークオブジェクトからouterWallのリストを取得
+        string targetTag = "outerWall";
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
             GameObject obj = view.gameObject;
             if (obj.CompareTag(targetTag))
             {
-                exteriorList.Add(obj);
+                outerWallList.Add(obj);
             }
         }
-        //Exterior_Material_ChangeからChange関数を呼び出してマテリアルを変更
-        foreach (GameObject obj in exteriorList)
+        //OuterWall_Material_ChangeからChange関数を呼び出してマテリアルを変更
+        foreach (GameObject obj in outerWallList)
         {
-            Exterior_Material_Change exterior_Material_Change = obj.GetComponent<Exterior_Material_Change>();
-            if (exterior_Material_Change != null)
+            OuterWall_Material_Change outerWall_Material_Change = obj.GetComponent<OuterWall_Material_Change>();
+            if (outerWall_Material_Change != null)
             {
-                exterior_Material_Change.Change();
+                outerWall_Material_Change.Change();
             }
                     
         }
