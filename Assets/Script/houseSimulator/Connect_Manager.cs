@@ -94,13 +94,13 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         Debug.Log("TitleSceneへ戻ります");
         SceneManager.LoadScene("TitleScene");
     }
-    
+
 
     //自分以外のプレイヤーがルームに入室した時に呼ばれるコールバック
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         //house_miniの名前の同期処理、これをしないとゲスト側の家の名前が被る
-        if(PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient)
         {
             PhotonView photonView = PhotonView.Get(this);
             photonView.RPC("NameHouseToMini", RpcTarget.Others);
@@ -117,7 +117,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
             {
                 GameObject obj = view.gameObject;
                 //照明の情報を送信
-                if(obj.CompareTag("lighting"))
+                if (obj.CompareTag("lighting"))
                 {
                     Light light = obj.GetComponent<Light>();
                     //照明の情報を取得
@@ -126,11 +126,11 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
                     lighting.enabled = light.enabled;
                     lighting.intensity = light.intensity;
                     //JSONに変換
-                    string jsonData = JsonUtility.ToJson(lighting);               
+                    string jsonData = JsonUtility.ToJson(lighting);
                     photonView.RPC("MakeCurrentLighting", RpcTarget.Others, jsonData);
                 }
                 //家の外壁の情報を送信
-                if(obj.CompareTag("outerWall"))
+                if (obj.CompareTag("outerWall"))
                 {
                     //家の外壁の情報を取得
                     OuterWallInfo outerWall = new OuterWallInfo();
@@ -141,6 +141,13 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
                     string jsonData = JsonUtility.ToJson(outerWall);
                     photonView.RPC("MakeCurrentOutWall", RpcTarget.Others, jsonData);
                 }
+                //house_smallのアクティブ情報を送信
+                if (obj.CompareTag("house_small"))
+                {
+                    bool isActive = obj.activeSelf;
+                    photonView.RPC("MakeCurrentHouseSmall", RpcTarget.Others, isActive);
+                }
+
             }
         }
     }
@@ -151,7 +158,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         //名前が同期できていないため、_miniをつけるように同期する
         Environment_Creator.NameHouseToMini();
     }
-    
+
     [PunRPC]
     public void MakeCurrentLighting(string jsonData)
     {
@@ -178,7 +185,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
     {
         //JSONをC#のオブジェクトに変換
         OuterWallInfo outerWall = JsonUtility.FromJson<OuterWallInfo>(jsonData);
-        //ネットワークオブジェクトの中からexteriorを手に入れて反映
+        //ネットワークオブジェクトの中からouterWallを手に入れて反映
         foreach (PhotonView view in PhotonNetwork.PhotonViews)
         {
             GameObject obj = view.gameObject;
@@ -188,11 +195,27 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
                 Renderer renderer = obj.GetComponent<Renderer>();
                 obj.name = outerWall.name;
                 // Resourcesフォルダ内のマテリアルをロード
-                Material material = Resources.Load<Material>("Materials/"+ outerWall.materialName);
+                Material material = Resources.Load<Material>("Materials/" + outerWall.materialName);
                 // ロードしたマテリアルをオブジェクトに適用
                 renderer.material = material;
             }
         }
 
     }
+
+
+    [PunRPC]
+    public void MakeCurrentHouseSmall(bool isActive)
+    {
+        //ネットワークオブジェクトの中からhouse_smallを手に入れて反映
+        foreach (PhotonView view in PhotonNetwork.PhotonViews)
+        {
+            GameObject obj = view.gameObject;
+            if (obj.CompareTag("house_small"))
+            {
+                obj.SetActive(isActive);
+            }
+        }
+    }
+
 }
