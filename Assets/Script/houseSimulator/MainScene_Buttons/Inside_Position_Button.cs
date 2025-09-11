@@ -16,7 +16,7 @@ public class Inside_Position_Button : MonoBehaviour
         foreach (GameObject obj in avatorList)
         {
             Avator_Controller avator_Controller = obj.GetComponent<Avator_Controller>();
-            if (avator_Controller.IsMine)
+            if (avator_Controller.IsMine())
             {
                 avator = obj;
                 break;
