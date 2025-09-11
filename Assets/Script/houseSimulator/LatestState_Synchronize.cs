@@ -42,7 +42,7 @@ public class LatestState_Synchronize : MonoBehaviourPunCallbacks
 
         //家の外壁の同期
         List<GameObject> outerWallList = NetworkObject_Search.GetListFromTag("outerWall");
-        foreach(GameOject obj in outerWallList)
+        foreach(GameObject obj in outerWallList)
         {
             //家の外壁の情報を取得
             OuterWallInfo outerWall = new OuterWallInfo();
