@@ -51,7 +51,11 @@ public class Avator_Controller : MonoBehaviourPunCallbacks
                 foreach (GameObject obj in exteriorList)
                 {
                     Exterior_Material_Change exterior_Material_Change = obj.GetComponent<Exterior_Material_Change>();
-                    exterior_Material_Change.Change();
+                    if (exterior_Material_Change != null)
+                    {
+                        exterior_Material_Change.Change();
+                    }
+                    
                 }
 
             }
